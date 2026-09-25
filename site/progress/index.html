@@ -5,41 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Progress | Alberto Galliani</title>
   <meta name="description" content="Three levels, eight missions, three bosses. The path I am following to build this site and the skills behind it.">
+  <meta name="theme-color" content="#0b2b4c">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b2b4c'/%3E%3Crect x='9' y='9' width='14' height='14' rx='2' transform='rotate(45 16 16)' fill='%23f2a33a'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body data-root="../">
-  <header class="top">
-    <div class="wrap">
-      <a class="brand" href="../">Alberto Galliani</a>
-      <nav>
-        <a href="../cv/">CV</a>
-        <a href="../lab/">Lab</a>
-        <a href="./" aria-current="page">Progress</a>
-      </nav>
-    </div>
-  </header>
+  <div class="band">
+    <header class="top">
+      <div class="wrap">
+        <a class="brand" href="../">albertstein<span class="dot">.</span>link</a>
+        <nav>
+          <a href="../cv/">CV</a>
+          <a href="../lab/">Lab</a>
+          <a href="./" aria-current="page">Progress</a>
+        </nav>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="wrap">
+        <p class="kicker">The campaign</p>
+        <h1>Three levels. Eight missions. Three bosses.</h1>
+        <p class="lede">Missions unlock in order. Each level ends with a boss: a task with no instructions. Every mission adds a line to my CV; every boss adds a badge.</p>
+        <p class="level" data-level>Level 0 · Recruit</p>
+        <div class="progress" data-progress aria-label="Campaign progress"></div>
+        <p class="progress-label" data-progress-label>Loading progress</p>
+      </div>
+    </section>
+  </div>
 
   <main>
     <div class="wrap">
-      <h1>Progress</h1>
-      <p class="lede">Three levels. Each level has missions and ends with a boss: a task with no instructions. Missions unlock in order. Every mission done adds a line to my CV; every boss adds a badge.</p>
-
-      <p class="level mono" data-level>Level 0 · Recruit</p>
-      <div class="progress" data-progress aria-label="Campaign progress"></div>
-      <p class="progress-label" data-progress-label>Loading progress</p>
-
       <div data-tiers></div>
 
-      <h2>Incidents</h2>
-      <p>From Level 2 on, things on this site will break on purpose. Each one gets a post-mortem.</p>
-      <ul class="notes" data-incidents></ul>
+      <div class="card" style="margin-top:1.3rem">
+        <h2><span class="num">\u2726</span>Incidents</h2>
+        <p>From Level 2 on, things on this site will break on purpose, without warning. Each one gets a post-mortem.</p>
+        <ul class="notes" data-incidents></ul>
+      </div>
     </div>
   </main>
 
   <footer class="bottom">
-    <div class="wrap">Hosted on Cloudflare Pages. Source on GitHub. Every change to this site is a commit I made.</div>
+    <div class="wrap">
+      <span>albertstein.link</span>
+      <span>Cloudflare Pages</span>
+      <span><a href="https://github.com/sga95/albertstein">source on GitHub</a></span>
+      <span>built by hand, one commit at a time</span>
+    </div>
   </footer>
 
   <script src="../app.js"></script>
