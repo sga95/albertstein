@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Progress | Alberto Galliani</title>
-  <meta name="description" content="The eight steps I am working through to build this site and the skills behind it.">
+  <meta name="description" content="Three levels, eight missions, three bosses. The path I am following to build this site and the skills behind it.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
@@ -24,12 +24,17 @@
   <main>
     <div class="wrap">
       <h1>Progress</h1>
-      <p class="lede">Eight steps, in order. Each one is a real task on this site or its infrastructure. When a step is done, the matching skill line appears on my CV.</p>
+      <p class="lede">Three levels. Each level has missions and ends with a boss: a task with no instructions. Missions unlock in order. Every mission done adds a line to my CV; every boss adds a badge.</p>
 
-      <div class="progress" data-progress aria-label="Mission progress"></div>
+      <p class="level mono" data-level>Level 0 · Recruit</p>
+      <div class="progress" data-progress aria-label="Campaign progress"></div>
       <p class="progress-label" data-progress-label>Loading progress</p>
 
-      <ol class="missions" data-missions></ol>
+      <div data-tiers></div>
+
+      <h2>Incidents</h2>
+      <p>From Level 2 on, things on this site will break on purpose. Each one gets a post-mortem.</p>
+      <ul class="notes" data-incidents></ul>
     </div>
   </main>
 

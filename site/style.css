@@ -54,18 +54,25 @@ footer.bottom { border-top: 1px solid var(--line); color: var(--ink-soft); font-
 footer.bottom .wrap { padding-top: 1rem; padding-bottom: 1.5rem; }
 
 /* progress: the one loud thing on the site */
-.progress { margin: 2rem 0 0.4rem; display: flex; gap: 6px; align-items: center; }
+.level { margin: 2rem 0 0.5rem; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.8rem; color: var(--ink-soft); }
+.progress { margin: 0 0 0.4rem; display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.tier-cells { display: inline-flex; gap: 6px; align-items: center; }
 .progress .cell {
   width: 2.2rem; height: 0.9rem;
   border: 1.5px solid var(--ink);
   border-radius: 2px;
   background: transparent;
 }
+.progress .cell.boss { width: 1.1rem; height: 1.1rem; transform: rotate(45deg); margin: 0 0.3rem; }
 .progress .cell.done { background: var(--accent); border-color: var(--accent); }
 .progress-label { color: var(--ink-soft); margin: 0; }
 
-/* mission list */
-ol.missions { padding-left: 0; list-style: none; margin: 1.5rem 0 0; }
+/* campaign */
+.tier { margin-top: 1rem; }
+.tier h2 { margin-bottom: 0.1rem; }
+.tier.cleared h2::after { content: " \2726"; color: var(--accent); }
+.tier-line { margin: 0 0 0.6rem; color: var(--ink-soft); }
+ol.missions { padding-left: 0; list-style: none; margin: 0.6rem 0 0; }
 ol.missions li {
   display: grid; grid-template-columns: 2.5rem 1fr auto; gap: 0.75rem;
   padding: 0.85rem 0; border-top: 1px solid var(--line);
@@ -73,9 +80,13 @@ ol.missions li {
 }
 ol.missions li:last-child { border-bottom: 1px solid var(--line); }
 ol.missions .n { color: var(--ink-soft); }
-ol.missions .status { color: var(--ink-soft); white-space: nowrap; }
+ol.missions .status { color: var(--ink-soft); white-space: nowrap; font-size: 0.9rem; }
 ol.missions li.done .status { color: var(--ink); font-weight: 600; }
 ol.missions li.done .status::before { content: ""; display: inline-block; width: 0.7rem; height: 0.7rem; background: var(--accent); border-radius: 2px; margin-right: 0.45rem; vertical-align: 1px; }
+ol.missions li.locked { color: var(--ink-soft); opacity: 0.6; }
+ol.missions li.open .status { color: var(--ink); }
+ol.missions li.boss .n { color: var(--accent); }
+ol.missions li.boss > span:nth-child(2) { font-weight: 600; }
 ol.missions .skill { grid-column: 2; color: var(--ink-soft); font-size: 0.93rem; }
 
 /* cv */
@@ -91,6 +102,7 @@ dl.skills dd { margin: 0; }
 .edu .where { font-weight: 600; }
 .edu .when { color: var(--ink-soft); }
 .earned li { margin-bottom: 0.3rem; }
+.earned li.badge::before { content: "\2726 "; color: var(--accent); }
 .earned .empty { color: var(--ink-soft); }
 
 /* lab */

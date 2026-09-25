@@ -1,53 +1,37 @@
 {
   "repo": "https://github.com/sga95/albertstein",
-  "missions": [
+  "tiers": [
     {
-      "n": 1,
-      "title": "First commit",
-      "done": false,
-      "skill": "Git and GitHub: branches, commits, pull requests"
+      "id": 1,
+      "name": "Operator",
+      "line": "Take control of the site.",
+      "missions": [1, 2, 3],
+      "boss": { "title": "Boss: the /now page", "done": false, "badge": "Ships to production through pull requests" }
     },
     {
-      "n": 2,
-      "title": "DNS and TLS",
-      "done": false,
-      "skill": "DNS records, Cloudflare proxy, TLS certificates, HTTP redirects"
+      "id": 2,
+      "name": "Guardian",
+      "line": "Harden it, watch it, own the terminal.",
+      "missions": [4, 5, 6],
+      "boss": { "title": "Boss: incident drill", "done": false, "badge": "Handled a live incident and wrote the post-mortem" }
     },
     {
-      "n": 3,
-      "title": "The pipeline",
-      "done": false,
-      "skill": "CI/CD: preview deployments, branch protection, deploy from Git"
-    },
-    {
-      "n": 4,
-      "title": "Security headers",
-      "done": false,
-      "skill": "HTTP security headers, testing with curl, web hardening"
-    },
-    {
-      "n": 5,
-      "title": "Local workstation",
-      "done": false,
-      "skill": "Linux command line, Git CLI, SSH keys"
-    },
-    {
-      "n": 6,
-      "title": "Uptime monitor",
-      "done": false,
-      "skill": "Python scripting, scheduled jobs with GitHub Actions, monitoring"
-    },
-    {
-      "n": 7,
-      "title": "First lab note",
-      "done": false,
-      "skill": "Technical writing: documenting a Wireshark or Packet Tracer lab"
-    },
-    {
-      "n": 8,
-      "title": "CCNA in public",
-      "done": false,
-      "skill": "CCNA study track with public progress"
+      "id": 3,
+      "name": "Engineer",
+      "line": "Show your work.",
+      "missions": [7, 8],
+      "boss": { "title": "Boss: the interview", "done": false, "badge": "Presented this site as a portfolio, end to end" }
     }
-  ]
+  ],
+  "missions": [
+    { "n": 1, "title": "First commit", "done": false, "skill": "Git and GitHub: branches, commits, pull requests" },
+    { "n": 2, "title": "DNS and TLS", "done": false, "skill": "DNS records, Cloudflare proxy, TLS certificates, HTTP redirects" },
+    { "n": 3, "title": "The pipeline", "done": false, "skill": "CI/CD: preview deployments, branch protection, deploy from Git" },
+    { "n": 4, "title": "Security headers", "done": false, "skill": "HTTP security headers, testing with curl, web hardening" },
+    { "n": 5, "title": "Local workstation", "done": false, "skill": "Linux command line, Git CLI, SSH keys" },
+    { "n": 6, "title": "Uptime monitor", "done": false, "skill": "Python scripting, scheduled jobs with GitHub Actions, monitoring" },
+    { "n": 7, "title": "First lab note", "done": false, "skill": "Technical writing: documenting a Wireshark or Packet Tracer lab" },
+    { "n": 8, "title": "CCNA in public", "done": false, "skill": "CCNA study track with public progress" }
+  ],
+  "incidents": []
 }
