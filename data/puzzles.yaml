@@ -1,0 +1,15 @@
+# Un rompicapo a settimana, scritto da Stefano. La pagina /puzzle mostra la domanda subito e la soluzione
+# solo quando sono passati 7 giorni dalla data. Una voce per settimana, la più recente in fondo.
+#
+# puzzles:
+#   - date: 2026-10-05          # lunedì della settimana
+#     title: The silent switch   # in inglese: va sul sito
+#     question: |
+#       Two PCs on the same switch, same VLAN, same subnet, both up. PC-A pings PC-B: no reply.
+#       "show mac address-table" on the switch shows both MAC addresses on the right ports. What do you check next, and why?
+#     hint: Layer 2 is fine. What sits between layer 2 and the ping?
+#     solution: |
+#       ARP and the host firewall. Check "arp -a" on PC-A: if PC-B's MAC is there, frames arrive and the reply is blocked
+#       (Windows firewall drops ICMP echo by default). If it is not there, look at the switch port security or a wrong mask.
+
+puzzles: []

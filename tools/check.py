@@ -71,6 +71,28 @@ def check_site_json() -> tuple[list[str], list[str]]:
     return errors, warnings
 
 
+def check_codex() -> tuple[list[str], list[str]]:
+    """site/codex/index.html: ogni voce <dd> al massimo 40 parole, ogni <dt> non vuoto."""
+    import re
+    from html import unescape
+    page = progress.SITE / "codex" / "index.html"
+    if not page.exists():
+        return [], []
+    html = page.read_text(encoding="utf-8")
+    errors = []
+    terms = re.findall(r"<dt[^>]*>(.*?)</dt>\s*<dd[^>]*>(.*?)</dd>", html, flags=re.S)
+    for term, definition in terms:
+        words = len(re.sub(r"<[^>]+>", " ", unescape(definition)).split())
+        clean = re.sub(r"<[^>]+>", "", term).strip()
+        if not clean:
+            errors.append("codex/index.html: una voce senza termine (<dt> vuoto)")
+        elif words > 40:
+            errors.append(f"codex/index.html: \"{clean}\" ha {words} parole, il massimo è 40: taglia, è un glossario")
+        elif words == 0:
+            errors.append(f"codex/index.html: \"{clean}\" non ha definizione")
+    return errors, []
+
+
 def check_secrets() -> tuple[list[str], list[str]]:
     """gitleaks se installato, altrimenti un avviso. In CI gira sempre come job separato."""
     exe = shutil.which("gitleaks")
@@ -102,6 +124,7 @@ def main(argv: list[str] | None = None) -> int:
     sections.append(("progress.json", *check_progress()))
     sections.append(("site.json", *check_site_json()))
     sections.append(("pagine HTML: link, immagini, alt, peso", *pages.check_pages()))
+    sections.append(("codex: massimo 40 parole per voce", *check_codex()))
     if not args.no_secrets:
         sections.append(("secret", *check_secrets()))
 

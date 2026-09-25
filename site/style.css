@@ -167,6 +167,20 @@ ol.missions li.cert.passed .status { background: var(--navy); border-color: var(
 ol.missions li.cert.granted .status, ol.missions li.cert.requested .status { border-color: var(--navy); color: var(--navy); }
 ol.missions li.cert.locked { opacity: 0.7; }
 
+/* ---------- quests, puzzle, reading, codex ---------- */
+ol.missions .loot { grid-column: 2; }
+ol.missions li.boss.done .loot { color: var(--navy); font-weight: 600; }
+.tier.quests h2 { text-transform: none; }
+.puzzle details { margin-top: 0.6rem; }
+.puzzle summary { cursor: pointer; color: var(--navy); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.books { padding-left: 0; list-style: none; }
+.books li { padding: 0.75rem 0; border-top: 1px solid var(--line); max-width: none; }
+.books li:last-child { border-bottom: 1px solid var(--line); }
+.books .author { color: var(--ink-soft); }
+.books .free { font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--navy); border: 1px solid var(--navy); border-radius: 999px; padding: 0.1rem 0.5rem; margin-left: 0.4rem; }
+dl.codex dt { font-family: var(--font-heading); font-weight: 700; margin-top: 1rem; }
+dl.codex dd { margin: 0.2rem 0 0; }
+
 /* ---------- readiness (generated page) ---------- */
 .radar-row { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 1.2rem; align-items: center; margin: 0.4rem 0 0.6rem; }
 .radar-row .radar { max-width: 100%; height: auto; }

@@ -4,7 +4,7 @@
 PY ?= python3
 PORT ?= 8080
 
-.PHONY: help serve check test note postmortem lab-lint pdf engine
+.PHONY: help serve check test note postmortem lab-lint pdf engine quiz
 
 help:
 	@echo "make serve                     sito locale su http://localhost:$(PORT)/"
@@ -14,7 +14,8 @@ help:
 	@echo "make postmortem TITLE=\"...\"    nuovo post-mortem da template"
 	@echo "make lab-lint                  solo punteggio e suggerimenti sulle note di lab"
 	@echo "make pdf                       esporta il CV in site/cv/Alberto-Galliani-CV.pdf (serve Playwright)"
-	@echo "make engine                    ricalcola site/data/readiness.json e la pagina /readiness (serve pyyaml)"
+	@echo "make engine                    ricalcola readiness, certs, quests, loot, puzzle (serve pyyaml)"
+	@echo "make quiz                      subnetting sprint: 20 esercizi in 10 minuti (quest)"
 
 serve:
 	@$(PY) tools/serve.py $(PORT)
@@ -41,3 +42,6 @@ pdf:
 
 engine:
 	@$(PY) engine/core/render.py
+
+quiz:
+	@$(PY) tools/subnet_quiz.py

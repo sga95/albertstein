@@ -81,5 +81,6 @@
       { "n": 8, "title": "The offer", "done": false, "skill": "Evaluating and negotiating a first offer" }
     ] }
   ],
-  "incidents": []
+  "incidents": [],
+  "quests": []
 }

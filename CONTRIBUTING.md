@@ -13,6 +13,7 @@ Su Windows: usa WSL o Git Bash, oppure lancia direttamente `python3 tools/check.
 | `make note TITLE="Titolo"` | Crea `site/lab/AAAA-MM-GG-titolo.html` dal template con la data di oggi e lo mette in cima alla lista in `site/lab/index.html`. |
 | `make postmortem TITLE="Cosa si è rotto"` | Come sopra ma dal template del post-mortem. Alla fine stampa la riga da incollare in `progress.json` nella lista `incidents`. |
 | `make lab-lint` | Solo il punteggio delle note di lab, nel formato del commento in PR. |
+| `make quiz` | Subnetting sprint: 20 esercizi generati a caso, 10 minuti, punteggio alla fine (quest "Subnetting sprint"). |
 | `make engine` | Ricalcola `site/data/readiness.json` e la pagina `site/readiness/` dalle evidenze nel repo. Serve `pip install pyyaml`. Su `main` lo fa da solo il workflow `engine-build.yml`; in una PR che cambia `progress.json`, `data/` o le note, la CI controlla che l'output committato sia aggiornato: se dice di no, lancia `make engine` e committa. |
 | `make pdf` | Esporta il CV in `site/cv/Alberto-Galliani-CV.pdf` con lo stile di stampa. Unico comando che ha bisogno di una libreria: `pip install playwright && python3 -m playwright install chromium`. Non gira in CI. |
 
@@ -33,6 +34,7 @@ Su ogni PR (e su ogni push su `main`) partono quattro job, `.github/workflows/ci
    - Ogni link interno (`href`, `src`) punta a un file che esiste in `site/`. I link esterni non vengono provati.
    - Ogni `<img>` ha un `alt` e il file esiste.
    - Nessuna pagina sopra 200 KB, nessuna immagine sopra 300 KB.
+   - `site/codex/index.html`: ogni voce del glossario ha il termine e al massimo 40 parole.
 2. **html**: HTML5 valido con `html5validator` (il validatore del W3C). Gira solo in CI perché ha bisogno di Java.
 3. **lab-notes**: se la PR tocca `site/lab/`, un commento con punteggio e suggerimenti per ogni nota.
    Non blocca mai. Il punteggio guarda: le quattro sezioni (What I wanted to do, Setup, What happened,
@@ -97,6 +99,14 @@ dalla colonna 5 alla 30. Di solito è un tag non chiuso o un attributo scritto m
 
 `site/data/site.json` e `site/THEME.md`. Testi comuni, voci di menu, colori, font e sezioni da mostrare
 si cambiano lì, senza toccare HTML o CSS. Quando vuoi toccarli, sono tuoi: `THEME.md` spiega ogni token.
+
+## Quest, loot, puzzle
+
+`data/quests.yaml` è il catalogo delle quest (in `missioni/QUESTS.md` le schede); lo stato sta nella lista `quests` di
+`progress.json`, che Alberto aggiorna quando inizia e quando finisce una quest. `data/loot.yaml` è la ricompensa di
+ogni boss: sul sito compare solo a boss battuto. `data/puzzles.yaml` è il rompicapo della settimana, scritto da Stefano:
+la soluzione entra nel sito sette giorni dopo la data (il workflow `engine-build` gira anche ogni lunedì per questo).
+`make engine` esporta tutto in `site/data/`.
 
 ## Certificazioni
 

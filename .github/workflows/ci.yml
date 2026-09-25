@@ -29,7 +29,7 @@ jobs:
       - name: readiness up to date
         run: |
           python3 engine/core/render.py --today "$(python3 -c 'import json;print(json.load(open("site/data/readiness.json"))["generated_at"])')"
-          git diff --exit-code -- site/data/readiness.json site/readiness/index.html site/data/certs.json || { echo "::error::site/data/readiness.json, site/readiness/index.html o site/data/certs.json non aggiornati: lancia make engine e committa"; exit 1; }
+          git diff --exit-code -- site/data/ site/readiness/index.html || { echo "::error::file generati in site/data/ o site/readiness/ non aggiornati: lancia make engine e committa"; exit 1; }
 
   html:
     name: HTML valido
