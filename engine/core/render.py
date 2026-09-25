@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import math
 import sys
 from html import escape
@@ -156,6 +157,7 @@ def page(data: dict, repo: str | None, favicon: str, fonts: str) -> str:
           <a href="../lab/">Lab</a>
           <a href="../progress/">Progress</a>
           <a href="./" aria-current="page">Readiness</a>
+          <a href="../quests/">Quests</a>
           <a href="../certs/">Certs</a>
         </nav>
       </div>
@@ -230,8 +232,65 @@ def export_certs(root: Path = ROOT) -> dict:
     return out
 
 
+def _load_yaml(path: Path, key: str):
+    import yaml
+    return yaml.safe_load(path.read_text(encoding="utf-8")).get(key) if path.exists() else None
+
+
+def export_quests(root: Path = ROOT) -> dict:
+    """site/data/quests.json: catalogo da data/quests.yaml (lo stato resta in progress.json)."""
+    quests = _load_yaml(root / "data/quests.yaml", "quests") or []
+    out = {"quests": quests}
+    (root / "site/data/quests.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return out
+
+
+def export_loot(root: Path = ROOT) -> dict:
+    """site/data/loot.json: nome del loot per boss (le note per Stefano restano nel YAML)."""
+    loot = _load_yaml(root / "data/loot.yaml", "loot") or {}
+    out = {"loot": {str(k): v["name"] for k, v in loot.items()}}
+    (root / "site/data/loot.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return out
+
+
+def export_puzzles(root: Path = ROOT, today: str | None = None) -> dict:
+    """site/data/puzzles.json: la soluzione entra solo quando sono passati 7 giorni dalla data del puzzle."""
+    from datetime import date, timedelta
+    day = date.fromisoformat(today) if today else date.today()
+    puzzles = _load_yaml(root / "data/puzzles.yaml", "puzzles") or []
+    out = []
+    for pz in sorted(puzzles, key=lambda x: str(x["date"])):
+        d = pz["date"] if isinstance(pz["date"], date) else date.fromisoformat(str(pz["date"]))
+        released = d + timedelta(days=7) <= day
+        item = {"date": d.isoformat(), "title": pz["title"], "question": pz["question"].strip(), "hint": (pz.get("hint") or "").strip(),
+                "solution": pz["solution"].strip() if released else None, "solution_on": (d + timedelta(days=7)).isoformat()}
+        out.append(item)
+    data = {"puzzles": out}
+    (root / "site/data/puzzles.json").write_text(json.dumps(data, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return data
+
+
+def export_pages(root: Path = ROOT, puzzles: int = 0) -> dict:
+    """site/data/pages.json: quante voci hanno le pagine opzionali, per mostrarle nel menu solo quando servono."""
+    def count(path: Path, pattern: str) -> int:
+        if not path.exists():
+            return 0
+        html = re.sub(r"<!--.*?-->", "", path.read_text(encoding="utf-8"), flags=re.S)
+        return len(re.findall(pattern, html))
+    out = {
+        "puzzle": puzzles,
+        "codex": count(root / "site/codex/index.html", r"<dt[ >]"),
+        "reading": count(root / "site/reading/index.html", r'<li class="book'),
+    }
+    (root / "site/data/pages.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return out
+
+
 def render(today: str | None = None, root: Path = ROOT) -> dict:
     export_certs(root)
+    export_quests(root)
+    export_loot(root)
+    export_pages(root, puzzles=len(export_puzzles(root, today)["puzzles"]))
     items = scan(root)
     data = compute(items, today=today)
     progress = json.loads((root / "site/data/progress.json").read_text(encoding="utf-8"))
@@ -251,7 +310,7 @@ def main(argv: list[str] | None = None) -> int:
     data = render(args.today)
     for r in data["roles"]:
         print(f"{r['id']:<28} {r['score_0_100']:>3}/100  gaps: {len(r['gaps'])}")
-    print(f"scritti {READINESS_JSON.relative_to(ROOT)}, {READINESS_PAGE.relative_to(ROOT)} e site/data/certs.json")
+    print(f"scritti {READINESS_JSON.relative_to(ROOT)}, {READINESS_PAGE.relative_to(ROOT)} e site/data/{{certs,quests,loot,puzzles,pages}}.json")
     return 0
 
 

@@ -1,0 +1,11 @@
+# Ricompensa di ogni boss (decisione 1 di HANDOFF-3). Sul sito compare solo quando il boss è done; prima dice "sealed".
+# Stefano le può cambiare. Si riscatta con la issue "Richiesta a Stefano", tipo loot.
+# name in inglese (va sul sito), note in italiano per Stefano.
+
+loot:
+  1: {name: "Raspberry Pi with microSD, power supply and case", note: "Già di Stefano. Apre il binario Pi."}
+  2: {name: "ESP32 kit with OLED, LEDs and BME280", note: "Serve a P3, P12, P13 e alle quest di elettronica."}
+  3: {name: "CCNA exam voucher", note: "Si prenota quando i prerequisiti in /certs sono verdi."}
+  4: {name: "Used managed switch, 8 ports", note: "Con VLAN e port mirroring: serve alla sonda e al lab."}
+  5: {name: "RTL-SDR", note: "Radio: aerei, 433 MHz, spettro."}
+  6: {name: "Cloud certification voucher", note: "AWS CCP o AZ-900, missione 17."}

@@ -5,24 +5,62 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
-    "_comment": { "type": "string" },
-    "name": { "type": "string", "minLength": 1 },
-    "domain": { "type": "string", "minLength": 1 },
-    "role": { "type": "string" },
-    "email": { "type": "string", "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$" },
-    "kicker": { "type": "string" },
-    "tagline": { "type": "string" },
-    "lede": { "type": "string" },
+    "_comment": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "domain": {
+      "type": "string",
+      "minLength": 1
+    },
+    "role": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "pattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    },
+    "kicker": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "lede": {
+      "type": "string"
+    },
     "nav": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["label", "path"],
+        "required": [
+          "label",
+          "path"
+        ],
         "additionalProperties": false,
         "properties": {
-          "label": { "type": "string", "minLength": 1 },
-          "path": { "type": "string", "pattern": "^[A-Za-z0-9_./-]*$" },
-          "order": { "type": "integer" }
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "path": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9_./-]*$"
+          },
+          "order": {
+            "type": "integer"
+          },
+          "needs": {
+            "type": "string",
+            "enum": [
+              "puzzle",
+              "reading",
+              "codex"
+            ]
+          }
         }
       }
     },
@@ -30,47 +68,113 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "navy": { "$ref": "#/$defs/color" },
-        "navy-deep": { "$ref": "#/$defs/color" },
-        "accent": { "$ref": "#/$defs/color" },
-        "paper": { "$ref": "#/$defs/color" },
-        "dot": { "$ref": "#/$defs/color" },
-        "ink": { "$ref": "#/$defs/color" },
-        "ink-soft": { "$ref": "#/$defs/color" },
-        "line": { "$ref": "#/$defs/color" },
-        "sky": { "$ref": "#/$defs/color" }
+        "navy": {
+          "$ref": "#/$defs/color"
+        },
+        "navy-deep": {
+          "$ref": "#/$defs/color"
+        },
+        "accent": {
+          "$ref": "#/$defs/color"
+        },
+        "paper": {
+          "$ref": "#/$defs/color"
+        },
+        "dot": {
+          "$ref": "#/$defs/color"
+        },
+        "ink": {
+          "$ref": "#/$defs/color"
+        },
+        "ink-soft": {
+          "$ref": "#/$defs/color"
+        },
+        "line": {
+          "$ref": "#/$defs/color"
+        },
+        "sky": {
+          "$ref": "#/$defs/color"
+        }
       }
     },
     "fonts": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "heading": { "type": "string", "minLength": 1 },
-        "body": { "type": "string", "minLength": 1 },
-        "mono": { "type": "string", "minLength": 1 },
-        "stylesheet": { "type": "string", "pattern": "^https://" }
+        "heading": {
+          "type": "string",
+          "minLength": 1
+        },
+        "body": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mono": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stylesheet": {
+          "type": "string",
+          "pattern": "^https://"
+        }
       }
     },
     "footer": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "left": { "type": "string" },
-        "right": { "type": "string" }
+        "left": {
+          "type": "string"
+        },
+        "right": {
+          "type": "string"
+        }
       }
     },
     "show": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "photo": { "type": "boolean" },
-        "incidents": { "type": "boolean" },
-        "tracks": { "type": "boolean" },
-        "notesOnHome": { "type": "boolean" }
+        "photo": {
+          "type": "boolean"
+        },
+        "incidents": {
+          "type": "boolean"
+        },
+        "tracks": {
+          "type": "boolean"
+        },
+        "notesOnHome": {
+          "type": "boolean"
+        },
+        "nowPlaying": {
+          "type": "boolean"
+        },
+        "loot": {
+          "type": "boolean"
+        },
+        "puzzle": {
+          "type": "boolean"
+        },
+        "reading": {
+          "type": "boolean"
+        },
+        "codex": {
+          "type": "boolean"
+        }
+      }
+    },
+    "levels": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
       }
     }
   },
   "$defs": {
-    "color": { "type": "string", "pattern": "^(#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-z]+\\(.*\\)|[a-zA-Z]+)$" }
+    "color": {
+      "type": "string",
+      "pattern": "^(#[0-9a-fA-F]{3}([0-9a-fA-F]{3})?|[a-z]+\\(.*\\)|[a-zA-Z]+)$"
+    }
   }
 }

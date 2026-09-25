@@ -13,6 +13,9 @@
 //   [data-earned]          skills and badges earned so far (cv page)
 //   [data-incidents]       post-mortems list (progress page)
 //   [data-certs]           certification catalogue with prerequisites and status (certs page)
+//   [data-quests]          quest board by passion, state from progress.json "quests" (quests page)
+//   [data-now-playing]     the last quest started and not done (home)
+//   [data-puzzles]         weekly puzzles, solutions after seven days (puzzle page)
 // Alberto: you do not need to touch this file. Edit data/progress.json instead.
 
 // Unlock rule, kept as a pure function so tools/lib/progress.py can be tested against it.
@@ -38,7 +41,7 @@ function unlockStatus(data) {
 }
 
 // Everything in site.json is optional: a missing key leaves the HTML as it is.
-function applySite(site, base) {
+function applySite(site, base, pages) {
   const root = document.documentElement;
   const get = key => key.split(".").reduce((o, k) => (o == null ? undefined : o[k]), site);
 
@@ -79,7 +82,9 @@ function applySite(site, base) {
     const here = location.pathname.replace(/index\.html$/, "");
     document.querySelectorAll("header.top nav").forEach(nav => {
       nav.textContent = "";
-      [...site.nav].sort((a, b) => (a.order || 0) - (b.order || 0)).forEach(item => {
+      const show = site.show || {};
+      const visible = item => !item.needs || (show[item.needs] !== undefined ? show[item.needs] : ((pages || {})[item.needs] || 0) > 0);
+      [...site.nav].filter(visible).sort((a, b) => (a.order || 0) - (b.order || 0)).forEach(item => {
         const a = document.createElement("a");
         a.href = base + item.path;
         a.textContent = item.label;
@@ -142,9 +147,12 @@ if (typeof document !== "undefined") (async function () {
     if (!res.ok) throw new Error(res.status + " " + res.statusText);
     return res.json();
   };
-  const [siteRes, progressRes, certsRes] = await Promise.allSettled([fetchJson("site.json"), fetchJson("progress.json"), fetchJson("certs.json")]);
+  const [siteRes, progressRes, certsRes, questsRes, lootRes, puzzlesRes, pagesRes] = await Promise.allSettled(
+    ["site.json", "progress.json", "certs.json", "quests.json", "loot.json", "puzzles.json", "pages.json"].map(fetchJson));
+  const site = siteRes.status === "fulfilled" ? siteRes.value : {};
+  const pages = pagesRes.status === "fulfilled" ? pagesRes.value : {};
   if (siteRes.status === "fulfilled") {
-    try { applySite(siteRes.value, base); } catch (e) { console.error("Could not apply site.json", e); }
+    try { applySite(siteRes.value, base, pages); } catch (e) { console.error("Could not apply site.json", e); }
   } else {
     console.warn("Could not load site.json, keeping the texts in the HTML", siteRes.reason);
   }
@@ -166,7 +174,8 @@ if (typeof document !== "undefined") (async function () {
 
   const status = unlockStatus(data);
 
-  const levelNames = ["Recruit", ...tiers.map(t => t.name)];
+  const alt = site.levels || {};
+  const levelNames = ["Recruit", ...tiers.map(t => t.name)].map((n, i) => (typeof alt[String(i)] === "string" && alt[String(i)]) || n);
   const level = bossesDone.length;
 
   document.querySelectorAll("[data-level]").forEach(el => {
@@ -204,9 +213,13 @@ if (typeof document !== "undefined") (async function () {
       const bossStatus = status.bosses[t.id];
       const bossOpen = bossStatus !== "locked";
       const bossLink = bossOpen ? mdLink(`BOSS-${t.id}.md`, t.boss.title) : t.boss.title;
-      const boss = `<li class="boss ${bossStatus}"><span class="n">\u2726</span><span>${bossLink}</span><span class="status">${bossStatus}</span><span class="skill">Badge: ${t.boss.badge}</span></li>`;
+      const lootName = lootRes.status === "fulfilled" && lootRes.value.loot ? lootRes.value.loot[String(t.id)] : null;
+      const showLoot = !(site.show && site.show.loot === false) && lootName;
+      const lootLink = repo ? `<a href="${repo}/issues/new?template=cert-request.yml&labels=cert-request&title=${encodeURIComponent("Loot: Boss " + t.id)}&kind=loot&item=${encodeURIComponent("boss " + t.id)}">redeem</a>` : "";
+      const loot = showLoot ? `<span class="skill loot">Loot: ${t.boss.done ? `${lootName} (${lootLink})` : "sealed"}</span>` : "";
+      const boss = `<li class="boss ${bossStatus}"><span class="n">\u2726</span><span>${bossLink}</span><span class="status">${bossStatus}</span><span class="skill">Badge: ${t.boss.badge}</span>${loot}</li>`;
       return `<section class="tier${t.boss.done ? " cleared" : ""}">
-        <h2><span class="num">LEVEL ${t.id}</span>${t.name}</h2>
+        <h2><span class="num">LEVEL ${t.id}</span>${levelNames[t.id]}</h2>
         <p class="tier-line">${t.line}</p>
         <ol class="missions">${items}${boss}</ol>
       </section>`;
@@ -270,6 +283,46 @@ if (typeof document !== "undefined") (async function () {
         <span class="cert-action">${action}</span>
       </li>`;
     }).join("") || `<li class="empty-state">No certifications in the catalogue yet.</li>`;
+  });
+
+  const questState = Object.fromEntries((data.quests || []).map(q => [q.id, q]));
+  const nowPlaying = [...(data.quests || [])].reverse().find(q => !q.done) || null;
+
+  document.querySelectorAll("[data-quests]").forEach(el => {
+    if (questsRes.status !== "fulfilled") { el.innerHTML = `<p class="empty-state">Could not load quests.json.</p>`; return; }
+    const cats = { network: "Network", gaming: "Gaming", puzzles: "Puzzles", electronics: "Electronics", science: "Science", books: "Books" };
+    const all = questsRes.value.quests || [];
+    const esc = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    el.innerHTML = Object.entries(cats).map(([cat, name]) => {
+      const list = all.filter(q => q.category === cat);
+      if (!list.length) return "";
+      const items = list.map(q => {
+        const st = questState[q.id];
+        const status = st ? (st.done ? "done" : "playing") : "open";
+        const link = repo ? `<a href="${repo}/blob/main/missioni/QUESTS.md">${esc(q.title)}</a>` : esc(q.title);
+        const pi = q.pi ? ` <span class="mono">Pi: ${esc(q.pi)}</span>` : "";
+        return `<li class="${status === "done" ? "done" : "open"}"><span class="n mono">${status === "done" ? "\u2726" : "\u25CB"}</span><span>${link}</span><span class="status">${status}</span><span class="skill">${esc(q.line)}${pi}</span></li>`;
+      }).join("");
+      const done = list.filter(q => questState[q.id] && questState[q.id].done).length;
+      return `<section class="tier quests${done === list.length ? " cleared" : ""}"><h2><span class="num">${name.toUpperCase()}</span>${done} of ${list.length}</h2><ol class="missions">${items}</ol></section>`;
+    }).join("");
+  });
+
+  document.querySelectorAll("[data-now-playing]").forEach(el => {
+    const on = !(site.show && site.show.nowPlaying === false) && nowPlaying;
+    el.hidden = !on;
+    if (on) el.querySelectorAll("[data-now-playing-title]").forEach(t => { t.textContent = nowPlaying.title; });
+  });
+
+  document.querySelectorAll("[data-puzzles]").forEach(el => {
+    const list = puzzlesRes.status === "fulfilled" ? (puzzlesRes.value.puzzles || []) : [];
+    const esc = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    el.innerHTML = list.length ? [...list].reverse().map((pz, i) => `<div class="card puzzle">
+        <h2><span class="num">${esc(pz.date)}</span>${esc(pz.title)}</h2>
+        <p>${esc(pz.question).replace(/\n/g, "<br>")}</p>
+        ${pz.hint ? `<details><summary class="mono">Hint</summary><p>${esc(pz.hint)}</p></details>` : ""}
+        ${pz.solution ? `<details><summary class="mono">Solution</summary><p>${esc(pz.solution).replace(/\n/g, "<br>")}</p></details>` : `<p class="empty-state mono">Solution appears on ${esc(pz.solution_on)}.</p>`}
+      </div>`).join("") : `<div class="card"><p class="empty-state">No puzzle yet. Stefano writes the first one in data/puzzles.yaml.</p></div>`;
   });
 
   document.querySelectorAll("[data-incidents]").forEach(el => {

@@ -1,0 +1,141 @@
+{
+ "quests": [
+  {
+   "id": "real-traffic",
+   "category": "network",
+   "title": "Real traffic",
+   "line": "Wireshark on albertstein.link: DNS, TLS, HTTP."
+  },
+  {
+   "id": "site-from-elsewhere",
+   "category": "network",
+   "title": "The site from elsewhere",
+   "line": "Cloudflare analytics and a WAF rule, checked from outside."
+  },
+  {
+   "id": "tunnel",
+   "category": "network",
+   "title": "Tunnel",
+   "line": "WireGuard to a VM, Wireshark outside the tunnel."
+  },
+  {
+   "id": "monitor-grows",
+   "category": "network",
+   "title": "The monitor grows",
+   "line": "TLS expiry, security headers, DNS time, weekly chart."
+  },
+  {
+   "id": "static-generator",
+   "category": "network",
+   "title": "Static generator",
+   "line": "Eleventy or Hugo, same pages, Markdown notes."
+  },
+  {
+   "id": "honeypot",
+   "category": "network",
+   "title": "Honeypot",
+   "line": "SSH exposed with fail2ban for a week, the numbers."
+  },
+  {
+   "id": "game-server",
+   "category": "gaming",
+   "title": "Game server on the lab",
+   "line": "Minecraft or Valheim on a VLAN, monitored, five players."
+  },
+  {
+   "id": "netcode",
+   "category": "gaming",
+   "title": "Netcode with Wireshark",
+   "line": "Packets per second, UDP or TCP, what lag looks like."
+  },
+  {
+   "id": "lag-lab",
+   "category": "gaming",
+   "title": "Lag lab",
+   "line": "tc netem: 100 ms and 2% loss between two VMs."
+  },
+  {
+   "id": "speedrun",
+   "category": "gaming",
+   "title": "Speedrun",
+   "line": "Mission 1 or Boss 4 against the clock. Only against yourself."
+  },
+  {
+   "id": "subnet-sprint",
+   "category": "puzzles",
+   "title": "Subnetting sprint",
+   "line": "20 exercises in 10 minutes with make quiz."
+  },
+  {
+   "id": "bandit-20",
+   "category": "puzzles",
+   "title": "Bandit to level 20",
+   "line": "OverTheWire, one line per level."
+  },
+  {
+   "id": "advent-of-code",
+   "category": "puzzles",
+   "title": "Advent of Code",
+   "line": "Five days in Python, public repo."
+  },
+  {
+   "id": "picoctf",
+   "category": "puzzles",
+   "title": "picoCTF",
+   "line": "Five network or crypto challenges."
+  },
+  {
+   "id": "weekly-puzzle",
+   "category": "puzzles",
+   "title": "Weekly puzzle",
+   "line": "One riddle a week on /puzzle, answer before the solution appears."
+  },
+  {
+   "id": "uptime-lamp",
+   "category": "electronics",
+   "title": "Uptime lamp",
+   "line": "A LED that turns red when the site is down.",
+   "pi": "P3"
+  },
+  {
+   "id": "latency-sensor",
+   "category": "electronics",
+   "title": "Latency sensor",
+   "line": "ESP32 pinging the router, milliseconds on an OLED.",
+   "pi": "P13"
+  },
+  {
+   "id": "pihole",
+   "category": "electronics",
+   "title": "Pi-hole at home",
+   "line": "Home DNS with filtering, a week of numbers.",
+   "pi": "P4"
+  },
+  {
+   "id": "network-tap",
+   "category": "electronics",
+   "title": "Passive network tap",
+   "line": "Two ports and a probe for the lab.",
+   "pi": "P8"
+  },
+  {
+   "id": "how-it-really-works",
+   "category": "science",
+   "title": "How it really works",
+   "line": "Light from Bergamo to Frankfurt, submarine cables, a bit on copper."
+  },
+  {
+   "id": "radio",
+   "category": "science",
+   "title": "Radio",
+   "line": "RTL-SDR: Wi-Fi, LoRa, planes over Bergamo.",
+   "pi": "P14"
+  },
+  {
+   "id": "reading-log",
+   "category": "books",
+   "title": "Reading log",
+   "line": "A technical book every two months, three things it changed."
+  }
+ ]
+}

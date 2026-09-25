@@ -12,10 +12,14 @@ on:
       - site/data/site.json
       - site/lab/**
       - site/certs/**
+      - site/codex/**
+      - site/reading/**
       - data/**
       - engine/core/**
       - .github/workflows/engine-build.yml
   workflow_dispatch:
+  schedule:
+    - cron: "17 6 * * 1"   # lunedì: le soluzioni dei puzzle escono dopo sette giorni
 
 permissions:
   contents: write
@@ -40,7 +44,7 @@ jobs:
         run: |
           git config user.name "engine-bot"
           git config user.email "engine-bot@users.noreply.github.com"
-          git add site/data/readiness.json site/readiness/index.html site/data/certs.json
+          git add site/data/readiness.json site/readiness/index.html site/data/certs.json site/data/quests.json site/data/loot.json site/data/puzzles.json site/data/pages.json
           if git diff --cached --quiet; then
             echo "nothing changed"
           else

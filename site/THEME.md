@@ -21,7 +21,7 @@ lo dice (`make check` te lo dice prima).
 | `kicker` | la riga piccola arancione sopra il titolo della home | |
 | `tagline` | il titolo grande della home | |
 | `lede` | il paragrafo sotto il titolo della home | |
-| `nav` | il menu in alto, su tutte le pagine | Lista di `{ "label", "path", "order" }`. `path` è relativo alla radice del sito (`cv/`, `lab/`). `order` decide la posizione. La pagina corrente prende da sola la sottolineatura. |
+| `nav` | il menu in alto, su tutte le pagine | Lista di `{ "label", "path", "order" }`. `path` è relativo alla radice del sito (`cv/`, `lab/`). `order` decide la posizione. La pagina corrente prende da sola la sottolineatura. Una voce con `"needs": "codex"` (o `puzzle`, `reading`) compare solo quando quella pagina ha contenuto, vedi `show`. |
 | `colors` | le variabili CSS in `:root` | Vedi la tabella sotto. Le chiavi sono i nomi delle variabili senza `--`. |
 | `fonts` | le tre famiglie di font e il foglio di Google Fonts | Vedi "Cambiare font". |
 | `footer.left`, `footer.right` | i due testi del piede | |
@@ -29,6 +29,10 @@ lo dice (`make check` te lo dice prima).
 | `show.incidents` | la scheda "Incidents" nella pagina Progress | |
 | `show.tracks` | la sezione "Tracks" nella pagina Progress | |
 | `show.notesOnHome` | la scheda "Latest lab notes" in home | |
+| `show.nowPlaying` | la scheda "Now playing" in home | Compare solo se in `progress.json` c'è una quest iniziata e non finita. |
+| `show.loot` | la riga "Loot" sotto ogni boss nella pagina Progress | `sealed` finché il boss non è done. |
+| `show.puzzle`, `show.reading`, `show.codex` | le voci di menu Puzzle, Reading, Codex | Se non ci sono, la voce compare da sola quando la pagina ha almeno una voce (conteggio in `data/pages.json`, rigenerato da `make engine`). `true` la forza, `false` la nasconde. |
+| `levels` | i nomi dei livelli nella pagina Progress e nella riga "Level N" | Oggetto `{"0": "Recruit", "1": "Operator", ...}`: solo le chiavi che metti cambiano nome; i badge restano quelli di `progress.json`. |
 
 Come sono collegati HTML e JSON: nell'HTML gli elementi hanno `data-site="chiave"` (testi) o
 `data-site-show="chiave"` (sezioni). Se aggiungi un elemento con `data-site="kicker"` in una pagina nuova,

@@ -24,14 +24,37 @@
       "order": 3
     },
     {
+      "label": "Quests",
+      "path": "quests/",
+      "order": 4
+    },
+    {
       "label": "Readiness",
       "path": "readiness/",
-      "order": 4
+      "order": 5
     },
     {
       "label": "Certs",
       "path": "certs/",
-      "order": 5
+      "order": 6
+    },
+    {
+      "label": "Puzzle",
+      "path": "puzzle/",
+      "order": 7,
+      "needs": "puzzle"
+    },
+    {
+      "label": "Reading",
+      "path": "reading/",
+      "order": 8,
+      "needs": "reading"
+    },
+    {
+      "label": "Codex",
+      "path": "codex/",
+      "order": 9,
+      "needs": "codex"
     }
   ],
   "colors": {
@@ -59,6 +82,11 @@
     "photo": true,
     "incidents": true,
     "tracks": true,
-    "notesOnHome": true
+    "notesOnHome": true,
+    "nowPlaying": true,
+    "loot": true
+  },
+  "levels": {
+    "_comment": "Nomi alternativi dei livelli, da gioco. Lascia vuoto per usare quelli di progress.json. Esempio: \"0\": \"Recruit\", \"1\": \"Operator\"."
   }
 }
