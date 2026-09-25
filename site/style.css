@@ -138,6 +138,7 @@ dl.skills dd { margin: 0; }
 .edu .when { color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.85rem; }
 .earned { padding-left: 0; list-style: none; }
 .earned li { padding: 0.5rem 0 0.5rem 1rem; border-left: 3px solid var(--accent); margin: 0.35rem 0; }
+.earned li.track-mind { border-left-color: var(--ink); }
 .earned li.track-voice { border-left-color: var(--sky); }
 .earned li.track-hire { border-left-color: var(--ink-soft); }
 .earned li.badge { border-left-color: var(--navy); }

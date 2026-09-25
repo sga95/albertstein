@@ -158,6 +158,17 @@ def consistency_errors(data: dict) -> list[str]:
     for tid in sorted(set(track_ids)):
         if track_ids.count(tid) > 1:
             errors.append(f"il binario \"{tid}\" compare {track_ids.count(tid)} volte")
+    missioni = ROOT / "missioni"
+    for m in missions:
+        f = m.get("file") or f"{m['n']:02d}.md"
+        if not (missioni / f).exists():
+            errors.append(f"la missione {m['n']} punta a missioni/{f}, che non esiste")
+    for t in data.get("tiers", []):
+        if not (missioni / f"BOSS-{t['id']}.md").exists():
+            errors.append(f"il livello {t['id']} non ha missioni/BOSS-{t['id']}.md")
+    for t in data.get("tracks", []):
+        if not (missioni / t["file"]).exists():
+            errors.append(f"il binario {t['id']} punta a missioni/{t['file']}, che non esiste")
     for t in data.get("tracks", []):
         step_nums = [s["n"] for s in t["steps"]]
         if step_nums != list(range(1, len(step_nums) + 1)):

@@ -19,9 +19,10 @@ Sei livelli. Ogni livello ha delle missioni e finisce con un **boss**: un compit
 | 5 | Network engineer | 13-16 (`LIVELLO-5.md`) | Il guasto |
 | 6 | Cloud | 17-20 (`LIVELLO-6.md`) | Da casa al cloud |
 
-In parallelo, tre **binari** che non dipendono dai livelli:
+In parallelo, quattro **binari** che non dipendono dai livelli:
 
 - **Shield** (`SHIELD.md`): la tua sicurezza. Si fa per primo.
+- **Mind** (`MIND.md`): l'AI come strumento, non come scorciatoia. Otto passi, da come funziona un modello a come ne parli a un colloquio. Si fa subito dopo Shield.
 - **Voice** (`VOICE.md`): comunicazione e inglese. Dieci passi, dal changelog scritto al colloquio parlato in inglese. Costruito per partire in silenzio.
 - **Hire** (`HIRE.md`): LinkedIn, annunci, storie, CV mirati, candidature, colloqui, offerta.
 
