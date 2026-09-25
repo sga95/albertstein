@@ -1,0 +1,204 @@
+{
+ "kits": {
+  "lamp": {
+   "name": "Lamp kit",
+   "cost_eur": 12,
+   "note": "LEDs, resistors, OLED, jumpers"
+  },
+  "sensors": {
+   "name": "Sensor kit",
+   "cost_eur": 15,
+   "note": "BME280, ESP32, jumpers"
+  },
+  "network": {
+   "name": "Network kit",
+   "cost_eur": 15,
+   "note": "USB Ethernet adapter, cables"
+  }
+ },
+ "hardware": [
+  {
+   "id": "raspberry-pi",
+   "name": "Raspberry Pi (4 or 5)",
+   "cost_eur": 0,
+   "for": [
+    "P1"
+   ],
+   "status": "owned",
+   "loot": 1
+  },
+  {
+   "id": "psu",
+   "name": "Official power supply",
+   "cost_eur": 0,
+   "for": [
+    "P1"
+   ],
+   "status": "owned",
+   "loot": 1
+  },
+  {
+   "id": "microsd",
+   "name": "microSD 32 GB",
+   "cost_eur": 0,
+   "for": [
+    "P1"
+   ],
+   "status": "owned",
+   "loot": 1
+  },
+  {
+   "id": "case",
+   "name": "Case with heatsink",
+   "cost_eur": 0,
+   "for": [
+    "P1"
+   ],
+   "status": "owned",
+   "loot": 1
+  },
+  {
+   "id": "ssd-usb",
+   "name": "USB SSD (recommended from P6 on Pi 4 and 5)",
+   "cost_eur": 25,
+   "for": [
+    "P6",
+    "P11"
+   ],
+   "status": "none"
+  },
+  {
+   "id": "leds",
+   "name": "LEDs and resistors, or Blinkt",
+   "cost_eur": 2,
+   "for": [
+    "P3",
+    "Q:uptime-lamp"
+   ],
+   "status": "none",
+   "kit": "lamp"
+  },
+  {
+   "id": "oled",
+   "name": "OLED SSD1306 128x64",
+   "cost_eur": 5,
+   "for": [
+    "P13",
+    "Q:latency-sensor"
+   ],
+   "status": "none",
+   "kit": "lamp"
+  },
+  {
+   "id": "jumpers",
+   "name": "Jumper wires and breadboard",
+   "cost_eur": 5,
+   "for": [
+    "P3",
+    "P12",
+    "P13"
+   ],
+   "status": "none",
+   "kit": "lamp"
+  },
+  {
+   "id": "epaper",
+   "name": "e-paper 2.13 inch",
+   "cost_eur": 22,
+   "for": [
+    "P13"
+   ],
+   "status": "none"
+  },
+  {
+   "id": "usb-ethernet",
+   "name": "USB Ethernet adapter",
+   "cost_eur": 10,
+   "for": [
+    "P8",
+    "P9",
+    "Q:network-tap"
+   ],
+   "status": "none",
+   "kit": "network"
+  },
+  {
+   "id": "cables",
+   "name": "Ethernet cables (3)",
+   "cost_eur": 5,
+   "for": [
+    "P8",
+    "P9"
+   ],
+   "status": "none",
+   "kit": "network"
+  },
+  {
+   "id": "usb-disk",
+   "name": "USB disk 500 GB",
+   "cost_eur": 30,
+   "for": [
+    "P11",
+    "M12"
+   ],
+   "status": "none"
+  },
+  {
+   "id": "bme280",
+   "name": "BME280 sensor",
+   "cost_eur": 5,
+   "for": [
+    "P12"
+   ],
+   "status": "none",
+   "kit": "sensors",
+   "loot": 2
+  },
+  {
+   "id": "esp32",
+   "name": "ESP32 board",
+   "cost_eur": 10,
+   "for": [
+    "P12",
+    "Q:uptime-lamp",
+    "Q:latency-sensor"
+   ],
+   "status": "none",
+   "kit": "sensors",
+   "loot": 2
+  },
+  {
+   "id": "rtl-sdr",
+   "name": "RTL-SDR",
+   "cost_eur": 30,
+   "for": [
+    "P14",
+    "Q:radio"
+   ],
+   "status": "none",
+   "loot": 5
+  },
+  {
+   "id": "mini-pc",
+   "name": "Used mini PC for the lab (8-16 GB RAM)",
+   "cost_eur": 150,
+   "for": [
+    "L4",
+    "M9"
+   ],
+   "status": "none"
+  },
+  {
+   "id": "switch",
+   "name": "Managed switch, 8 ports",
+   "cost_eur": 0,
+   "for": [
+    "P8",
+    "M9",
+    "M14"
+   ],
+   "status": "none",
+   "loot": 4
+  }
+ ]
+}

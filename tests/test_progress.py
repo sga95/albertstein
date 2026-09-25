@@ -94,7 +94,7 @@ def test_missing_sheet_is_reported(fixtures):
 def test_mind_track_is_second_and_has_eight_steps():
     data = progress.load()
     ids = [t["id"] for t in data["tracks"]]
-    assert ids == ["shield", "mind", "voice", "hire"]
+    assert ids == ["shield", "mind", "pi", "voice", "hire"]
     mind = data["tracks"][1]
     assert mind["file"] == "MIND.md" and len(mind["steps"]) == 8
     sheet = (progress.ROOT / "missioni" / "MIND.md").read_text(encoding="utf-8")

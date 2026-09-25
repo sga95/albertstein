@@ -2200,6 +2200,16 @@
    "sources": []
   },
   {
+   "id": "iot",
+   "name": "IoT and embedded",
+   "short": "IoT",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
    "id": "linux-cli",
    "name": "Linux command line",
    "short": "Linux CLI",
@@ -2674,6 +2684,182 @@
    "verified": false,
    "missing": [
     "file hire/questions.md"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:1",
+   "kind": "track",
+   "title": "First boot, no monitor",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:2",
+   "kind": "track",
+   "title": "The watchman at home",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:3",
+   "kind": "track",
+   "title": "The uptime lamp",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:4",
+   "kind": "track",
+   "title": "Pi-hole: the home DNS",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:5",
+   "kind": "track",
+   "title": "Who is home",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:6",
+   "kind": "track",
+   "title": "Latency and bandwidth dashboard",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:7",
+   "kind": "track",
+   "title": "VPN home",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:8",
+   "kind": "track",
+   "title": "The probe",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:9",
+   "kind": "track",
+   "title": "The Pi as a router",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:10",
+   "kind": "track",
+   "title": "Honeypot",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:11",
+   "kind": "track",
+   "title": "Backups with tested restore",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:12",
+   "kind": "track",
+   "title": "Sensors and MQTT",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:13",
+   "kind": "track",
+   "title": "The desk board",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:14",
+   "kind": "track",
+   "title": "Game and radio",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:15",
+   "kind": "track",
+   "title": "Pi in a box",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:pi:16",
+   "kind": "track",
+   "title": "Boss: the Pi is the network",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "una nota di lab con \"pi\" nel nome e almeno un'immagine"
    ],
    "last_evidence": null
   },

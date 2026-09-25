@@ -74,7 +74,8 @@ def unlock_status(data: dict) -> dict:
     Stessa regola di site/app.js:
     - la missione 1 è aperta; la missione n è aperta se la n-1 esiste ed è done;
     - il boss di un livello è aperto se tutte le missioni del livello sono done;
-    - in un binario il passo i è aperto se è il primo o se il precedente è done.
+    - in un binario il passo i è aperto se è il primo o se il precedente è done;
+    - un binario con "requires" ({boss: N} o {mission: N}) resta sigillato finché quel boss o missione non è done.
     """
     missions = data.get("missions", [])
     tiers = data.get("tiers", [])
@@ -88,16 +89,29 @@ def unlock_status(data: dict) -> dict:
     def tier_complete(t: dict) -> bool:
         return all(n in by_n and by_n[n].get("done") for n in t["missions"])
 
-    out = {"missions": {}, "bosses": {}, "tracks": {}}
+    def satisfied(req: dict | None) -> bool:
+        if not req:
+            return True
+        if "boss" in req:
+            t = next((x for x in tiers if x["id"] == req["boss"]), None)
+            return bool(t and t["boss"].get("done"))
+        if "mission" in req:
+            m = by_n.get(req["mission"])
+            return bool(m and m.get("done"))
+        return True
+
+    out = {"missions": {}, "bosses": {}, "tracks": {}, "sealed": {}}
     for m in missions:
         out["missions"][str(m["n"])] = "done" if m.get("done") else "open" if unlocked(m) else "locked"
     for t in tiers:
         boss = t["boss"]
         out["bosses"][str(t["id"])] = "done" if boss.get("done") else "open" if tier_complete(t) else "locked"
     for t in tracks:
+        sealed = not satisfied(t.get("requires"))
+        out["sealed"][t["id"]] = sealed
         statuses = []
         for i, s in enumerate(t["steps"]):
-            is_open = i == 0 or bool(t["steps"][i - 1].get("done"))
+            is_open = not sealed and (i == 0 or bool(t["steps"][i - 1].get("done")))
             statuses.append("done" if s.get("done") else "open" if is_open else "locked")
         out["tracks"][t["id"]] = statuses
     return out

@@ -192,6 +192,16 @@ skills:
       3: "Workflow che testano e pubblicano"
       4: "Progetta pipeline per un team"
     evidence: [commit, manual]
+  - id: iot
+    name: IoT and embedded
+    short: IoT
+    family: systems
+    levels:
+      1: "Accende un LED"
+      2: "Sensori, MQTT e un microcontrollore che pubblica dati"
+      3: "Broker cifrato, dispositivi in una rete separata, dashboard"
+      4: "Progetta l'IoT per altri"
+    evidence: [lab-note, commit]
   - id: incident-response
     name: Incident response and post-mortems
     short: Incidents

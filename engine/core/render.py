@@ -161,6 +161,7 @@ def page(data: dict, repo: str | None, favicon: str, fonts: str) -> str:
           <a href="./" aria-current="page">Readiness</a>
           <a href="../quests/">Quests</a>
           <a href="../certs/">Certs</a>
+          <a href="../gear/">Gear</a>
         </nav>
       </div>
     </header>
@@ -272,6 +273,16 @@ def export_puzzles(root: Path = ROOT, today: str | None = None) -> dict:
     return data
 
 
+def export_gear(root: Path = ROOT) -> dict:
+    """site/data/gear.json: hardware e kit da data/hardware.yaml."""
+    import yaml
+    path = root / "data/hardware.yaml"
+    raw = yaml.safe_load(path.read_text(encoding="utf-8")) if path.exists() else {}
+    out = {"kits": raw.get("kits", {}), "hardware": raw.get("hardware", [])}
+    (root / "site/data/gear.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return out
+
+
 def export_pages(root: Path = ROOT, puzzles: int = 0) -> dict:
     """site/data/pages.json: quante voci hanno le pagine opzionali, per mostrarle nel menu solo quando servono."""
     def count(path: Path, pattern: str) -> int:
@@ -292,6 +303,7 @@ def render(today: str | None = None, root: Path = ROOT) -> dict:
     export_certs(root)
     export_quests(root)
     export_loot(root)
+    export_gear(root)
     export_pages(root, puzzles=len(export_puzzles(root, today)["puzzles"]))
     items = scan(root)
     data = compute(items, today=today)
@@ -312,7 +324,7 @@ def main(argv: list[str] | None = None) -> int:
     data = render(args.today)
     for r in data["roles"]:
         print(f"{r['id']:<28} {r['score_0_100']:>3}/100  gaps: {len(r['gaps'])}")
-    print(f"scritti {READINESS_JSON.relative_to(ROOT)}, {READINESS_PAGE.relative_to(ROOT)} e site/data/{{certs,quests,loot,puzzles,pages}}.json")
+    print(f"scritti {READINESS_JSON.relative_to(ROOT)}, {READINESS_PAGE.relative_to(ROOT)} e site/data/{{certs,quests,loot,gear,puzzles,pages}}.json")
     return 0
 
 

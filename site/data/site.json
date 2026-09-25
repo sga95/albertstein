@@ -39,21 +39,26 @@
       "order": 6
     },
     {
+      "label": "Gear",
+      "path": "gear/",
+      "order": 7
+    },
+    {
       "label": "Puzzle",
       "path": "puzzle/",
-      "order": 7,
+      "order": 8,
       "needs": "puzzle"
     },
     {
       "label": "Reading",
       "path": "reading/",
-      "order": 8,
+      "order": 9,
       "needs": "reading"
     },
     {
       "label": "Codex",
       "path": "codex/",
-      "order": 9,
+      "order": 10,
       "needs": "codex"
     }
   ],

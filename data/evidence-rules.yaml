@@ -6,6 +6,8 @@
 #     - html_contains: pagina, text: T   la pagina contiene quel testo
 #     - nav: etichetta                   voce presente nel menu (site/data/site.json)
 #     - lab_notes: N                     almeno N note in site/lab/ (index e template esclusi)
+#     - lab_note: parola                 una nota con quella parola nel nome del file
+#     - lab_note_image: parola           come sopra, e con almeno un'immagine dentro
 #     - incidents: N                     almeno N voci in "incidents" di progress.json
 #     - manual: motivo                   non verificabile dal repo: vale la parola di Alberto
 #   attests: skill -> livello attestato quando l'elemento è done
@@ -146,6 +148,23 @@ tracks:
     6: {evidence: [{lab_notes: 2}], attests: {ai-assisted-work: 3, llm-fundamentals: 3}}
     7: {evidence: [{manual: lo script può stare in un repo separato}], attests: {llm-api: 2, python: 2, secrets-hygiene: 3}}
     8: {evidence: [{file: hire/questions.md}], attests: {interviewing: 2, ai-assisted-work: 3}}
+  pi:
+    1: {evidence: [{lab_note_image: pi}], attests: {linux-cli: 2, ssh: 2, security-awareness: 2}}
+    2: {evidence: [{lab_note_image: pi}], attests: {linux-cli: 2, monitoring: 2, python: 2}}
+    3: {evidence: [{lab_note_image: pi}], attests: {iot: 2, python: 2, monitoring: 2}}
+    4: {evidence: [{lab_note_image: pi}], attests: {dns: 3, linux-cli: 2}}
+    5: {evidence: [{lab_note_image: pi}], attests: {python: 2, monitoring: 2, source-of-truth: 1}}
+    6: {evidence: [{lab_note_image: pi}], attests: {monitoring: 3, containers: 2}}
+    7: {evidence: [{lab_note_image: pi}], attests: {vpn: 2, firewall: 2, packet-analysis: 2}}
+    8: {evidence: [{lab_note_image: pi}], attests: {packet-analysis: 3, network-design: 2}}
+    9: {evidence: [{lab_note_image: pi}], attests: {firewall: 2, routing: 2, switching-vlan: 2, linux-cli: 3}}
+    10: {evidence: [{lab_note_image: pi}], attests: {security-awareness: 2, incident-response: 1, linux-cli: 2}}
+    11: {evidence: [{lab_note_image: pi}], attests: {backup: 2, git: 2, technical-writing: 2}}
+    12: {evidence: [{lab_note_image: pi}], attests: {iot: 2, tls: 2, packet-analysis: 2}}
+    13: {evidence: [{lab_note_image: pi}], attests: {iot: 2, python: 2}}
+    14: {evidence: [{lab_note_image: pi}], attests: {virtualization: 1, network-design: 1, iot: 1}}
+    15: {evidence: [{lab_note_image: pi}], attests: {ansible: 3, backup: 2, technical-writing: 2}}
+    16: {evidence: [{lab_note_image: pi}], attests: {monitoring: 3, incident-response: 2, firewall: 2, dns: 3}}
   voice:
     1: {evidence: [{manual: changelog in /now o in un file dedicato}], attests: {english-written: 2}}
     2: {evidence: [{manual: audio privato}], attests: {english-spoken: 2, presenting: 1}}

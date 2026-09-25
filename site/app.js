@@ -16,14 +16,16 @@
 //   [data-quests]          quest board by passion, state from progress.json "quests" (quests page)
 //   [data-now-playing]     the last quest started and not done (home)
 //   [data-puzzles]         weekly puzzles, solutions after seven days (puzzle page)
+//   [data-gear], [data-kits]  hardware list with status, askable when a step that uses it is open (gear page)
 // Alberto: you do not need to touch this file. Edit data/progress.json instead.
 
 // Unlock rule, kept as a pure function so tools/lib/progress.py can be tested against it.
-// Returns { missions: {n: status}, bosses: {tierId: status}, tracks: {id: [status, ...]} }
+// Returns { missions: {n: status}, bosses: {tierId: status}, tracks: {id: [status, ...]}, sealed: {id: bool} }
 // where status is "done", "open" or "locked".
 //   - mission 1 is open; mission n is open when mission n-1 is done
 //   - a boss is open when every mission of its level is done
 //   - a track step is open when it is the first one or the previous step is done
+//   - a track with "requires" stays sealed (every step locked) until that boss or mission is done
 function unlockStatus(data) {
   const missions = data.missions || [];
   const tiers = data.tiers || [];
@@ -31,11 +33,20 @@ function unlockStatus(data) {
   const byN = Object.fromEntries(missions.map(m => [m.n, m]));
   const unlocked = m => m.n === 1 || !!(byN[m.n - 1] && byN[m.n - 1].done);
   const tierComplete = t => t.missions.every(n => byN[n] && byN[n].done);
-  const out = { missions: {}, bosses: {}, tracks: {} };
+  const out = { missions: {}, bosses: {}, tracks: {}, sealed: {} };
   missions.forEach(m => { out.missions[m.n] = m.done ? "done" : unlocked(m) ? "open" : "locked"; });
   tiers.forEach(t => { out.bosses[t.id] = t.boss.done ? "done" : tierComplete(t) ? "open" : "locked"; });
+  // a track with "requires" ({boss: N} or {mission: N}) is sealed until that boss or mission is done
+  const satisfied = req => {
+    if (!req) return true;
+    if (req.boss !== undefined) { const t = tiers.find(x => x.id === req.boss); return !!(t && t.boss.done); }
+    if (req.mission !== undefined) { const m = byN[req.mission]; return !!(m && m.done); }
+    return true;
+  };
   tracks.forEach(t => {
-    out.tracks[t.id] = t.steps.map((s, i) => s.done ? "done" : (i === 0 || t.steps[i - 1].done) ? "open" : "locked");
+    const sealed = !satisfied(t.requires);
+    out.sealed[t.id] = sealed;
+    out.tracks[t.id] = t.steps.map((s, i) => s.done ? "done" : (!sealed && (i === 0 || t.steps[i - 1].done)) ? "open" : "locked");
   });
   return out;
 }
@@ -147,8 +158,8 @@ if (typeof document !== "undefined") (async function () {
     if (!res.ok) throw new Error(res.status + " " + res.statusText);
     return res.json();
   };
-  const [siteRes, progressRes, certsRes, questsRes, lootRes, puzzlesRes, pagesRes] = await Promise.allSettled(
-    ["site.json", "progress.json", "certs.json", "quests.json", "loot.json", "puzzles.json", "pages.json"].map(fetchJson));
+  const [siteRes, progressRes, certsRes, questsRes, lootRes, puzzlesRes, pagesRes, gearRes] = await Promise.allSettled(
+    ["site.json", "progress.json", "certs.json", "quests.json", "loot.json", "puzzles.json", "pages.json", "gear.json"].map(fetchJson));
   const site = siteRes.status === "fulfilled" ? siteRes.value : {};
   const pages = pagesRes.status === "fulfilled" ? pagesRes.value : {};
   if (siteRes.status === "fulfilled") {
@@ -236,9 +247,12 @@ if (typeof document !== "undefined") (async function () {
         const link = open ? mdLink(t.file, s.title) : s.title;
         return `<li class="${st}"><span class="n">${t.id.charAt(0).toUpperCase()}${s.n}</span><span>${link}</span><span class="status">${st}</span><span class="skill">${s.skill}</span></li>`;
       }).join("");
-      return `<section class="tier track${doneCount === t.steps.length ? " cleared" : ""}">
-        <h2><span class="num">TRACK</span>${t.name}</h2>
-        <p class="tier-line">${t.line}</p>
+      const sealed = status.sealed[t.id];
+      const req = t.requires || {};
+      const unlockLine = sealed ? `<p class="tier-line sealed-line">Unlocks with ${req.boss !== undefined ? `Boss ${req.boss}` : `Mission ${req.mission}`}.</p>` : "";
+      return `<section class="tier track${doneCount === t.steps.length ? " cleared" : ""}${sealed ? " sealed" : ""}">
+        <h2><span class="num">${sealed ? "TRACK \u00b7 SEALED" : "TRACK"}</span>${t.name}</h2>
+        <p class="tier-line">${t.line}</p>${unlockLine}
         <div class="progress track-progress">${cells}</div>
         <ol class="missions">${items}</ol>
       </section>`;
@@ -323,6 +337,45 @@ if (typeof document !== "undefined") (async function () {
         ${pz.hint ? `<details><summary class="mono">Hint</summary><p>${esc(pz.hint)}</p></details>` : ""}
         ${pz.solution ? `<details><summary class="mono">Solution</summary><p>${esc(pz.solution).replace(/\n/g, "<br>")}</p></details>` : `<p class="empty-state mono">Solution appears on ${esc(pz.solution_on)}.</p>`}
       </div>`).join("") : `<div class="card"><p class="empty-state">No puzzle yet. Stefano writes the first one in data/puzzles.yaml.</p></div>`;
+  });
+
+  document.querySelectorAll("[data-gear]").forEach(el => {
+    if (gearRes.status !== "fulfilled") { el.innerHTML = `<li class="empty-state">Could not load gear.json.</li>`; return; }
+    const esc = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+    const gear = gearRes.value.hardware || [];
+    const kits = gearRes.value.kits || {};
+    const pi = tracks.find(t => t.id === "pi");
+    // a reference is open when the step, mission, quest or level it names is open (or done)
+    const refOpen = ref => {
+      const m = /^P(\d+)$/.exec(ref);
+      if (m && pi) { const st = status.tracks.pi[Number(m[1]) - 1]; return st === "open" || st === "done"; }
+      const mm = /^M(\d+)$/.exec(ref);
+      if (mm) { const st = status.missions[Number(mm[1])]; return st === "open" || st === "done"; }
+      const l = /^L(\d+)$/.exec(ref);
+      if (l) { const t = tiers.find(x => x.id === Number(l[1])); return !!t && t.missions.some(n => status.missions[n] !== "locked"); }
+      const q = /^Q:(.+)$/.exec(ref);
+      if (q) { const st = questState[q[1]]; return !!st && !st.done; }  // a quest counts once it is started
+      return false;
+    };
+    const refLabel = ref => ref.startsWith("Q:") ? `quest ${ref.slice(2)}` : ref.startsWith("L") ? `level ${ref.slice(1)}` : ref.startsWith("M") ? `mission ${ref.slice(1)}` : ref;
+    const issueUrl = g => repo ? `${repo}/issues/new?template=cert-request.yml&labels=cert-request&title=${encodeURIComponent("Gear: " + g.name)}&kind=hardware&item=${encodeURIComponent(g.id)}` : null;
+    el.innerHTML = gear.map(g => {
+      const uses = (g.for || []).map(refLabel).join(", ");
+      const askable = (g.status === "none" || !g.status) && !g.loot && (g.for || []).some(refOpen);
+      const state = g.loot && g.status !== "owned" && g.status !== "arrived" ? `loot of Boss ${g.loot}` : (g.status && g.status !== "none" ? g.status : (askable ? "ready" : "later"));
+      const cls = state === "owned" || state === "arrived" ? "done" : askable ? "open" : "locked";
+      const action = askable && issueUrl(g) ? `<a class="button" href="${issueUrl(g)}">Ask Stefano</a>` : "";
+      const kit = g.kit && kits[g.kit] ? ` <span class="mono">(${esc(kits[g.kit].name)})</span>` : "";
+      return `<li class="cert ${cls}"><span class="n mono">${g.cost_eur ? esc(g.cost_eur) + "&#8364;" : "&#8212;"}</span><span><strong>${esc(g.name)}</strong>${kit}</span><span class="status">${esc(state)}</span><span class="skill">For: ${esc(uses)}</span><span class="cert-action">${action}</span></li>`;
+    }).join("") || `<li class="empty-state">No hardware listed.</li>`;
+  });
+
+  document.querySelectorAll("[data-kits]").forEach(el => {
+    if (gearRes.status !== "fulfilled") return;
+    const kits = gearRes.value.kits || {};
+    const esc = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;");
+    const total = Object.values(kits).reduce((a, k) => a + (k.cost_eur || 0), 0);
+    el.innerHTML = Object.values(kits).map(k => `<li><strong>${esc(k.name)}</strong>, about ${esc(k.cost_eur)}&#8364;: ${esc(k.note)}</li>`).join("") + `<li class="empty-state">All three together: about ${total}&#8364;. Everything else is loot.</li>`;
   });
 
   document.querySelectorAll("[data-incidents]").forEach(el => {
