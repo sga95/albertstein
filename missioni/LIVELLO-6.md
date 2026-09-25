@@ -4,6 +4,13 @@ La stessa rete che sai già fare, nel datacenter di qualcun altro. Tutto sul pia
 
 ---
 
+## Gratis, prima
+
+- Missione 17: [Microsoft Learn, percorso AZ-900](https://learn.microsoft.com/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/) (completo e gratuito) oppure [AWS Skill Builder, "Cloud Practitioner Essentials"](https://explore.skillbuilder.aws/learn/course/external/view/elearning/134/aws-cloud-practitioner-essentials) e [AWS Cloud Quest](https://explore.skillbuilder.aws/learn/course/external/view/elearning/11458/aws-cloud-quest-cloud-practitioner) (gioco, gratuito).
+- Missione 18: [AWS docs, "How Amazon VPC works"](https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html): un pomeriggio, con il free tier.
+- Missione 19: [HashiCorp Terraform tutorials, "Get started AWS"](https://developer.hashicorp.com/terraform/tutorials/aws-get-started): sei lezioni, gratis.
+- Missione 20: [Cloudflare docs, Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/) e [Cloudflare Learning Center, "What is Zero Trust?"](https://www.cloudflare.com/learning/security/glossary/what-is-zero-trust/).
+
 ## 17. Certificazione cloud base
 
 AWS Cloud Practitioner o Microsoft AZ-900: una delle due. Studio pubblico come per il CCNA: pagina `site/cloud/` con avanzamento. Esame vero, prenotato con una data. Costo circa 100 euro: chiedi a Stefano se lo copre lui come investimento.

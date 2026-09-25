@@ -4,6 +4,13 @@ Un laboratorio in casa che puoi distruggere e ricostruire. Serve un PC vecchio o
 
 ---
 
+## Gratis, prima
+
+- Missione 9: [documentazione Proxmox VE](https://pve.proxmox.com/wiki/Main_Page) (sezione Network Configuration per bridge e VLAN) e [Linux Journey](https://linuxjourney.com/) per il routing tra VM.
+- Missione 10: [Docker "Get started"](https://docs.docker.com/get-started/) e [Docker "Networking overview"](https://docs.docker.com/engine/network/): la parte di rete è quella che conta qui.
+- Missione 11: [Ansible "Getting started"](https://docs.ansible.com/ansible/latest/getting_started/index.html) e i [workshop ufficiali Ansible](https://github.com/ansible/workshops): idempotenza spiegata con esempi.
+- Missione 12: [documentazione restic](https://restic.readthedocs.io/) e [Linux Foundation LFS101 su edX](https://www.edx.org/learn/linux/the-linux-foundation-introduction-to-linux) (audit gratuito) per i pezzi di amministrazione che mancano.
+
 ## 09. Proxmox lab
 
 Installa Proxmox VE sul mini PC. Crea: una VM Ubuntu Server, una VM Debian, un bridge VLAN-aware. Metti le due VM su due VLAN diverse e fai in modo che si vedano solo attraverso un router (una terza VM con due interfacce, anche solo Linux con `ip forward`).

@@ -4,6 +4,13 @@ Otto passi. Partono dal giorno uno, in parallelo. Il sito serve a farti sceglier
 
 ---
 
+## Gratis, prima
+
+- H1: [LinkedIn, guide gratuite al profilo](https://www.linkedin.com/help/linkedin/answer/a566196): foto, titolo, riassunto.
+- H3 e H7: [Coursera, "Advanced Interviewing Techniques"](https://www.coursera.org/learn/interview-techniques) in audit: il metodo STAR con esempi.
+- H4 e H5: l'ufficio placement dell'università (Mercatorum ha un servizio career): revisione CV e annunci riservati, gratis per i laureati.
+- H7: [Jeremy's IT Lab](https://www.youtube.com/playlist?list=PLhTW6Fulbw1Tqaa9cTEpAZo86TCO6xfYS) come banca di domande tecniche: ogni video finisce con un quiz.
+
 ## H1. LinkedIn che dice le stesse cose del sito
 
 Profilo completo: foto (la stessa del CV), titolo ("Computer Engineering graduate | Networking, Linux, security | albertstein.link"), riassunto in inglese con le stesse frasi dell'About del sito, link al sito in evidenza. Niente competenze che non hai fatto.
