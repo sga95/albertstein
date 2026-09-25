@@ -2,7 +2,7 @@ name: guard progress
 
 # Il progresso lo sblocca solo Alberto.
 # Se una PR o un push tocca site/data/progress.json e l'autore non e' lui, il check fallisce.
-# Code: spostare in .github/workflows/guard-progress.yml e sostituire ALBERTO-GITHUB.
+# Stefano: sostituire ALBERTO-GITHUB (qui e in .github/CODEOWNERS) con lo username di Alberto.
 
 on:
   pull_request:
