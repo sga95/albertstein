@@ -1,0 +1,13 @@
+// Copia della configurazione alla radice, per il caso in cui Workers Builds abbia
+// "Root directory" impostata a site/: wrangler legge il file nella cartella in cui gira.
+// La cartella degli asset qui è "./" (cioè site/ stessa); .assetsignore esclude questi due file.
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "albertstein",
+  "compatibility_date": "2026-01-01",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
