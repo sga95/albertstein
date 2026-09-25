@@ -1,0 +1,426 @@
+{
+ "repo": "https://github.com/sga95/albertstein",
+ "tiers": [
+  {
+   "id": 1,
+   "name": "Operator",
+   "line": "Take control of the site.",
+   "missions": [
+    1,
+    2,
+    3
+   ],
+   "boss": {
+    "title": "Boss: the /now page",
+    "done": true,
+    "badge": "Ships to production through pull requests"
+   }
+  },
+  {
+   "id": 2,
+   "name": "Guardian",
+   "line": "Harden it, watch it, own the terminal.",
+   "missions": [
+    4,
+    5,
+    6
+   ],
+   "boss": {
+    "title": "Boss: incident drill",
+    "done": true,
+    "badge": "Handled a live incident and wrote the post-mortem"
+   }
+  },
+  {
+   "id": 3,
+   "name": "Engineer",
+   "line": "Show your work.",
+   "missions": [
+    7,
+    8
+   ],
+   "boss": {
+    "title": "Boss: the interview",
+    "done": false,
+    "badge": "Presented this site as a portfolio, end to end"
+   }
+  },
+  {
+   "id": 4,
+   "name": "Sysadmin",
+   "line": "A lab you can rebuild from zero.",
+   "missions": [
+    9,
+    10,
+    11,
+    12
+   ],
+   "boss": {
+    "title": "Boss: rebuild in one hour",
+    "done": false,
+    "badge": "Rebuilt a full lab from code in under an hour"
+   }
+  },
+  {
+   "id": 5,
+   "name": "Network engineer",
+   "line": "Routing, automation, source of truth.",
+   "missions": [
+    13,
+    14,
+    15,
+    16
+   ],
+   "boss": {
+    "title": "Boss: the outage",
+    "done": false,
+    "badge": "Diagnosed and fixed a multi-router outage under time"
+   }
+  },
+  {
+   "id": 6,
+   "name": "Cloud",
+   "line": "The same network, in someone else's datacenter.",
+   "missions": [
+    17,
+    18,
+    19,
+    20
+   ],
+   "boss": {
+    "title": "Boss: home to cloud",
+    "done": false,
+    "badge": "Published a home-lab service through the cloud, with access control"
+   }
+  }
+ ],
+ "missions": [
+  {
+   "n": 1,
+   "title": "First commit",
+   "done": true,
+   "skill": "Git and GitHub: branches, commits, pull requests"
+  },
+  {
+   "n": 2,
+   "title": "DNS and TLS",
+   "done": true,
+   "skill": "DNS records, Cloudflare proxy, TLS certificates, HTTP redirects"
+  },
+  {
+   "n": 3,
+   "title": "The pipeline",
+   "done": true,
+   "skill": "CI/CD: preview deployments, branch protection, deploy from Git"
+  },
+  {
+   "n": 4,
+   "title": "Security headers",
+   "done": true,
+   "skill": "HTTP security headers, testing with curl, web hardening"
+  },
+  {
+   "n": 5,
+   "title": "Local workstation",
+   "done": true,
+   "skill": "Linux command line, Git CLI, SSH keys"
+  },
+  {
+   "n": 6,
+   "title": "Uptime monitor",
+   "done": true,
+   "skill": "Python scripting, scheduled jobs with GitHub Actions, monitoring"
+  },
+  {
+   "n": 7,
+   "title": "First lab note",
+   "done": true,
+   "skill": "Technical writing: documenting a Wireshark or Packet Tracer lab"
+  },
+  {
+   "n": 8,
+   "title": "CCNA in public",
+   "done": false,
+   "skill": "CCNA study track with public progress"
+  },
+  {
+   "n": 9,
+   "title": "Proxmox lab",
+   "done": false,
+   "skill": "Virtualization with Proxmox: VMs, bridges, VLAN-aware networking",
+   "file": "LIVELLO-4.md"
+  },
+  {
+   "n": 10,
+   "title": "Docker basics",
+   "done": false,
+   "skill": "Containers with Docker and Compose, container networking",
+   "file": "LIVELLO-4.md"
+  },
+  {
+   "n": 11,
+   "title": "Ansible for the lab",
+   "done": false,
+   "skill": "Configuration management with Ansible, idempotent playbooks",
+   "file": "LIVELLO-4.md"
+  },
+  {
+   "n": 12,
+   "title": "Backup and restore drill",
+   "done": false,
+   "skill": "Backup strategy, tested restores, runbooks",
+   "file": "LIVELLO-4.md"
+  },
+  {
+   "n": 13,
+   "title": "Containerlab: OSPF and BGP",
+   "done": false,
+   "skill": "Dynamic routing labs with OSPF and BGP in Containerlab",
+   "file": "LIVELLO-5.md"
+  },
+  {
+   "n": 14,
+   "title": "Firewall and segmentation",
+   "done": false,
+   "skill": "OPNsense firewall, VLAN segmentation, NAT, rules with logging",
+   "file": "LIVELLO-5.md"
+  },
+  {
+   "n": 15,
+   "title": "Network automation",
+   "done": false,
+   "skill": "Python network automation with Netmiko and Nornir, config backups",
+   "file": "LIVELLO-5.md"
+  },
+  {
+   "n": 16,
+   "title": "NetBox and monitoring",
+   "done": false,
+   "skill": "NetBox as source of truth, SNMP monitoring with LibreNMS",
+   "file": "LIVELLO-5.md"
+  },
+  {
+   "n": 17,
+   "title": "Cloud fundamentals cert",
+   "done": false,
+   "skill": "AWS Cloud Practitioner or AZ-900, passed",
+   "file": "LIVELLO-6.md"
+  },
+  {
+   "n": 18,
+   "title": "VPC by hand",
+   "done": false,
+   "skill": "Cloud networking: VPC, subnets, route tables, security groups",
+   "file": "LIVELLO-6.md"
+  },
+  {
+   "n": 19,
+   "title": "Terraform",
+   "done": false,
+   "skill": "Infrastructure as code with Terraform, state, plan and apply",
+   "file": "LIVELLO-6.md"
+  },
+  {
+   "n": 20,
+   "title": "Cloudflare Tunnel and Access",
+   "done": false,
+   "skill": "Zero Trust access to a home-lab service via Cloudflare Tunnel",
+   "file": "LIVELLO-6.md"
+  }
+ ],
+ "tracks": [
+  {
+   "id": "shield",
+   "name": "Shield",
+   "line": "Your own security first. Done before anything else.",
+   "file": "SHIELD.md",
+   "steps": [
+    {
+     "n": 1,
+     "title": "Password manager",
+     "done": true,
+     "skill": "Password manager with unique passwords everywhere"
+    },
+    {
+     "n": 2,
+     "title": "Two-factor on everything that matters",
+     "done": true,
+     "skill": "2FA with authenticator app and backup codes"
+    },
+    {
+     "n": 3,
+     "title": "Professional email on Proton",
+     "done": true,
+     "skill": "Separate professional identity with end-to-end encrypted mail"
+    },
+    {
+     "n": 4,
+     "title": "Harden the GitHub account",
+     "done": true,
+     "skill": "Hardened developer account: 2FA, SSH keys, signed commits"
+    },
+    {
+     "n": 5,
+     "title": "Signed commits",
+     "done": true,
+     "skill": "Commit signing with SSH keys, verified badge"
+    },
+    {
+     "n": 6,
+     "title": "Lock the laptop",
+     "done": true,
+     "skill": "Full-disk encryption, updates, screen lock, backups"
+    },
+    {
+     "n": 7,
+     "title": "Phishing and social engineering",
+     "done": true,
+     "skill": "Recognising phishing, safe handling of links and attachments"
+    },
+    {
+     "n": 8,
+     "title": "Secrets never in git",
+     "done": true,
+     "skill": "Secret hygiene in repositories, rotation after exposure"
+    },
+    {
+     "n": 9,
+     "title": "Your public footprint",
+     "done": true,
+     "skill": "Managing personal data exposure and social media privacy"
+    }
+   ]
+  },
+  {
+   "id": "voice",
+   "name": "Voice",
+   "line": "Communication and English. Starts in writing, ends out loud.",
+   "file": "VOICE.md",
+   "steps": [
+    {
+     "n": 1,
+     "title": "Weekly changelog in English",
+     "done": true,
+     "skill": "Written English: weekly technical updates"
+    },
+    {
+     "n": 2,
+     "title": "Two minutes, audio only",
+     "done": true,
+     "skill": "Explaining technical work out loud"
+    },
+    {
+     "n": 3,
+     "title": "Ask a good question in public",
+     "done": true,
+     "skill": "Asking precise technical questions in a public community"
+    },
+    {
+     "n": 4,
+     "title": "Answer someone else",
+     "done": false,
+     "skill": "Helping others in a technical community"
+    },
+    {
+     "n": 5,
+     "title": "Five-minute walkthrough on video",
+     "done": false,
+     "skill": "Recorded technical walkthroughs"
+    },
+    {
+     "n": 6,
+     "title": "Fifteen minutes in English",
+     "done": false,
+     "skill": "Spoken English in a technical conversation"
+    },
+    {
+     "n": 7,
+     "title": "One meetup, one person",
+     "done": false,
+     "skill": "In-person networking at a tech event"
+    },
+    {
+     "n": 8,
+     "title": "Explain it to someone who is not technical",
+     "done": false,
+     "skill": "Explaining technical topics to non-technical people"
+    },
+    {
+     "n": 9,
+     "title": "Lightning talk",
+     "done": false,
+     "skill": "Gave a 10-minute technical talk to an audience"
+    },
+    {
+     "n": 10,
+     "title": "Mock interview in English",
+     "done": false,
+     "skill": "Technical interview in English"
+    }
+   ]
+  },
+  {
+   "id": "hire",
+   "name": "Hire",
+   "line": "Everything between this site and a signed contract.",
+   "file": "HIRE.md",
+   "steps": [
+    {
+     "n": 1,
+     "title": "LinkedIn that matches the site",
+     "done": true,
+     "skill": "Professional LinkedIn profile"
+    },
+    {
+     "n": 2,
+     "title": "Ten job posts, decoded",
+     "done": false,
+     "skill": "Reading job descriptions for real requirements"
+    },
+    {
+     "n": 3,
+     "title": "Story bank",
+     "done": false,
+     "skill": "STAR stories from real work"
+    },
+    {
+     "n": 4,
+     "title": "Three CV versions",
+     "done": false,
+     "skill": "Tailoring a CV to a role"
+    },
+    {
+     "n": 5,
+     "title": "Application cadence",
+     "done": false,
+     "skill": "Tracked, consistent job applications"
+    },
+    {
+     "n": 6,
+     "title": "Recruiter call",
+     "done": false,
+     "skill": "Phone screens with recruiters"
+    },
+    {
+     "n": 7,
+     "title": "Technical interview drills",
+     "done": false,
+     "skill": "Networking interview questions, whiteboard troubleshooting"
+    },
+    {
+     "n": 8,
+     "title": "The offer",
+     "done": false,
+     "skill": "Evaluating and negotiating a first offer"
+    }
+   ]
+  }
+ ],
+ "incidents": [
+  {
+   "date": "2026-03-02",
+   "title": "Post-mortem: DNS record deleted",
+   "url": "../lab/2026-03-02-postmortem-dns-record-deleted.html"
+  }
+ ]
+}
