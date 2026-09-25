@@ -4,7 +4,7 @@
 PY ?= python3
 PORT ?= 8080
 
-.PHONY: help serve check test note postmortem lab-lint
+.PHONY: help serve check test note postmortem lab-lint pdf
 
 help:
 	@echo "make serve                     sito locale su http://localhost:$(PORT)/"
@@ -13,6 +13,7 @@ help:
 	@echo "make note TITLE=\"...\"          nuova nota di lab da template, aggiunta in cima alla lista"
 	@echo "make postmortem TITLE=\"...\"    nuovo post-mortem da template"
 	@echo "make lab-lint                  solo punteggio e suggerimenti sulle note di lab"
+	@echo "make pdf                       esporta il CV in site/cv/Alberto-Galliani-CV.pdf (serve Playwright)"
 
 serve:
 	@$(PY) tools/serve.py $(PORT)
@@ -33,3 +34,6 @@ note:
 postmortem:
 	@test -n "$(TITLE)" || { echo 'uso: make postmortem TITLE="Cosa si e rotto"'; exit 2; }
 	@$(PY) tools/new_note.py --postmortem "$(TITLE)"
+
+pdf:
+	@$(PY) tools/pdf.py
