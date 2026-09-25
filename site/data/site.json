@@ -22,6 +22,11 @@
       "label": "Progress",
       "path": "progress/",
       "order": 3
+    },
+    {
+      "label": "Readiness",
+      "path": "readiness/",
+      "order": 4
     }
   ],
   "colors": {

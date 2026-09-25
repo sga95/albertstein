@@ -1,0 +1,2855 @@
+{
+ "generated_at": "2026-09-25",
+ "target_roles": [
+  "junior-network-engineer",
+  "noc-analyst",
+  "sysadmin-junior"
+ ],
+ "roles": [
+  {
+   "id": "junior-network-engineer",
+   "title_it": "Network engineer junior",
+   "title_en": "Junior network engineer",
+   "score_0_100": 0,
+   "certs_typical": [
+    "CCNA"
+   ],
+   "english_min": "B1",
+   "salary_range_it": [
+    24,
+    30
+   ],
+   "axes": [
+    {
+     "skill": "ip-addressing",
+     "name": "IP addressing and subnetting",
+     "short": "Subnetting",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "ratio": 0.0
+    },
+    {
+     "skill": "switching-vlan",
+     "name": "Switching and VLANs",
+     "short": "VLANs",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "ratio": 0.0
+    },
+    {
+     "skill": "routing",
+     "name": "Routing, static and dynamic",
+     "short": "Routing",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "ratio": 0.0
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "short": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "firewall",
+     "name": "Firewalls and segmentation",
+     "short": "Firewall",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "packet-analysis",
+     "name": "Packet analysis",
+     "short": "Packets",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "network-design",
+     "name": "Network design and documentation",
+     "short": "Net design",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "short": "Linux CLI",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "monitoring",
+     "name": "Monitoring and alerting",
+     "short": "Monitoring",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "python",
+     "name": "Python scripting",
+     "short": "Python",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "technical-writing",
+     "name": "Technical writing",
+     "short": "Writing",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "short": "English (w)",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    }
+   ],
+   "gaps": [
+    {
+     "skill": "ip-addressing",
+     "name": "IP addressing and subnetting",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "next_mission": "mission:8",
+     "next_title": "CCNA in public",
+     "next_file": "08.md"
+    },
+    {
+     "skill": "routing",
+     "name": "Routing, static and dynamic",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "next_mission": "mission:13",
+     "next_title": "Containerlab: OSPF and BGP",
+     "next_file": "LIVELLO-5.md"
+    },
+    {
+     "skill": "switching-vlan",
+     "name": "Switching and VLANs",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "next_mission": "mission:9",
+     "next_title": "Proxmox lab",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "packet-analysis",
+     "name": "Packet analysis",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "mission:7",
+     "next_title": "First lab note",
+     "next_file": "07.md"
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:2",
+     "next_title": "DNS and TLS",
+     "next_file": "02.md"
+    },
+    {
+     "skill": "firewall",
+     "name": "Firewalls and segmentation",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:14",
+     "next_title": "Firewall and segmentation",
+     "next_file": "LIVELLO-5.md"
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:5",
+     "next_title": "Local workstation",
+     "next_file": "05.md"
+    },
+    {
+     "skill": "network-design",
+     "name": "Network design and documentation",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:9",
+     "next_title": "Proxmox lab",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "track:voice:1",
+     "next_title": "Weekly changelog in English",
+     "next_file": "VOICE.md"
+    },
+    {
+     "skill": "monitoring",
+     "name": "Monitoring and alerting",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:6",
+     "next_title": "Uptime monitor",
+     "next_file": "06.md"
+    },
+    {
+     "skill": "python",
+     "name": "Python scripting",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:6",
+     "next_title": "Uptime monitor",
+     "next_file": "06.md"
+    },
+    {
+     "skill": "technical-writing",
+     "name": "Technical writing",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:7",
+     "next_title": "First lab note",
+     "next_file": "07.md"
+    }
+   ],
+   "strengths": [],
+   "next_step": {
+    "id": "mission:1",
+    "title": "First commit",
+    "file": "01.md"
+   }
+  },
+  {
+   "id": "noc-analyst",
+   "title_it": "Analista NOC (L1/L2)",
+   "title_en": "NOC analyst",
+   "score_0_100": 0,
+   "certs_typical": [
+    "CCNA",
+    "CompTIA Network+"
+   ],
+   "english_min": "B1",
+   "salary_range_it": [
+    23,
+    28
+   ],
+   "axes": [
+    {
+     "skill": "ip-addressing",
+     "name": "IP addressing and subnetting",
+     "short": "Subnetting",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "switching-vlan",
+     "name": "Switching and VLANs",
+     "short": "VLANs",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "routing",
+     "name": "Routing, static and dynamic",
+     "short": "Routing",
+     "have": 0,
+     "need": 1,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "short": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "http",
+     "name": "HTTP and web infrastructure",
+     "short": "HTTP",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "monitoring",
+     "name": "Monitoring and alerting",
+     "short": "Monitoring",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "ratio": 0.0
+    },
+    {
+     "skill": "incident-response",
+     "name": "Incident response and post-mortems",
+     "short": "Incidents",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "ratio": 0.0
+    },
+    {
+     "skill": "packet-analysis",
+     "name": "Packet analysis",
+     "short": "Packets",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "short": "Linux CLI",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "technical-writing",
+     "name": "Technical writing",
+     "short": "Writing",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "short": "English (w)",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "english-spoken",
+     "name": "Spoken English",
+     "short": "English (s)",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    }
+   ],
+   "gaps": [
+    {
+     "skill": "incident-response",
+     "name": "Incident response and post-mortems",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "next_mission": "boss:2",
+     "next_title": "Boss: incident drill",
+     "next_file": "BOSS-2.md"
+    },
+    {
+     "skill": "monitoring",
+     "name": "Monitoring and alerting",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "next_mission": "mission:6",
+     "next_title": "Uptime monitor",
+     "next_file": "06.md"
+    },
+    {
+     "skill": "ip-addressing",
+     "name": "IP addressing and subnetting",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "mission:8",
+     "next_title": "CCNA in public",
+     "next_file": "08.md"
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:2",
+     "next_title": "DNS and TLS",
+     "next_file": "02.md"
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "track:voice:1",
+     "next_title": "Weekly changelog in English",
+     "next_file": "VOICE.md"
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:5",
+     "next_title": "Local workstation",
+     "next_file": "05.md"
+    },
+    {
+     "skill": "packet-analysis",
+     "name": "Packet analysis",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:7",
+     "next_title": "First lab note",
+     "next_file": "07.md"
+    },
+    {
+     "skill": "switching-vlan",
+     "name": "Switching and VLANs",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:9",
+     "next_title": "Proxmox lab",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "technical-writing",
+     "name": "Technical writing",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:7",
+     "next_title": "First lab note",
+     "next_file": "07.md"
+    },
+    {
+     "skill": "english-spoken",
+     "name": "Spoken English",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "track:voice:2",
+     "next_title": "Two minutes, audio only",
+     "next_file": "VOICE.md"
+    },
+    {
+     "skill": "http",
+     "name": "HTTP and web infrastructure",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:4",
+     "next_title": "Security headers",
+     "next_file": "04.md"
+    },
+    {
+     "skill": "routing",
+     "name": "Routing, static and dynamic",
+     "have": 0,
+     "need": 1,
+     "weight": 3,
+     "next_mission": "mission:13",
+     "next_title": "Containerlab: OSPF and BGP",
+     "next_file": "LIVELLO-5.md"
+    }
+   ],
+   "strengths": [],
+   "next_step": {
+    "id": "mission:1",
+    "title": "First commit",
+    "file": "01.md"
+   }
+  },
+  {
+   "id": "sysadmin-junior",
+   "title_it": "Sistemista junior",
+   "title_en": "Junior sysadmin",
+   "score_0_100": 0,
+   "certs_typical": [
+    "LPIC-1",
+    "CompTIA Linux+"
+   ],
+   "english_min": "A2",
+   "salary_range_it": [
+    24,
+    30
+   ],
+   "axes": [
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "short": "Linux CLI",
+     "have": 0,
+     "need": 3,
+     "weight": 5,
+     "ratio": 0.0
+    },
+    {
+     "skill": "virtualization",
+     "name": "Virtualization",
+     "short": "Virtualization",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "containers",
+     "name": "Containers",
+     "short": "Containers",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "backup",
+     "name": "Backup and restore",
+     "short": "Backup",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "monitoring",
+     "name": "Monitoring and alerting",
+     "short": "Monitoring",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "ansible",
+     "name": "Configuration management",
+     "short": "Ansible",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "bash",
+     "name": "Bash scripting",
+     "short": "Bash",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "python",
+     "name": "Python scripting",
+     "short": "Python",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "ssh",
+     "name": "SSH and keys",
+     "short": "SSH",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "short": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "tls",
+     "name": "TLS and certificates",
+     "short": "TLS",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "git",
+     "name": "Git and GitHub",
+     "short": "Git",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "incident-response",
+     "name": "Incident response and post-mortems",
+     "short": "Incidents",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    }
+   ],
+   "gaps": [
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "have": 0,
+     "need": 3,
+     "weight": 5,
+     "next_mission": "mission:11",
+     "next_title": "Ansible for the lab",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "backup",
+     "name": "Backup and restore",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "mission:12",
+     "next_title": "Backup and restore drill",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "virtualization",
+     "name": "Virtualization",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "mission:9",
+     "next_title": "Proxmox lab",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "ansible",
+     "name": "Configuration management",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:11",
+     "next_title": "Ansible for the lab",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "bash",
+     "name": "Bash scripting",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:11",
+     "next_title": "Ansible for the lab",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "containers",
+     "name": "Containers",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:10",
+     "next_title": "Docker basics",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "monitoring",
+     "name": "Monitoring and alerting",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:6",
+     "next_title": "Uptime monitor",
+     "next_file": "06.md"
+    },
+    {
+     "skill": "ssh",
+     "name": "SSH and keys",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:5",
+     "next_title": "Local workstation",
+     "next_file": "05.md"
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:2",
+     "next_title": "DNS and TLS",
+     "next_file": "02.md"
+    },
+    {
+     "skill": "git",
+     "name": "Git and GitHub",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:3",
+     "next_title": "The pipeline",
+     "next_file": "03.md"
+    },
+    {
+     "skill": "incident-response",
+     "name": "Incident response and post-mortems",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "boss:2",
+     "next_title": "Boss: incident drill",
+     "next_file": "BOSS-2.md"
+    },
+    {
+     "skill": "python",
+     "name": "Python scripting",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:6",
+     "next_title": "Uptime monitor",
+     "next_file": "06.md"
+    },
+    {
+     "skill": "tls",
+     "name": "TLS and certificates",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:2",
+     "next_title": "DNS and TLS",
+     "next_file": "02.md"
+    }
+   ],
+   "strengths": [],
+   "next_step": {
+    "id": "mission:1",
+    "title": "First commit",
+    "file": "01.md"
+   }
+  },
+  {
+   "id": "it-support-l2",
+   "title_it": "IT support L2",
+   "title_en": "IT support L2",
+   "score_0_100": 0,
+   "certs_typical": [
+    "CompTIA A+",
+    "CompTIA Network+"
+   ],
+   "english_min": "A2",
+   "salary_range_it": [
+    22,
+    27
+   ],
+   "axes": [
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "short": "Linux CLI",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "ip-addressing",
+     "name": "IP addressing and subnetting",
+     "short": "Subnetting",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "short": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "account-security",
+     "name": "Account security and MFA",
+     "short": "Accounts/MFA",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "endpoint-security",
+     "name": "Endpoint security",
+     "short": "Endpoint",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "security-awareness",
+     "name": "Phishing and privacy awareness",
+     "short": "Awareness",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "backup",
+     "name": "Backup and restore",
+     "short": "Backup",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "technical-writing",
+     "name": "Technical writing",
+     "short": "Writing",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "incident-response",
+     "name": "Incident response and post-mortems",
+     "short": "Incidents",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "presenting",
+     "name": "Presenting and explaining",
+     "short": "Presenting",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "short": "English (w)",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    }
+   ],
+   "gaps": [
+    {
+     "skill": "account-security",
+     "name": "Account security and MFA",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "track:shield:2",
+     "next_title": "Two-factor on everything that matters",
+     "next_file": "SHIELD.md"
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:2",
+     "next_title": "DNS and TLS",
+     "next_file": "02.md"
+    },
+    {
+     "skill": "endpoint-security",
+     "name": "Endpoint security",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "track:shield:6",
+     "next_title": "Lock the laptop",
+     "next_file": "SHIELD.md"
+    },
+    {
+     "skill": "incident-response",
+     "name": "Incident response and post-mortems",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "boss:2",
+     "next_title": "Boss: incident drill",
+     "next_file": "BOSS-2.md"
+    },
+    {
+     "skill": "ip-addressing",
+     "name": "IP addressing and subnetting",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:8",
+     "next_title": "CCNA in public",
+     "next_file": "08.md"
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:5",
+     "next_title": "Local workstation",
+     "next_file": "05.md"
+    },
+    {
+     "skill": "technical-writing",
+     "name": "Technical writing",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:7",
+     "next_title": "First lab note",
+     "next_file": "07.md"
+    },
+    {
+     "skill": "backup",
+     "name": "Backup and restore",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:12",
+     "next_title": "Backup and restore drill",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "track:voice:1",
+     "next_title": "Weekly changelog in English",
+     "next_file": "VOICE.md"
+    },
+    {
+     "skill": "presenting",
+     "name": "Presenting and explaining",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "boss:3",
+     "next_title": "Boss: the interview",
+     "next_file": "BOSS-3.md"
+    },
+    {
+     "skill": "security-awareness",
+     "name": "Phishing and privacy awareness",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "track:shield:7",
+     "next_title": "Phishing and social engineering",
+     "next_file": "SHIELD.md"
+    }
+   ],
+   "strengths": [],
+   "next_step": {
+    "id": "mission:1",
+    "title": "First commit",
+    "file": "01.md"
+   }
+  },
+  {
+   "id": "cloud-network-junior",
+   "title_it": "Cloud/network engineer junior",
+   "title_en": "Junior cloud network engineer",
+   "score_0_100": 0,
+   "certs_typical": [
+    "AWS Cloud Practitioner",
+    "AZ-900",
+    "CCNA"
+   ],
+   "english_min": "B1",
+   "salary_range_it": [
+    26,
+    32
+   ],
+   "axes": [
+    {
+     "skill": "ip-addressing",
+     "name": "IP addressing and subnetting",
+     "short": "Subnetting",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "routing",
+     "name": "Routing, static and dynamic",
+     "short": "Routing",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "cloud-fundamentals",
+     "name": "Cloud fundamentals",
+     "short": "Cloud basics",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "cloud-networking",
+     "name": "Cloud networking",
+     "short": "Cloud network",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "ratio": 0.0
+    },
+    {
+     "skill": "iac",
+     "name": "Infrastructure as code",
+     "short": "IaC",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "zero-trust",
+     "name": "Zero Trust access",
+     "short": "Zero Trust",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "vpn",
+     "name": "VPN and tunnels",
+     "short": "VPN",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "short": "Linux CLI",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "git",
+     "name": "Git and GitHub",
+     "short": "Git",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "python",
+     "name": "Python scripting",
+     "short": "Python",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "short": "English (w)",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    }
+   ],
+   "gaps": [
+    {
+     "skill": "cloud-networking",
+     "name": "Cloud networking",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "next_mission": "mission:18",
+     "next_title": "VPC by hand",
+     "next_file": "LIVELLO-6.md"
+    },
+    {
+     "skill": "cloud-fundamentals",
+     "name": "Cloud fundamentals",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "mission:17",
+     "next_title": "Cloud fundamentals cert",
+     "next_file": "LIVELLO-6.md"
+    },
+    {
+     "skill": "iac",
+     "name": "Infrastructure as code",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "mission:19",
+     "next_title": "Terraform",
+     "next_file": "LIVELLO-6.md"
+    },
+    {
+     "skill": "ip-addressing",
+     "name": "IP addressing and subnetting",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "mission:8",
+     "next_title": "CCNA in public",
+     "next_file": "08.md"
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "track:voice:1",
+     "next_title": "Weekly changelog in English",
+     "next_file": "VOICE.md"
+    },
+    {
+     "skill": "git",
+     "name": "Git and GitHub",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:3",
+     "next_title": "The pipeline",
+     "next_file": "03.md"
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:5",
+     "next_title": "Local workstation",
+     "next_file": "05.md"
+    },
+    {
+     "skill": "routing",
+     "name": "Routing, static and dynamic",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:13",
+     "next_title": "Containerlab: OSPF and BGP",
+     "next_file": "LIVELLO-5.md"
+    },
+    {
+     "skill": "vpn",
+     "name": "VPN and tunnels",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:20",
+     "next_title": "Cloudflare Tunnel and Access",
+     "next_file": "LIVELLO-6.md"
+    },
+    {
+     "skill": "zero-trust",
+     "name": "Zero Trust access",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:20",
+     "next_title": "Cloudflare Tunnel and Access",
+     "next_file": "LIVELLO-6.md"
+    },
+    {
+     "skill": "python",
+     "name": "Python scripting",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:6",
+     "next_title": "Uptime monitor",
+     "next_file": "06.md"
+    }
+   ],
+   "strengths": [],
+   "next_step": {
+    "id": "mission:1",
+    "title": "First commit",
+    "file": "01.md"
+   }
+  },
+  {
+   "id": "soc-l1",
+   "title_it": "Analista SOC L1",
+   "title_en": "SOC analyst L1",
+   "score_0_100": 0,
+   "certs_typical": [
+    "CompTIA Security+",
+    "CCNA"
+   ],
+   "english_min": "B1",
+   "salary_range_it": [
+    24,
+    30
+   ],
+   "axes": [
+    {
+     "skill": "packet-analysis",
+     "name": "Packet analysis",
+     "short": "Packets",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "firewall",
+     "name": "Firewalls and segmentation",
+     "short": "Firewall",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "short": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "http",
+     "name": "HTTP and web infrastructure",
+     "short": "HTTP",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "web-hardening",
+     "name": "Web hardening",
+     "short": "Web hardening",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "account-security",
+     "name": "Account security and MFA",
+     "short": "Accounts/MFA",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "secrets-hygiene",
+     "name": "Secrets hygiene",
+     "short": "Secrets",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "security-awareness",
+     "name": "Phishing and privacy awareness",
+     "short": "Awareness",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "incident-response",
+     "name": "Incident response and post-mortems",
+     "short": "Incidents",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "short": "Linux CLI",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "monitoring",
+     "name": "Monitoring and alerting",
+     "short": "Monitoring",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "technical-writing",
+     "name": "Technical writing",
+     "short": "Writing",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "short": "English (w)",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    }
+   ],
+   "gaps": [
+    {
+     "skill": "incident-response",
+     "name": "Incident response and post-mortems",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "boss:2",
+     "next_title": "Boss: incident drill",
+     "next_file": "BOSS-2.md"
+    },
+    {
+     "skill": "packet-analysis",
+     "name": "Packet analysis",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "mission:7",
+     "next_title": "First lab note",
+     "next_file": "07.md"
+    },
+    {
+     "skill": "security-awareness",
+     "name": "Phishing and privacy awareness",
+     "have": 0,
+     "need": 2,
+     "weight": 4,
+     "next_mission": "track:shield:7",
+     "next_title": "Phishing and social engineering",
+     "next_file": "SHIELD.md"
+    },
+    {
+     "skill": "account-security",
+     "name": "Account security and MFA",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "track:shield:2",
+     "next_title": "Two-factor on everything that matters",
+     "next_file": "SHIELD.md"
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "track:voice:1",
+     "next_title": "Weekly changelog in English",
+     "next_file": "VOICE.md"
+    },
+    {
+     "skill": "firewall",
+     "name": "Firewalls and segmentation",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:14",
+     "next_title": "Firewall and segmentation",
+     "next_file": "LIVELLO-5.md"
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:5",
+     "next_title": "Local workstation",
+     "next_file": "05.md"
+    },
+    {
+     "skill": "monitoring",
+     "name": "Monitoring and alerting",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:6",
+     "next_title": "Uptime monitor",
+     "next_file": "06.md"
+    },
+    {
+     "skill": "secrets-hygiene",
+     "name": "Secrets hygiene",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "track:shield:8",
+     "next_title": "Secrets never in git",
+     "next_file": "SHIELD.md"
+    },
+    {
+     "skill": "technical-writing",
+     "name": "Technical writing",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:7",
+     "next_title": "First lab note",
+     "next_file": "07.md"
+    },
+    {
+     "skill": "web-hardening",
+     "name": "Web hardening",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:4",
+     "next_title": "Security headers",
+     "next_file": "04.md"
+    },
+    {
+     "skill": "dns",
+     "name": "DNS",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:2",
+     "next_title": "DNS and TLS",
+     "next_file": "02.md"
+    },
+    {
+     "skill": "http",
+     "name": "HTTP and web infrastructure",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:4",
+     "next_title": "Security headers",
+     "next_file": "04.md"
+    }
+   ],
+   "strengths": [],
+   "next_step": {
+    "id": "mission:1",
+    "title": "First commit",
+    "file": "01.md"
+   }
+  },
+  {
+   "id": "network-automation-junior",
+   "title_it": "Network automation junior",
+   "title_en": "Junior network automation engineer",
+   "score_0_100": 0,
+   "certs_typical": [
+    "CCNA",
+    "DevNet Associate"
+   ],
+   "english_min": "B1",
+   "salary_range_it": [
+    26,
+    33
+   ],
+   "axes": [
+    {
+     "skill": "python",
+     "name": "Python scripting",
+     "short": "Python",
+     "have": 0,
+     "need": 3,
+     "weight": 5,
+     "ratio": 0.0
+    },
+    {
+     "skill": "network-automation",
+     "name": "Network automation",
+     "short": "Net automation",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "ratio": 0.0
+    },
+    {
+     "skill": "git",
+     "name": "Git and GitHub",
+     "short": "Git",
+     "have": 0,
+     "need": 3,
+     "weight": 4,
+     "ratio": 0.0
+    },
+    {
+     "skill": "ci-cd",
+     "name": "CI/CD and deployment",
+     "short": "CI/CD",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "ansible",
+     "name": "Configuration management",
+     "short": "Ansible",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "source-of-truth",
+     "name": "Source of truth and documentation systems",
+     "short": "Source of truth",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "routing",
+     "name": "Routing, static and dynamic",
+     "short": "Routing",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "switching-vlan",
+     "name": "Switching and VLANs",
+     "short": "VLANs",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "short": "Linux CLI",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    },
+    {
+     "skill": "containers",
+     "name": "Containers",
+     "short": "Containers",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "ratio": 0.0
+    },
+    {
+     "skill": "llm-api",
+     "name": "Calling LLM APIs",
+     "short": "LLM API",
+     "have": 0,
+     "need": 2,
+     "weight": 1,
+     "ratio": 0.0
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "short": "English (w)",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "ratio": 0.0
+    }
+   ],
+   "gaps": [
+    {
+     "skill": "python",
+     "name": "Python scripting",
+     "have": 0,
+     "need": 3,
+     "weight": 5,
+     "next_mission": "mission:15",
+     "next_title": "Network automation",
+     "next_file": "LIVELLO-5.md"
+    },
+    {
+     "skill": "git",
+     "name": "Git and GitHub",
+     "have": 0,
+     "need": 3,
+     "weight": 4,
+     "next_mission": "mission:15",
+     "next_title": "Network automation",
+     "next_file": "LIVELLO-5.md"
+    },
+    {
+     "skill": "network-automation",
+     "name": "Network automation",
+     "have": 0,
+     "need": 2,
+     "weight": 5,
+     "next_mission": "mission:15",
+     "next_title": "Network automation",
+     "next_file": "LIVELLO-5.md"
+    },
+    {
+     "skill": "ansible",
+     "name": "Configuration management",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:11",
+     "next_title": "Ansible for the lab",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "ci-cd",
+     "name": "CI/CD and deployment",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:3",
+     "next_title": "The pipeline",
+     "next_file": "03.md"
+    },
+    {
+     "skill": "english-written",
+     "name": "Written English",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "track:voice:1",
+     "next_title": "Weekly changelog in English",
+     "next_file": "VOICE.md"
+    },
+    {
+     "skill": "linux-cli",
+     "name": "Linux command line",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:5",
+     "next_title": "Local workstation",
+     "next_file": "05.md"
+    },
+    {
+     "skill": "routing",
+     "name": "Routing, static and dynamic",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:13",
+     "next_title": "Containerlab: OSPF and BGP",
+     "next_file": "LIVELLO-5.md"
+    },
+    {
+     "skill": "source-of-truth",
+     "name": "Source of truth and documentation systems",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:16",
+     "next_title": "NetBox and monitoring",
+     "next_file": "LIVELLO-5.md"
+    },
+    {
+     "skill": "switching-vlan",
+     "name": "Switching and VLANs",
+     "have": 0,
+     "need": 2,
+     "weight": 3,
+     "next_mission": "mission:9",
+     "next_title": "Proxmox lab",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "containers",
+     "name": "Containers",
+     "have": 0,
+     "need": 2,
+     "weight": 2,
+     "next_mission": "mission:10",
+     "next_title": "Docker basics",
+     "next_file": "LIVELLO-4.md"
+    },
+    {
+     "skill": "llm-api",
+     "name": "Calling LLM APIs",
+     "have": 0,
+     "need": 2,
+     "weight": 1,
+     "next_mission": "track:mind:7",
+     "next_title": "Your first API call",
+     "next_file": "MIND.md"
+    }
+   ],
+   "strengths": [],
+   "next_step": {
+    "id": "mission:1",
+    "title": "First commit",
+    "file": "01.md"
+   }
+  }
+ ],
+ "skills": [
+  {
+   "id": "ai-assisted-work",
+   "name": "AI-assisted technical work",
+   "short": "AI at work",
+   "family": "ai",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "ai-data-hygiene",
+   "name": "Data hygiene with AI tools",
+   "short": "AI hygiene",
+   "family": "ai",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "llm-api",
+   "name": "Calling LLM APIs",
+   "short": "LLM API",
+   "family": "ai",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "llm-fundamentals",
+   "name": "How language models work",
+   "short": "LLM basics",
+   "family": "ai",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "ansible",
+   "name": "Configuration management",
+   "short": "Ansible",
+   "family": "automation",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "bash",
+   "name": "Bash scripting",
+   "short": "Bash",
+   "family": "automation",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "iac",
+   "name": "Infrastructure as code",
+   "short": "IaC",
+   "family": "automation",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "network-automation",
+   "name": "Network automation",
+   "short": "Net automation",
+   "family": "automation",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "python",
+   "name": "Python scripting",
+   "short": "Python",
+   "family": "automation",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "source-of-truth",
+   "name": "Source of truth and documentation systems",
+   "short": "Source of truth",
+   "family": "automation",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "cloud-fundamentals",
+   "name": "Cloud fundamentals",
+   "short": "Cloud basics",
+   "family": "cloud",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "cloud-networking",
+   "name": "Cloud networking",
+   "short": "Cloud network",
+   "family": "cloud",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "zero-trust",
+   "name": "Zero Trust access",
+   "short": "Zero Trust",
+   "family": "cloud",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "community",
+   "name": "Community participation",
+   "short": "Community",
+   "family": "communication",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "english-spoken",
+   "name": "Spoken English",
+   "short": "English (s)",
+   "family": "communication",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "english-written",
+   "name": "Written English",
+   "short": "English (w)",
+   "family": "communication",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "presenting",
+   "name": "Presenting and explaining",
+   "short": "Presenting",
+   "family": "communication",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "technical-writing",
+   "name": "Technical writing",
+   "short": "Writing",
+   "family": "communication",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "interviewing",
+   "name": "Interviewing",
+   "short": "Interviews",
+   "family": "hiring",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "job-search",
+   "name": "Job search method",
+   "short": "Job search",
+   "family": "hiring",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "negotiation",
+   "name": "Evaluating and negotiating offers",
+   "short": "Offers",
+   "family": "hiring",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "personal-brand",
+   "name": "Professional profile and portfolio",
+   "short": "Profile",
+   "family": "hiring",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "dns",
+   "name": "DNS",
+   "short": "DNS",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "firewall",
+   "name": "Firewalls and segmentation",
+   "short": "Firewall",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "http",
+   "name": "HTTP and web infrastructure",
+   "short": "HTTP",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "ip-addressing",
+   "name": "IP addressing and subnetting",
+   "short": "Subnetting",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "network-design",
+   "name": "Network design and documentation",
+   "short": "Net design",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "packet-analysis",
+   "name": "Packet analysis",
+   "short": "Packets",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "routing",
+   "name": "Routing, static and dynamic",
+   "short": "Routing",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "switching-vlan",
+   "name": "Switching and VLANs",
+   "short": "VLANs",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "tls",
+   "name": "TLS and certificates",
+   "short": "TLS",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "vpn",
+   "name": "VPN and tunnels",
+   "short": "VPN",
+   "family": "network",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "account-security",
+   "name": "Account security and MFA",
+   "short": "Accounts/MFA",
+   "family": "security",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "endpoint-security",
+   "name": "Endpoint security",
+   "short": "Endpoint",
+   "family": "security",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "secrets-hygiene",
+   "name": "Secrets hygiene",
+   "short": "Secrets",
+   "family": "security",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "security-awareness",
+   "name": "Phishing and privacy awareness",
+   "short": "Awareness",
+   "family": "security",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "web-hardening",
+   "name": "Web hardening",
+   "short": "Web hardening",
+   "family": "security",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "backup",
+   "name": "Backup and restore",
+   "short": "Backup",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "ci-cd",
+   "name": "CI/CD and deployment",
+   "short": "CI/CD",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "containers",
+   "name": "Containers",
+   "short": "Containers",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "git",
+   "name": "Git and GitHub",
+   "short": "Git",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "incident-response",
+   "name": "Incident response and post-mortems",
+   "short": "Incidents",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "linux-cli",
+   "name": "Linux command line",
+   "short": "Linux CLI",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "monitoring",
+   "name": "Monitoring and alerting",
+   "short": "Monitoring",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "ssh",
+   "name": "SSH and keys",
+   "short": "SSH",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  },
+  {
+   "id": "virtualization",
+   "name": "Virtualization",
+   "short": "Virtualization",
+   "family": "systems",
+   "level": 0,
+   "last_evidence": null,
+   "verified": null,
+   "sources": []
+  }
+ ],
+ "items": [
+  {
+   "id": "mission:1",
+   "kind": "mission",
+   "title": "First commit",
+   "done": false,
+   "verified": true,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:2",
+   "kind": "mission",
+   "title": "DNS and TLS",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:3",
+   "kind": "mission",
+   "title": "The pipeline",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:4",
+   "kind": "mission",
+   "title": "Security headers",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file site/_headers"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:5",
+   "kind": "mission",
+   "title": "Local workstation",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:6",
+   "kind": "mission",
+   "title": "Uptime monitor",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file monitor/check.py",
+    "file .github/workflows/uptime.yml"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:7",
+   "kind": "mission",
+   "title": "First lab note",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 1 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:8",
+   "kind": "mission",
+   "title": "CCNA in public",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file site/ccna/index.html",
+    "almeno 2 commit su site/ccna/index.html (trovati 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:9",
+   "kind": "mission",
+   "title": "Proxmox lab",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 2 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:10",
+   "kind": "mission",
+   "title": "Docker basics",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 3 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:11",
+   "kind": "mission",
+   "title": "Ansible for the lab",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 1 file lab/**/*.yml (trovati 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:12",
+   "kind": "mission",
+   "title": "Backup and restore drill",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 4 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:13",
+   "kind": "mission",
+   "title": "Containerlab: OSPF and BGP",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 5 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:14",
+   "kind": "mission",
+   "title": "Firewall and segmentation",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 6 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:15",
+   "kind": "mission",
+   "title": "Network automation",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:16",
+   "kind": "mission",
+   "title": "NetBox and monitoring",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 7 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:17",
+   "kind": "mission",
+   "title": "Cloud fundamentals cert",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:18",
+   "kind": "mission",
+   "title": "VPC by hand",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 8 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:19",
+   "kind": "mission",
+   "title": "Terraform",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "mission:20",
+   "kind": "mission",
+   "title": "Cloudflare Tunnel and Access",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 9 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "boss:1",
+   "kind": "boss",
+   "title": "Boss: the /now page",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file site/now/index.html",
+    "voce di menu \"Now\""
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "boss:2",
+   "kind": "boss",
+   "title": "Boss: incident drill",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 1 incidenti con post-mortem (trovati 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "boss:3",
+   "kind": "boss",
+   "title": "Boss: the interview",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "boss:4",
+   "kind": "boss",
+   "title": "Boss: rebuild in one hour",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "boss:5",
+   "kind": "boss",
+   "title": "Boss: the outage",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 2 incidenti con post-mortem (trovati 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "boss:6",
+   "kind": "boss",
+   "title": "Boss: home to cloud",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:shield:1",
+   "kind": "track",
+   "title": "Password manager",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:shield:2",
+   "kind": "track",
+   "title": "Two-factor on everything that matters",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:shield:3",
+   "kind": "track",
+   "title": "Professional email on Proton",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:shield:4",
+   "kind": "track",
+   "title": "Harden the GitHub account",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:shield:5",
+   "kind": "track",
+   "title": "Signed commits",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:shield:6",
+   "kind": "track",
+   "title": "Lock the laptop",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:shield:7",
+   "kind": "track",
+   "title": "Phishing and social engineering",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 1 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:shield:8",
+   "kind": "track",
+   "title": "Secrets never in git",
+   "done": false,
+   "verified": true,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:shield:9",
+   "kind": "track",
+   "title": "Your public footprint",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:mind:1",
+   "kind": "track",
+   "title": "How a language model works",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 1 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:mind:2",
+   "kind": "track",
+   "title": "claude.ai, set up for learning",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:mind:3",
+   "kind": "track",
+   "title": "Ask, then verify",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file hire/verifiche.md"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:mind:4",
+   "kind": "track",
+   "title": "What never goes in a prompt",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 1 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:mind:5",
+   "kind": "track",
+   "title": "Prompting for real work",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file hire/prompts.md"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:mind:6",
+   "kind": "track",
+   "title": "AI for networking",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 2 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:mind:7",
+   "kind": "track",
+   "title": "Your first API call",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:mind:8",
+   "kind": "track",
+   "title": "AI in the interview",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file hire/questions.md"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:1",
+   "kind": "track",
+   "title": "Weekly changelog in English",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:2",
+   "kind": "track",
+   "title": "Two minutes, audio only",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:3",
+   "kind": "track",
+   "title": "Ask a good question in public",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:4",
+   "kind": "track",
+   "title": "Answer someone else",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:5",
+   "kind": "track",
+   "title": "Five-minute walkthrough on video",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:6",
+   "kind": "track",
+   "title": "Fifteen minutes in English",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:7",
+   "kind": "track",
+   "title": "One meetup, one person",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:8",
+   "kind": "track",
+   "title": "Explain it to someone who is not technical",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 1 note di lab (trovate 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:9",
+   "kind": "track",
+   "title": "Lightning talk",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:voice:10",
+   "kind": "track",
+   "title": "Mock interview in English",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:hire:1",
+   "kind": "track",
+   "title": "LinkedIn that matches the site",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:hire:2",
+   "kind": "track",
+   "title": "Ten job posts, decoded",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file hire/annunci.md"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:hire:3",
+   "kind": "track",
+   "title": "Story bank",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file hire/stories.md"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:hire:4",
+   "kind": "track",
+   "title": "Three CV versions",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "almeno 3 file hire/*.pdf (trovati 0)"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:hire:5",
+   "kind": "track",
+   "title": "Application cadence",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file hire/applications.csv"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:hire:6",
+   "kind": "track",
+   "title": "Recruiter call",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "track:hire:7",
+   "kind": "track",
+   "title": "Technical interview drills",
+   "done": false,
+   "verified": false,
+   "missing": [
+    "file hire/questions.md"
+   ],
+   "last_evidence": null
+  },
+  {
+   "id": "track:hire:8",
+   "kind": "track",
+   "title": "The offer",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  }
+ ]
+}
