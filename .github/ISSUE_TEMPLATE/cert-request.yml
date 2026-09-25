@@ -1,0 +1,51 @@
+name: Richiesta a Stefano (certificazione, loot, hardware)
+description: Chiedi una certificazione, riscatta un loot o chiedi un pezzo di hardware. Stefano riceve la notifica da GitHub.
+title: "Cert: "
+labels: ["cert-request"]
+assignees: ["sga95"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Compila tutti i campi. Il pulsante sul sito precompila tipo e oggetto: controlla che siano giusti.
+        Quando Stefano chiude la issue con la label `granted`, lo stato sul sito cambia da solo.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Tipo di richiesta
+      options:
+        - certificazione
+        - loot
+        - hardware
+      default: 0
+    validations:
+      required: true
+  - type: input
+    id: item
+    attributes:
+      label: Cosa chiedi
+      description: L'id della certificazione (come in data/certs.yaml), il boss del loot o l'oggetto hardware.
+      placeholder: ccna
+    validations:
+      required: true
+  - type: textarea
+    id: why_now
+    attributes:
+      label: Perché adesso
+      description: Cosa hai chiuso sul percorso che rende questa richiesta sensata oggi.
+    validations:
+      required: true
+  - type: input
+    id: when
+    attributes:
+      label: Quando vuoi fare l'esame (o quando ti serve)
+      placeholder: "entro il 2027-01-31"
+    validations:
+      required: true
+  - type: textarea
+    id: prep
+    attributes:
+      label: Cosa hai già fatto per prepararti
+      description: Corsi gratuiti finiti, note di lab, quiz, ore. Link dove possibile.
+    validations:
+      required: true

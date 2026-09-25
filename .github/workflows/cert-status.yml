@@ -1,0 +1,56 @@
+name: cert status
+
+# Una issue "Richiesta a Stefano" di tipo certificazione:
+#   aperta                          -> stato "requested"
+#   chiusa con la label "granted"   -> stato "granted"
+# Aggiorna data/certs-status.json, rigenera site/data/certs.json e committa su main.
+# "passed" non passa da qui: lo mette Alberto con il badge in site/certs/proof/ (engine-build lo legge).
+
+on:
+  issues:
+    types: [opened, closed, labeled]
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  update:
+    if: contains(github.event.issue.labels.*.name, 'cert-request')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Decide the state
+        id: state
+        env:
+          ACTION: ${{ github.event.action }}
+          STATE: ${{ github.event.issue.state }}
+          LABELS: ${{ join(github.event.issue.labels.*.name, ',') }}
+        run: |
+          if [ "$ACTION" = "opened" ]; then echo "value=requested" >> "$GITHUB_OUTPUT"; exit 0; fi
+          if [ "$STATE" = "closed" ] && echo ",$LABELS," | grep -q ",granted,"; then echo "value=granted" >> "$GITHUB_OUTPUT"; exit 0; fi
+          echo "value=" >> "$GITHUB_OUTPUT"
+      - name: Update status
+        if: steps.state.outputs.value != ''
+        env:
+          BODY: ${{ github.event.issue.body }}
+        run: |
+          printf '%s' "$BODY" > /tmp/issue.md
+          pip install --quiet pyyaml
+          python3 tools/cert_status.py --body /tmp/issue.md --state "${{ steps.state.outputs.value }}"
+          python3 engine/core/render.py
+      - name: Commit
+        if: steps.state.outputs.value != ''
+        run: |
+          git config user.name "engine-bot"
+          git config user.email "engine-bot@users.noreply.github.com"
+          git add data/certs-status.json site/data/certs.json site/data/readiness.json site/readiness/index.html
+          if git diff --cached --quiet; then echo "nothing changed"; else
+            git commit -m "Update certification status from issue #${{ github.event.issue.number }} [engine]"
+            git push
+          fi

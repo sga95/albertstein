@@ -4,6 +4,13 @@ La tua materia, fatta come si fa in azienda. Containerlab gira su una VM Linux e
 
 ---
 
+## Gratis, prima
+
+- Missione 13: [Jeremy's IT Lab, giorni su OSPF](https://www.youtube.com/playlist?list=PLhTW6Fulbw1Tqaa9cTEpAZo86TCO6xfYS) e [Containerlab docs con i lab di esempio](https://containerlab.dev/lab-examples/lab-examples/): parti dal lab a due router.
+- Missione 14: [documentazione OPNsense](https://docs.opnsense.org/) e [Practical Networking su NAT](https://www.practicalnetworking.net/series/nat/nat/).
+- Missione 15: [documentazione Netmiko](https://github.com/ktbyers/netmiko) e [tutorial Nornir](https://nornir.readthedocs.io/en/latest/tutorial/index.html); Python da [Exercism](https://exercism.org/tracks/python) se serve.
+- Missione 16: [NetBox docs](https://docs.netbox.dev/) e la [demo pubblica di NetBox](https://demo.netbox.dev/); [documentazione LibreNMS](https://docs.librenms.org/) per SNMP.
+
 ## 13. Containerlab: OSPF e BGP
 
 Topologia con 4 router: due aree OSPF, poi due AS collegati in eBGP. Guarda le tabelle, spegni un link, guarda come converge, misura quanto ci mette. Ripeti con BGP.

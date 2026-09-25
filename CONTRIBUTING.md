@@ -98,6 +98,14 @@ dalla colonna 5 alla 30. Di solito è un tag non chiuso o un attributo scritto m
 `site/data/site.json` e `site/THEME.md`. Testi comuni, voci di menu, colori, font e sezioni da mostrare
 si cambiano lì, senza toccare HTML o CSS. Quando vuoi toccarli, sono tuoi: `THEME.md` spiega ogni token.
 
+## Certificazioni
+
+Il catalogo è `data/certs.yaml` (prerequisiti, costo, dove studiare gratis); lo stato delle richieste è
+`data/certs-status.json`. `make engine` li fonde in `site/data/certs.json`, che la pagina `/certs` legge insieme a
+`progress.json` per decidere se una certificazione è `locked` o `ready`. Il pulsante "Ask Stefano" apre una issue
+dal template `.github/ISSUE_TEMPLATE/cert-request.yml`; il workflow `cert-status.yml` mette `requested` all'apertura
+e `granted` quando la issue viene chiusa con la label `granted`. `passed` arriva da un file `site/certs/proof/<id>.*`.
+
 ## Il file che nessuno tocca per te
 
 `site/data/progress.json` lo modifica solo Alberto. Gli strumenti lo leggono, non lo scrivono mai:

@@ -1,0 +1,4 @@
+{
+  "_comment": "Stato delle richieste di certificazione. Lo aggiorna Stefano (o il workflow cert-status.yml alla chiusura di una issue cert-request con label granted). passed lo mette Alberto insieme al badge in site/certs/proof/.",
+  "status": {}
+}

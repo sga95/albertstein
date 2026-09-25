@@ -8,6 +8,13 @@ Regola di tutto il binario, la stessa di `INIZIA-QUI.md`: il codice lo scrivi tu
 
 ---
 
+## Gratis, prima
+
+- M1: [Andrej Karpathy, "Intro to Large Language Models"](https://www.youtube.com/watch?v=zjkBMFhNj_g): un'ora, in inglese, la spiegazione migliore che c'è. Poi [3Blue1Brown sui transformer](https://www.youtube.com/watch?v=wjZofJX0v4M) se vuoi vedere dentro.
+- M2 e M5: [Anthropic, tutorial interattivo di prompt engineering](https://github.com/anthropics/prompt-eng-interactive-tutorial) e la [documentazione ufficiale sul prompting](https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview): gratis; i notebook si leggono anche senza eseguirli.
+- M7: [documentazione API Anthropic, "Get started"](https://docs.anthropic.com/en/api/getting-started): la pagina da leggere prima di scrivere lo script.
+- Panoramica: [Google AI Essentials su Coursera](https://www.coursera.org/learn/google-ai-essentials), in audit se il tuo account lo permette.
+
 ## M1. Come funziona un modello di linguaggio
 
 Un modello di linguaggio non "sa" le cose: prevede la parola più probabile dopo quelle che ha davanti. Lavora su **token** (pezzi di parola), dentro un **contesto** limitato (quello che c'è nella conversazione, e basta), e sceglie tra alternative con una **probabilità**. Per questo può inventare un comando che non esiste con la stessa sicurezza con cui scrive uno vero: per lui è solo una sequenza plausibile. Leggi una spiegazione seria (la guida di Anthropic su come funzionano i modelli, o un video di 3Blue1Brown sui transformer) e poi fai la prova: chiedi a claude.ai un'opzione di `ip` o di `show` che non esiste, con tono convinto, e guarda cosa succede. Poi chiedigli di verificare quello che ha detto.

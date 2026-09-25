@@ -8,6 +8,12 @@ Regola: se un passo ti blocca per più di due settimane, fanne una versione più
 
 ---
 
+## Gratis, prima
+
+- V1 e V3: [BBC Learning English](https://www.bbc.co.uk/learningenglish): sei minuti al giorno, gratis. [Coursera, "English for Career Development"](https://www.coursera.org/learn/careerdevelopment) in audit (scegli "Full course, no certificate").
+- V2, V5 e V9: [TED con trascrizioni](https://www.ted.com/talks): ascolta con il testo, poi senza. [Toastmasters, materiali gratuiti](https://www.toastmasters.org/resources/public-speaking-tips) per struttura e ritmo di un talk.
+- V3 e V4: la pagina [How to ask a good question](https://stackoverflow.com/help/how-to-ask) di Stack Overflow: la forma della domanda tecnica, in inglese.
+
 ## V1. Changelog settimanale in inglese
 
 Ogni domenica un file `site/now/changelog.html` (o una sezione in /now): 3-5 righe in inglese su cosa hai fatto quella settimana sul sito e nei lab. Frasi corte, tempo passato, niente aggettivi. Quattro domeniche di fila.

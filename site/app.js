@@ -12,6 +12,7 @@
 //   [data-tracks]          parallel tracks: Voice, Hire (progress page)
 //   [data-earned]          skills and badges earned so far (cv page)
 //   [data-incidents]       post-mortems list (progress page)
+//   [data-certs]           certification catalogue with prerequisites and status (certs page)
 // Alberto: you do not need to touch this file. Edit data/progress.json instead.
 
 // Unlock rule, kept as a pure function so tools/lib/progress.py can be tested against it.
@@ -110,7 +111,29 @@ function applySite(site, base) {
   });
 }
 
-if (typeof module !== "undefined" && module.exports) { module.exports = { unlockStatus }; }
+// Certification status, pure so it can be tested from Node.
+// Returns { state, missing } where state is one of
+// "passed" | "granted" | "requested" | "ready" | "locked" and missing lists the prerequisites not done yet.
+// A prerequisite is "mission:N", "boss:N" or "track:ID:N" (same ids as data/evidence-rules.yaml).
+function certStatus(cert, statusMap, data) {
+  const missions = data.missions || [];
+  const tiers = data.tiers || [];
+  const tracks = data.tracks || [];
+  const label = ref => {
+    const [kind, a, b] = ref.split(":");
+    if (kind === "mission") { const m = missions.find(x => String(x.n) === a); return { done: !!(m && m.done), title: m ? `Mission ${m.n}: ${m.title}` : ref }; }
+    if (kind === "boss") { const t = tiers.find(x => String(x.id) === a); return { done: !!(t && t.boss.done), title: t ? t.boss.title : ref }; }
+    if (kind === "track") { const t = tracks.find(x => x.id === a); const st = t && t.steps.find(x => String(x.n) === b); return { done: !!(st && st.done), title: st ? `${t.name} ${b}: ${st.title}` : ref }; }
+    return { done: false, title: ref };
+  };
+  const prereqs = (cert.prereq_steps || []).map(label);
+  const missing = prereqs.filter(x => !x.done).map(x => x.title);
+  const manual = (statusMap || {})[cert.id];
+  if (manual === "passed" || manual === "granted" || manual === "requested") return { state: manual, missing };
+  return { state: missing.length ? "locked" : "ready", missing };
+}
+
+if (typeof module !== "undefined" && module.exports) { module.exports = { unlockStatus, certStatus }; }
 
 if (typeof document !== "undefined") (async function () {
   const base = document.body.dataset.root || "./";
@@ -119,7 +142,7 @@ if (typeof document !== "undefined") (async function () {
     if (!res.ok) throw new Error(res.status + " " + res.statusText);
     return res.json();
   };
-  const [siteRes, progressRes] = await Promise.allSettled([fetchJson("site.json"), fetchJson("progress.json")]);
+  const [siteRes, progressRes, certsRes] = await Promise.allSettled([fetchJson("site.json"), fetchJson("progress.json"), fetchJson("certs.json")]);
   if (siteRes.status === "fulfilled") {
     try { applySite(siteRes.value, base); } catch (e) { console.error("Could not apply site.json", e); }
   } else {
@@ -216,6 +239,37 @@ if (typeof document !== "undefined") (async function () {
       ...bossesDone.map(t => `<li class="badge">${t.boss.badge}</li>`)
     ];
     el.innerHTML = lines.length ? lines.join("") : `<li class="empty">Nothing yet. The first line appears when mission 1 is done.</li>`;
+  });
+
+  document.querySelectorAll("[data-certs]").forEach(el => {
+    if (certsRes.status !== "fulfilled") { el.innerHTML = `<li class="empty-state">Could not load certs.json.</li>`; return; }
+    const certs = certsRes.value.certs || [];
+    const statusMap = certsRes.value.status || {};
+    const issueUrl = cert => repo
+      ? `${repo}/issues/new?template=cert-request.yml&labels=cert-request&title=${encodeURIComponent("Cert: " + cert.name)}&kind=${encodeURIComponent("certificazione")}&item=${encodeURIComponent(cert.id)}`
+      : null;
+    const esc = t => String(t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+    const order = { ready: 0, requested: 1, granted: 2, passed: 3, locked: 4 };
+    const rows = certs.map(c => ({ c, s: certStatus(c, statusMap, data) }))
+      .sort((a, b) => order[a.s.state] - order[b.s.state] || a.c.name.localeCompare(b.c.name));
+    el.innerHTML = rows.map(({ c, s }) => {
+      const study = (c.study_free || []).map(u => `<a href="${esc(u)}">${esc(new URL(u).hostname.replace(/^www\./, ""))}</a>`).join(", ");
+      const prereq = s.missing.length
+        ? `Unlocks after: ${s.missing.map(esc).join("; ")}`
+        : (c.prereq_steps || []).length ? "Prerequisites done." : "No prerequisites.";
+      const action = s.state === "ready" && issueUrl(c)
+        ? `<a class="button" href="${issueUrl(c)}">Ask Stefano</a>`
+        : s.state === "passed" ? `<span class="skill">Passed. Proof in certs/proof/.</span>`
+        : s.state === "granted" ? `<span class="skill">Granted: book the exam.</span>`
+        : s.state === "requested" ? `<span class="skill">Requested, waiting for Stefano.</span>` : "";
+      return `<li class="cert ${s.state}">
+        <span class="n mono">${esc(c.cost_eur)}&#8364;</span>
+        <span><strong>${esc(c.name)}</strong> <span class="mono cert-vendor">${esc(c.vendor)} &middot; ${esc(c.kind)}</span><br>${esc(c.why)}<br><span class="cert-study">Study free: ${study || "see the sheet"}</span></span>
+        <span class="status">${s.state}</span>
+        <span class="skill">${prereq}</span>
+        <span class="cert-action">${action}</span>
+      </li>`;
+    }).join("") || `<li class="empty-state">No certifications in the catalogue yet.</li>`;
   });
 
   document.querySelectorAll("[data-incidents]").forEach(el => {

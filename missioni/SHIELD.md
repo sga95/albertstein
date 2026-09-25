@@ -4,6 +4,15 @@ Nove passi. Si fanno **prima** di tutto il resto, nella prima settimana: da qui 
 
 ---
 
+## Gratis, prima
+
+- S1 e S2: [Bitwarden Help Center](https://bitwarden.com/help/) (guida a master password, generatore, 2FA) e [Proton learning center](https://proton.me/blog/category/privacy-guides) per capire cosa protegge cosa.
+- S3: [Proton Mail, guida introduttiva](https://proton.me/support/mail).
+- S4 e S5: [GitHub Docs, "Securing your account"](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa) e ["Signing commits"](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits).
+- S7: [TryHackMe, percorso "Pre Security"](https://tryhackme.com/path/outline/presecurity) (gratuito) e il [Google Phishing Quiz](https://phishingquiz.withgoogle.com/).
+- S8: [documentazione gitleaks](https://github.com/gitleaks/gitleaks) e [GitHub Docs, "Removing sensitive data"](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository): leggi il secondo prima che serva.
+- S9: [Have I Been Pwned](https://haveibeenpwned.com/).
+
 ## S1. Password manager
 
 Installa Bitwarden (gratuito, open source) su PC e telefono. Master password: una frase di 4-5 parole a caso che ricordi, tipo `cavallo-lampada-nove-vento`, mai usata altrove. Poi, uno alla volta, cambia le password di: email, GitHub, Cloudflare, LinkedIn, banca, Amazon, social. Ogni password generata dal manager, lunga, unica. Metti in Bitwarden anche le domande di sicurezza (risposte inventate e salvate).
