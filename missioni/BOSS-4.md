@@ -4,7 +4,7 @@ Nessun passo.
 
 ## Situazione
 
-Tuo fratello ti dice "vai". Da quel momento hai un'ora per: cancellare tutte le VM del lab, ricrearle da zero (Proxmox + Ansible), rimettere in piedi le VLAN, il router, i tre servizi Docker, e verificare che tutto funzioni. Niente backup: solo codice e runbook.
+Stefano ti dice "vai". Da quel momento hai un'ora per: cancellare tutte le VM del lab, ricrearle da zero (Proxmox + Ansible), rimettere in piedi le VLAN, il router, i tre servizi Docker, e verificare che tutto funzioni. Niente backup: solo codice e runbook.
 
 ## È battuto quando
 

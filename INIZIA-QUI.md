@@ -28,14 +28,14 @@ In parallelo, quattro **binari** che non dipendono dai livelli:
 
 E poi:
 
-- **Incidenti** (dal Livello 2): qualcosa si rompe per mano di tuo fratello, senza preavviso. Il tuo monitor ti avvisa, tu risolvi e scrivi un post-mortem (`POSTMORTEM-template.md`).
+- **Incidenti** (dal Livello 2): qualcosa si rompe per mano di Stefano, senza preavviso. Il tuo monitor ti avvisa, tu risolvi e scrivi un post-mortem (`POSTMORTEM-template.md`).
 - **Side quest** (`SIDE-QUESTS.md`): extra opzionali, ognuna vale una nota di lab.
 
 ## Il progresso lo sblocchi solo tu
 
 `site/data/progress.json`: `"done": true` sulla missione, sul passo del binario o sul boss. Il sito si aggiorna da solo: barra, livello, righe nel CV, badge.
 
-Quel file è tuo per contratto: sei il suo code owner (`.github/CODEOWNERS`), nessuna modifica passa senza la tua approvazione, nemmeno di tuo fratello, e un controllo automatico rifiuta cambiamenti fatti da altri account. Dal passo S5 i tuoi commit sono firmati: chi legge il repo vede che sei stato tu. Questo è il motivo per cui il CV sul sito vale: nessuno può scriverci una skill al posto tuo.
+Quel file è tuo per contratto: sei il suo code owner (`.github/CODEOWNERS`), nessuna modifica passa senza la tua approvazione, nemmeno di Stefano, e un controllo automatico rifiuta cambiamenti fatti da altri account. Dal passo S5 i tuoi commit sono firmati: chi legge il repo vede che sei stato tu. Questo è il motivo per cui il CV sul sito vale: nessuno può scriverci una skill al posto tuo.
 
 ## Le tre regole
 

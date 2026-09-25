@@ -8,7 +8,7 @@ Una pagina `albertstein.link/now/` che dice cosa stai facendo adesso: cosa studi
 
 ## Vincoli
 
-- Deve arrivare online tramite una pull request, revisionata e approvata da tuo fratello (lo aggiungi come reviewer). Niente merge senza la sua approvazione.
+- Deve arrivare online tramite una pull request, revisionata e approvata da Stefano (lo aggiungi come reviewer). Niente merge senza la sua approvazione.
 - Il preview della PR deve funzionare prima che lui la guardi.
 - Almeno un commento suo nella review deve aver cambiato qualcosa nel tuo codice.
 

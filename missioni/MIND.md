@@ -78,6 +78,6 @@ Uno script Python di 30 righe che chiama l'API Anthropic e riassume una nota di 
 
 Prima o poi chiedono "usi l'AI?". La risposta giusta dura 60 secondi e ha quattro pezzi: sì; come (tutor con regole, verifica su fonti, mai dati sensibili); con quali limiti (inventa comandi, non conosce la tua rete, non sostituisce il manuale); un esempio vero (M6: dove ha aiutato e dove ha sbagliato). Niente entusiasmo, niente paura: è uno strumento, come Wireshark. Scrivila, provala a voce, cronometrala.
 
-**Fatta quando:** la risposta di 60 secondi esiste scritta in `hire/questions.md`, e l'hai provata con tuo fratello che ha fatto il recruiter e ti ha fatto una domanda di seguito a cui hai risposto.
+**Fatta quando:** la risposta di 60 secondi esiste scritta in `hire/questions.md`, e l'hai provata con Stefano che ha fatto il recruiter e ti ha fatto una domanda di seguito a cui hai risposto.
 
 **Riga CV:** Can explain responsible AI use to an employer

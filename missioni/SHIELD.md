@@ -56,7 +56,7 @@ Cifratura del disco (BitLocker su Windows, LUKS su Linux, FileVault su Mac). Agg
 
 ## S7. Phishing
 
-Fai un corso breve e gratuito (Google "phishing quiz", il modulo gratuito di Proton o di Cisco NetAcad su security basics). Poi le regole tue, scritte in una nota di lab: non cliccare da mail, aprire il sito da solo; controllare il dominio vero nel link; allegati Office con macro mai; urgenza e paura sono il segnale; chiamare indietro a un numero che conosci, non a quello nel messaggio. Tuo fratello ti manderà un phishing finto nei prossimi mesi. Non ti dirà quando.
+Fai un corso breve e gratuito (Google "phishing quiz", il modulo gratuito di Proton o di Cisco NetAcad su security basics). Poi le regole tue, scritte in una nota di lab: non cliccare da mail, aprire il sito da solo; controllare il dominio vero nel link; allegati Office con macro mai; urgenza e paura sono il segnale; chiamare indietro a un numero che conosci, non a quello nel messaggio. Stefano ti manderà un phishing finto nei prossimi mesi. Non ti dirà quando.
 
 **Fatta quando:** la nota è online e hai fatto 10 su 10 a un quiz.
 

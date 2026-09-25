@@ -4,7 +4,7 @@ Nessun passo. Questo boss non lo lanci tu: ti arriva addosso.
 
 ## Come funziona
 
-Da quando la missione 6 è chiusa, tuo fratello ha il permesso di rompere qualcosa sul sito o sulla sua infrastruttura, quando vuole, senza dirti cosa. Possono essere i DNS, un file, una regola su Cloudflare, il monitor stesso.
+Da quando la missione 6 è chiusa, Stefano ha il permesso di rompere qualcosa sul sito o sulla sua infrastruttura, quando vuole, senza dirti cosa. Possono essere i DNS, un file, una regola su Cloudflare, il monitor stesso.
 
 Il tuo monitor apre una issue. Da quel momento parte il tempo.
 
@@ -23,7 +23,7 @@ Il tuo monitor apre una issue. Da quel momento parte il tempo.
 ## È battuto quando
 
 - Sito ripristinato e post-mortem online.
-- Tuo fratello legge il post-mortem e conferma che hai trovato la causa vera, non un sintomo.
+- Stefano legge il post-mortem e conferma che hai trovato la causa vera, non un sintomo.
 
 ## Badge
 
