@@ -52,7 +52,9 @@ def _path_order(item: Item) -> tuple:
     if item.kind == "boss":
         # il boss viene dopo l'ultima missione del livello; approssimazione: dopo la missione 3*id
         return (0, item.n * 100, 1)
-    return (1, {"shield": 0, "mind": 1, "voice": 2, "hire": 3}.get(item.track, 9), item.n)
+    if item.kind == "track":
+        return (1, {"shield": 0, "mind": 1, "voice": 2, "hire": 3, "pi": 4}.get(item.track, 9), item.n)
+    return (2 if item.kind == "quest" else 3, item.n, 0)
 
 
 def next_item_for(skill: str, need: int, items: list[Item]) -> Item | None:

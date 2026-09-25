@@ -166,3 +166,33 @@ tracks:
     6: {evidence: [{manual: chiamate}], attests: {interviewing: 2, english-spoken: 2}}
     7: {evidence: [{file: hire/questions.md}], attests: {interviewing: 3, ip-addressing: 2, routing: 2}}
     8: {evidence: [{manual: contratto firmato}], attests: {negotiation: 3}}
+
+# Quest (opzionali): done sta nella lista "quests" di progress.json. La prova è una nota di lab con l'id nel nome.
+quests:
+  real-traffic: {evidence: [{lab_note: real-traffic}], attests: {packet-analysis: 2, dns: 2, tls: 2}}
+  site-from-elsewhere: {evidence: [{lab_note: site-from-elsewhere}], attests: {web-hardening: 2, http: 2}}
+  tunnel: {evidence: [{lab_note: tunnel}], attests: {vpn: 2, packet-analysis: 2}}
+  monitor-grows: {evidence: [{lab_note: monitor-grows}], attests: {monitoring: 3, python: 2, tls: 2}}
+  static-generator: {evidence: [{lab_note: static-generator}], attests: {ci-cd: 3, git: 2}}
+  honeypot: {evidence: [{lab_note: honeypot}], attests: {security-awareness: 2, linux-cli: 2, incident-response: 1}}
+  game-server: {evidence: [{lab_note: game-server}], attests: {virtualization: 2, firewall: 2, monitoring: 2}}
+  netcode: {evidence: [{lab_note: netcode}], attests: {packet-analysis: 2}}
+  lag-lab: {evidence: [{lab_note: lag-lab}], attests: {linux-cli: 2, network-design: 1}}
+  speedrun: {evidence: [{lab_note: speedrun}], attests: {git: 2}}
+  subnet-sprint: {evidence: [{lab_note: subnet-sprint}], attests: {ip-addressing: 2}}
+  bandit-20: {evidence: [{lab_note: bandit}], attests: {linux-cli: 2, bash: 2}}
+  advent-of-code: {evidence: [{lab_note: advent-of-code}], attests: {python: 2}}
+  picoctf: {evidence: [{lab_note: picoctf}], attests: {security-awareness: 2, packet-analysis: 2}}
+  weekly-puzzle: {evidence: [{lab_note: puzzle}], attests: {routing: 1, linux-cli: 1}}
+  uptime-lamp: {evidence: [{lab_note: uptime-lamp}], attests: {python: 2, monitoring: 2}}
+  latency-sensor: {evidence: [{lab_note: latency-sensor}], attests: {python: 2, monitoring: 2}}
+  pihole: {evidence: [{lab_note: pihole}], attests: {dns: 3, linux-cli: 2}}
+  network-tap: {evidence: [{lab_note: network-tap}], attests: {packet-analysis: 3, network-design: 2}}
+  how-it-really-works: {evidence: [{lab_note: how-it-really-works}], attests: {technical-writing: 2, network-design: 1}}
+  radio: {evidence: [{lab_note: radio}], attests: {network-design: 1, linux-cli: 2}}
+  reading-log: {evidence: [{lab_note: book}], attests: {technical-writing: 2}}
+
+# Certificazioni: "passed" (file in site/certs/proof/) vale livello 3 su tutte le skill dei ruoli della certificazione
+# (data/certs.yaml -> roles -> data/roles.yaml -> skills). Nessuna regola qui: la deriva scan.py.
+certs:
+  passed_level: 3

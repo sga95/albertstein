@@ -2850,6 +2850,87 @@
    "verified": null,
    "missing": [],
    "last_evidence": null
+  },
+  {
+   "id": "cert:ccna",
+   "kind": "cert",
+   "title": "Cisco CCNA 200-301",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "cert:network-plus",
+   "kind": "cert",
+   "title": "CompTIA Network+",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "cert:security-plus",
+   "kind": "cert",
+   "title": "CompTIA Security+",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "cert:aws-ccp",
+   "kind": "cert",
+   "title": "AWS Certified Cloud Practitioner",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "cert:az-900",
+   "kind": "cert",
+   "title": "Microsoft Azure Fundamentals AZ-900",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "cert:lfca",
+   "kind": "cert",
+   "title": "Linux Foundation Certified IT Associate (LFCA) or LPIC-1",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "cert:terraform-associate",
+   "kind": "cert",
+   "title": "HashiCorp Terraform Associate",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "cert:thm-premium",
+   "kind": "cert",
+   "title": "TryHackMe Premium (one year) or Hack The Box Academy voucher",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
+  },
+  {
+   "id": "cert:udemy-course",
+   "kind": "cert",
+   "title": "A Udemy course of choice (paid course category)",
+   "done": false,
+   "verified": null,
+   "missing": [],
+   "last_evidence": null
   }
  ]
 }

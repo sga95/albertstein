@@ -65,6 +65,8 @@ def item_link(item_id: str | None, title: str | None, file: str | None, repo: st
     if not item_id:
         return "nothing on the path yet"
     label = escape(title or item_id)
+    if repo and file and file.startswith("../"):
+        return f'<a href="{escape(repo)}/blob/main/{escape(file[3:])}">{label}</a>'
     if repo and file:
         return f'<a href="{escape(repo)}/blob/main/missioni/{escape(file)}">{label}</a>'
     return label
