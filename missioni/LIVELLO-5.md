@@ -23,6 +23,8 @@ Topologia con 4 router: due aree OSPF, poi due AS collegati in eBGP. Guarda le t
 
 OPNsense come VM su Proxmox, al posto del router Linux della missione 9. Tre zone: LAN, lab, DMZ. Regole con logging: la DMZ non parla con la LAN, il lab esce solo su porte scelte. NAT per uscire. Prova a violare ogni regola e leggi i log.
 
+Se hai già fatto P9 di `PI.md` (il Pi come router, con nftables), qui ripeti lo stesso disegno con OPNsense: confronta le due configurazioni nella nota.
+
 **Fatta quando:** ogni regola ha una prova (un comando che viene bloccato e la riga di log corrispondente) nella nota di lab.
 
 **Riga CV:** OPNsense firewall, VLAN segmentation, NAT, rules with logging
@@ -38,6 +40,8 @@ Python con Netmiko, poi Nornir: uno script che si collega a tutti i router del l
 ## 16. NetBox e monitoring
 
 NetBox in Docker: tutti i device, le interfacce, le VLAN, gli IP del lab. Poi l'automazione della missione 15 legge l'inventario da NetBox invece che da un file. LibreNMS che monitora i router via SNMP: grafici di traffico, alert se un link va giù.
+
+L'inventario di P5 e il cruscotto di P6 (`PI.md`) sono il punto di partenza: NetBox importa quel YAML, LibreNMS legge lo stesso Pi via SNMP.
 
 **Fatta quando:** NetBox è la fonte unica, uno script la usa, e LibreNMS ti ha mandato almeno un alert vero.
 

@@ -168,6 +168,20 @@
           "items": {
             "$ref": "#/$defs/step"
           }
+        },
+        "requires": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "boss": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "mission": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
         }
       }
     },

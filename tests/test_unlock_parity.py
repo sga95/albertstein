@@ -48,3 +48,11 @@ def test_python_matches_app_js_on_every_single_step(fixtures):
         variants.append(d)
     for data in variants:
         assert progress.unlock_status(data) == js_status(data)
+
+
+@pytest.mark.skipif(NODE is None, reason="node non installato")
+def test_sealed_track_matches_app_js():
+    data = progress.load()  # il binario pi ha requires: boss 1
+    assert progress.unlock_status(data) == js_status(data)
+    data["tiers"][0]["boss"]["done"] = True
+    assert progress.unlock_status(data) == js_status(data)

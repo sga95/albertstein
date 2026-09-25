@@ -19,10 +19,11 @@ Sei livelli. Ogni livello ha delle missioni e finisce con un **boss**: un compit
 | 5 | Network engineer | 13-16 (`LIVELLO-5.md`) | Il guasto |
 | 6 | Cloud | 17-20 (`LIVELLO-6.md`) | Da casa al cloud |
 
-In parallelo, quattro **binari** che non dipendono dai livelli:
+In parallelo, cinque **binari** che non dipendono dai livelli:
 
 - **Shield** (`SHIELD.md`): la tua sicurezza. Si fa per primo.
 - **Mind** (`MIND.md`): l'AI come strumento, non come scorciatoia. Otto passi, da come funziona un modello a come ne parli a un colloquio. Si fa subito dopo Shield.
+- **Pi** (`PI.md`): parte quando batti il Boss 1 e ricevi il Raspberry. Prima puoi leggere P1-P3 e preparare la microSD. Quindici progetti in casa e un boss.
 - **Voice** (`VOICE.md`): comunicazione e inglese. Dieci passi, dal changelog scritto al colloquio parlato in inglese. Costruito per partire in silenzio.
 - **Hire** (`HIRE.md`): LinkedIn, annunci, storie, CV mirati, candidature, colloqui, offerta.
 
@@ -45,7 +46,7 @@ Le **certificazioni** stanno in `/certs`: ognuna ha dei prerequisiti (missioni, 
 
 ## Quest
 
-Sono in `QUESTS.md`, divise per passione. Non bloccano niente. Quando ne inizi una, aggiungila alla lista `quests` di `progress.json` (`{ "id": "lag-lab", "title": "Lag lab", "done": false }`): la home la mostra come "Now playing". Quando finisce, `done: true` e la nota di lab. Alcune quest diventano un passo del binario Pi quando arriva il Raspberry (loot del Boss 1). `make quiz` è il subnetting sprint; `/puzzle` è il rompicapo della settimana scritto da Stefano.
+Sono in `QUESTS.md`, divise per passione. Non bloccano niente. Quando ne inizi una, aggiungila alla lista `quests` di `progress.json` (`{ "id": "lag-lab", "title": "Lag lab", "done": false }`): la home la mostra come "Now playing". Quando finisce, `done: true` e la nota di lab. Alcune quest diventano un passo del binario Pi quando arriva il Raspberry (loot del Boss 1). L'hardware che serve è in `/gear`: si chiede da lì, con la stessa issue. `make quiz` è il subnetting sprint; `/puzzle` è il rompicapo della settimana scritto da Stefano.
 
 ## Le tre regole
 

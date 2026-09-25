@@ -139,6 +139,7 @@ dl.skills dd { margin: 0; }
 .earned { padding-left: 0; list-style: none; }
 .earned li { padding: 0.5rem 0 0.5rem 1rem; border-left: 3px solid var(--accent); margin: 0.35rem 0; }
 .earned li.track-mind { border-left-color: var(--ink); }
+.earned li.track-pi { border-left-color: #c0392b; }
 .earned li.track-voice { border-left-color: var(--sky); }
 .earned li.track-hire { border-left-color: var(--ink-soft); }
 .earned li.badge { border-left-color: var(--navy); }
@@ -166,6 +167,13 @@ ol.missions li.cert.ready .status { background: var(--accent); border-color: var
 ol.missions li.cert.passed .status { background: var(--navy); border-color: var(--navy); color: #fff; }
 ol.missions li.cert.granted .status, ol.missions li.cert.requested .status { border-color: var(--navy); color: var(--navy); }
 ol.missions li.cert.locked { opacity: 0.7; }
+
+/* ---------- sealed track ---------- */
+.tier.sealed { border-style: dashed; background: transparent; }
+.tier.sealed h2, .tier.sealed .tier-line { color: var(--ink-soft); }
+.tier.sealed .sealed-line { color: var(--navy); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.tier.sealed .track-progress .cell { border-color: var(--line); }
+.tier.sealed ol.missions li { opacity: 0.5; }
 
 /* ---------- quests, puzzle, reading, codex ---------- */
 ol.missions .loot { grid-column: 2; }

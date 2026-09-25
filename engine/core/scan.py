@@ -117,6 +117,16 @@ class Checker:
                 if d and (date_ is None or d[0] > date_):
                     date_ = d[0]
             return bool(notes), f"una nota di lab con \"{key}\" nel nome", date_
+        if "lab_note_image" in rule:
+            key = rule["lab_note_image"].lower()
+            notes = [p for p in lab_notes(self.site / "lab") if key in p.name.lower()]
+            with_img = [p for p in notes if "<img" in p.read_text(encoding="utf-8")]
+            date_ = None
+            for p in with_img:
+                d = _git_dates(f"site/lab/{p.name}", self.root)
+                if d and (date_ is None or d[0] > date_):
+                    date_ = d[0]
+            return bool(with_img), f"una nota di lab con \"{key}\" nel nome e almeno un'immagine", date_
         if "incidents" in rule:
             inc = self.progress.get("incidents", [])
             n = rule["incidents"]

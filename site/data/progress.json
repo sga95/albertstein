@@ -58,6 +58,24 @@
       { "n": 7, "title": "Your first API call", "done": false, "skill": "Called an LLM API from Python with secure key handling" },
       { "n": 8, "title": "AI in the interview", "done": false, "skill": "Can explain responsible AI use to an employer" }
     ] },
+    { "id": "pi", "name": "Pi", "line": "One small computer, the whole home network. Unlocks with Boss 1.", "file": "PI.md", "requires": { "boss": 1 }, "steps": [
+      { "n": 1, "title": "First boot, no monitor", "done": false, "skill": "Headless Linux server setup and hardening" },
+      { "n": 2, "title": "The watchman at home", "done": false, "skill": "Scheduled jobs with systemd timers, internal vs external monitoring" },
+      { "n": 3, "title": "The uptime lamp", "done": false, "skill": "GPIO control from Python, physical status indicators" },
+      { "n": 4, "title": "Pi-hole: the home DNS", "done": false, "skill": "Running a home DNS resolver with filtering and recursive upstream" },
+      { "n": 5, "title": "Who is home", "done": false, "skill": "Network discovery, asset inventory, change alerts" },
+      { "n": 6, "title": "Latency and bandwidth dashboard", "done": false, "skill": "Metrics and dashboards with Prometheus and Grafana, ISP performance evidence" },
+      { "n": 7, "title": "VPN home", "done": false, "skill": "WireGuard VPN deployment and verification" },
+      { "n": 8, "title": "The probe", "done": false, "skill": "Passive network monitoring with tcpdump, tshark and Zeek or ntopng" },
+      { "n": 9, "title": "The Pi as a router", "done": false, "skill": "Linux as a router: NAT, DHCP, nftables, VLAN tagging" },
+      { "n": 10, "title": "Honeypot", "done": false, "skill": "Honeypot deployment and attack log analysis" },
+      { "n": 11, "title": "Backups with tested restore", "done": false, "skill": "Encrypted backups with restic, tested restores, self-hosted git mirror" },
+      { "n": 12, "title": "Sensors and MQTT", "done": false, "skill": "MQTT, IoT sensors, securing a broker with TLS" },
+      { "n": 13, "title": "The desk board", "done": false, "skill": "Small display projects: fetching JSON and rendering status" },
+      { "n": 14, "title": "Game and radio", "done": false, "skill": "Hosting a multiplayer game server or software-defined radio basics" },
+      { "n": 15, "title": "Pi in a box", "done": false, "skill": "Reproducible server from code with Ansible" },
+      { "n": 16, "title": "Boss: the Pi is the network", "done": false, "skill": "Ran home network services on a Raspberry Pi for a weekend, under attack" }
+    ] },
     { "id": "voice", "name": "Voice", "line": "Communication and English. Starts in writing, ends out loud.", "file": "VOICE.md", "steps": [
       { "n": 1, "title": "Weekly changelog in English", "done": false, "skill": "Written English: weekly technical updates" },
       { "n": 2, "title": "Two minutes, audio only", "done": false, "skill": "Explaining technical work out loud" },

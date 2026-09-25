@@ -6,7 +6,7 @@ Learning path of Alberto Galliani in networking and IT: missions, tracks, lab no
 - `site/data/progress.json` drives the progress bar, the mission list and the "earned" section of the CV. Only Alberto edits it.
 - `site/data/site.json` holds the common texts, menu, colors and fonts. See `site/THEME.md`.
 - `missioni/` contains the guided steps (in Italian). Start from `INIZIA-QUI.md`.
-- `data/` holds what Alberto wants (`me.yaml`), the skill taxonomy, the role profiles, the evidence rules, the certification catalogue (`certs.yaml`), the quests (`quests.yaml`), the boss rewards (`loot.yaml`) and the weekly puzzles (`puzzles.yaml`). `engine/core/` turns them, plus `progress.json` and the repo, into the generated files in `site/data/` and the `/readiness` page. See `engine/BRIEF.md`.
+- `data/` holds what Alberto wants (`me.yaml`), the skill taxonomy, the role profiles, the evidence rules, the certification catalogue (`certs.yaml`), the quests (`quests.yaml`), the boss rewards (`loot.yaml`), the hardware (`hardware.yaml`) and the weekly puzzles (`puzzles.yaml`). `engine/core/` turns them, plus `progress.json` and the repo, into the generated files in `site/data/` and the `/readiness` page. See `engine/BRIEF.md`.
 
 ## Pages
 
@@ -19,6 +19,7 @@ Learning path of Alberto Galliani in networking and IT: missions, tracks, lab no
 | `/quests/` | Optional quests by passion, state from `progress.json` |
 | `/readiness/` | Generated: readiness per target role, skill levels, verified or not |
 | `/certs/` | Certification catalogue, prerequisites, "Ask Stefano" when ready |
+| `/gear/` | Hardware for the path, in kits, askable when a step that uses it is open |
 | `/puzzle/`, `/reading/`, `/codex/` | Weekly puzzle, reading log, glossary. In the menu once they have content |
 
 ## Commands
