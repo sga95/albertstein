@@ -24,8 +24,12 @@ jobs:
         run: python3 tools/check.py --no-secrets
       - name: pytest
         run: |
-          pip install --quiet pytest
-          python3 -m pytest -q tests
+          pip install --quiet pytest pyyaml
+          python3 -m pytest -q tests engine/tests
+      - name: readiness up to date
+        run: |
+          python3 engine/core/render.py --today "$(python3 -c 'import json;print(json.load(open("site/data/readiness.json"))["generated_at"])')"
+          git diff --exit-code -- site/data/readiness.json site/readiness/index.html || { echo "::error::site/data/readiness.json o site/readiness/index.html non aggiornati: lancia make engine e committa"; exit 1; }
 
   html:
     name: HTML valido

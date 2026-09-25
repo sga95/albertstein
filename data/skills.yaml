@@ -1,0 +1,486 @@
+# Tassonomia delle skill. Livelli 0-4 con descrizioni osservabili:
+#   0 nessuna evidenza
+#   1 ha fatto una volta, seguendo istruzioni
+#   2 lo fa da solo su un caso semplice e lo sa spiegare
+#   3 lo fa su un caso reale, con problemi, e lo documenta
+#   4 lo insegna o lo automatizza per altri
+# short: etichetta corta per il radar (max 15 caratteri)
+# evidence: tipi di prova ammessi (commit, lab-note, post-mortem, cert, talk, reviewed-pr, file, manual).
+# family: network | systems | cloud | automation | security | communication | hiring | ai
+
+skills:
+  # ---------- network ----------
+  - id: ip-addressing
+    name: IP addressing and subnetting
+    short: Subnetting
+    family: network
+    levels:
+      1: "Calcola una subnet con un tool"
+      2: "Fa subnetting a mano e spiega maschera, gateway, broadcast"
+      3: "Progetta il piano di indirizzi di un lab con più VLAN"
+      4: "Rivede piani di indirizzamento altrui"
+    evidence: [lab-note, commit]
+  - id: switching-vlan
+    name: Switching and VLANs
+    short: VLANs
+    family: network
+    levels:
+      1: "Configura una VLAN seguendo una guida"
+      2: "Configura VLAN e trunk e verifica con show"
+      3: "Segmenta un lab reale con VLAN e routing tra VLAN"
+      4: "Diagnostica problemi di STP e trunk in tempo limitato"
+    evidence: [lab-note, commit]
+  - id: routing
+    name: Routing, static and dynamic
+    short: Routing
+    family: network
+    levels:
+      1: "Aggiunge una rotta statica"
+      2: "Spiega la tabella di routing e configura OSPF single area"
+      3: "OSPF e BGP in un lab multi-router con test di guasto"
+      4: "Diagnostica un guasto multi-router sotto tempo"
+    evidence: [lab-note, post-mortem]
+  - id: dns
+    name: DNS
+    short: DNS
+    family: network
+    levels:
+      1: "Sa cos'è un record A"
+      2: "Gestisce una zona reale: CNAME, proxy, TTL, flattening"
+      3: "Diagnostica un problema DNS con dig e log"
+      4: "Progetta DNS per più ambienti"
+    evidence: [commit, lab-note, post-mortem]
+  - id: tls
+    name: TLS and certificates
+    short: TLS
+    family: network
+    levels:
+      1: "Riconosce un certificato valido nel browser"
+      2: "Spiega catena, scadenza, HSTS e redirect HTTPS"
+      3: "Gestisce certificati su un servizio reale"
+      4: "Automatizza il rinnovo"
+    evidence: [commit, lab-note]
+  - id: http
+    name: HTTP and web infrastructure
+    short: HTTP
+    family: network
+    levels:
+      1: "Legge uno status code"
+      2: "Usa curl per header, redirect e cache"
+      3: "Configura reverse proxy e header di sicurezza"
+      4: "Diagnostica problemi HTTP in produzione"
+    evidence: [commit, lab-note]
+  - id: firewall
+    name: Firewalls and segmentation
+    short: Firewall
+    family: network
+    levels:
+      1: "Sa cos'è una regola allow/deny"
+      2: "Scrive regole con logging su un firewall di lab"
+      3: "Segmenta una rete reale con NAT e regole provate"
+      4: "Rivede policy di firewall altrui"
+    evidence: [lab-note]
+  - id: packet-analysis
+    name: Packet analysis
+    short: Packets
+    family: network
+    levels:
+      1: "Apre una cattura in Wireshark"
+      2: "Segue un flusso DNS + HTTP e spiega i pacchetti"
+      3: "Usa tcpdump e Wireshark per trovare un guasto"
+      4: "Scrive filtri complessi e insegna ad altri"
+    evidence: [lab-note, post-mortem]
+  - id: network-design
+    name: Network design and documentation
+    short: Net design
+    family: network
+    levels:
+      1: "Disegna una topologia semplice"
+      2: "Documenta un lab con schema e piano indirizzi"
+      3: "Progetta e ricostruisce un lab completo da codice"
+      4: "Progetta reti per altri"
+    evidence: [lab-note, commit]
+  - id: vpn
+    name: VPN and tunnels
+    short: VPN
+    family: network
+    levels:
+      1: "Usa una VPN"
+      2: "Configura WireGuard o un tunnel tra due host"
+      3: "Collega casa e cloud in modo cifrato e documentato"
+      4: "Gestisce VPN per più utenti"
+    evidence: [lab-note]
+
+  # ---------- systems ----------
+  - id: linux-cli
+    name: Linux command line
+    short: Linux CLI
+    family: systems
+    levels:
+      1: "Naviga il filesystem"
+      2: "Usa editor, permessi, processi, log e ssh ogni giorno"
+      3: "Amministra VM Linux: servizi, rete, pacchetti, troubleshooting"
+      4: "Scrive tool per altri amministratori"
+    evidence: [commit, lab-note]
+  - id: git
+    name: Git and GitHub
+    short: Git
+    family: systems
+    levels:
+      1: "Fa un commit dal browser"
+      2: "Branch, PR, merge, log e diff da terminale"
+      3: "Lavora con review, branch protection e commit firmati"
+      4: "Gestisce un repo per un team"
+    evidence: [commit, reviewed-pr]
+  - id: ssh
+    name: SSH and keys
+    short: SSH
+    family: systems
+    levels:
+      1: "Si collega con password"
+      2: "Chiavi ed25519, agent, config, chiave di firma separata"
+      3: "Gestisce chiavi su più host e le ruota"
+      4: "Progetta l'accesso SSH per un team"
+    evidence: [commit, manual]
+  - id: virtualization
+    name: Virtualization
+    short: Virtualization
+    family: systems
+    levels:
+      1: "Avvia una VM"
+      2: "Proxmox con bridge, VLAN-aware e VM da template"
+      3: "Ricostruisce il lab da zero in un'ora"
+      4: "Gestisce un cluster"
+    evidence: [lab-note]
+  - id: containers
+    name: Containers
+    short: Containers
+    family: systems
+    levels:
+      1: "Esegue un container"
+      2: "Compose con più servizi e spiega la rete dei container"
+      3: "Servizi reali in container con reverse proxy e volumi"
+      4: "Orchestrazione"
+    evidence: [lab-note, commit]
+  - id: backup
+    name: Backup and restore
+    short: Backup
+    family: systems
+    levels:
+      1: "Copia file a mano"
+      2: "Backup pianificato con ripristino provato"
+      3: "Strategia di backup con runbook seguibile da altri"
+      4: "Disaster recovery provato"
+    evidence: [lab-note, commit]
+  - id: monitoring
+    name: Monitoring and alerting
+    short: Monitoring
+    family: systems
+    levels:
+      1: "Guarda un ping"
+      2: "Monitor a orario che apre alert automatici"
+      3: "SNMP, LibreNMS, alert veri e storico"
+      4: "Progetta il monitoring di un'infrastruttura"
+    evidence: [commit, lab-note]
+  - id: ci-cd
+    name: CI/CD and deployment
+    short: CI/CD
+    family: systems
+    levels:
+      1: "Sa cos'è un deploy"
+      2: "Preview per branch, branch protection, deploy da Git"
+      3: "Workflow che testano e pubblicano"
+      4: "Progetta pipeline per un team"
+    evidence: [commit, manual]
+  - id: incident-response
+    name: Incident response and post-mortems
+    short: Incidents
+    family: systems
+    levels:
+      1: "Riavvia e spera"
+      2: "Trova la causa vera e scrive un post-mortem con timeline"
+      3: "Tre incidenti diversi con regole nuove per il monitoring"
+      4: "Coordina incidenti per altri"
+    evidence: [post-mortem]
+
+  # ---------- automation ----------
+  - id: python
+    name: Python scripting
+    short: Python
+    family: automation
+    levels:
+      1: "Esegue uno script"
+      2: "Scrive script con exit code, argomenti, solo libreria standard"
+      3: "Script che parlano con API e dispositivi, con test"
+      4: "Librerie riusate da altri"
+    evidence: [commit]
+  - id: bash
+    name: Bash scripting
+    short: Bash
+    family: automation
+    levels:
+      1: "Concatena due comandi"
+      2: "Script con variabili, condizioni, exit code"
+      3: "Script robusti usati in automazione"
+      4: "Insegna ad altri"
+    evidence: [commit]
+  - id: ansible
+    name: Configuration management
+    short: Ansible
+    family: automation
+    levels:
+      1: "Esegue un playbook"
+      2: "Playbook idempotenti con inventario e README"
+      3: "Ricostruisce il lab con un comando"
+      4: "Ruoli riusati da altri"
+    evidence: [commit, lab-note]
+  - id: network-automation
+    name: Network automation
+    short: Net automation
+    family: automation
+    levels:
+      1: "Un comando via script"
+      2: "Backup notturni delle configurazioni con Netmiko"
+      3: "Cambi massivi con dry run e source of truth"
+      4: "Pipeline di rete"
+    evidence: [commit, lab-note]
+  - id: iac
+    name: Infrastructure as code
+    short: IaC
+    family: automation
+    levels:
+      1: "Legge un file Terraform"
+      2: "apply e destroy puliti, spiega lo state"
+      3: "Ambiente cloud ricostruibile da codice"
+      4: "Moduli per altri"
+    evidence: [commit, lab-note]
+  - id: source-of-truth
+    name: Source of truth and documentation systems
+    short: Source of truth
+    family: automation
+    levels:
+      1: "Un foglio di calcolo"
+      2: "NetBox popolato e usato da uno script"
+      3: "NetBox guida l'automazione"
+      4: "Progetta il modello dati"
+    evidence: [lab-note, commit]
+
+  # ---------- cloud ----------
+  - id: cloud-fundamentals
+    name: Cloud fundamentals
+    short: Cloud basics
+    family: cloud
+    levels:
+      1: "Ha aperto una console"
+      2: "Certificazione base (Cloud Practitioner o AZ-900)"
+      3: "Servizi reali configurati e collegati"
+      4: "Architettura multi-servizio"
+    evidence: [cert]
+  - id: cloud-networking
+    name: Cloud networking
+    short: Cloud network
+    family: cloud
+    levels:
+      1: "Sa cos'è una VPC"
+      2: "VPC, subnet, route table, security group a mano"
+      3: "Rete cloud collegata al lab di casa"
+      4: "Progetta reti ibride"
+    evidence: [lab-note]
+  - id: zero-trust
+    name: Zero Trust access
+    short: Zero Trust
+    family: cloud
+    levels:
+      1: "Sa cos'è"
+      2: "Servizio pubblicato via Tunnel con login Access"
+      3: "Servizio ibrido protetto con policy per utente"
+      4: "Progetta l'accesso per un'organizzazione"
+    evidence: [lab-note]
+
+  # ---------- security ----------
+  - id: account-security
+    name: Account security and MFA
+    short: Accounts/MFA
+    family: security
+    levels:
+      1: "Password diverse"
+      2: "Password manager, 2FA da app, backup code, account GitHub blindato"
+      3: "Rivede periodicamente sessioni, app e chiavi"
+      4: "Policy per altri"
+    evidence: [manual]
+  - id: secrets-hygiene
+    name: Secrets hygiene
+    short: Secrets
+    family: security
+    levels:
+      1: "Non condivide password"
+      2: "Segreti mai in git, gitleaks, rotazione dopo esposizione"
+      3: "Chiavi API in variabili d'ambiente in progetti reali"
+      4: "Gestione segreti per un team"
+    evidence: [commit, manual]
+  - id: web-hardening
+    name: Web hardening
+    short: Web hardening
+    family: security
+    levels:
+      1: "Sa cos'è HTTPS"
+      2: "Header di sicurezza con CSP provata con curl e scanner"
+      3: "Hardening di un servizio reale"
+      4: "Rivede la sicurezza di applicazioni altrui"
+    evidence: [commit, lab-note]
+  - id: endpoint-security
+    name: Endpoint security
+    short: Endpoint
+    family: security
+    levels:
+      1: "Aggiorna quando ricorda"
+      2: "Disco cifrato, aggiornamenti, blocco, backup provato"
+      3: "Stesse regole su più dispositivi"
+      4: "Policy per altri"
+    evidence: [manual]
+  - id: security-awareness
+    name: Phishing and privacy awareness
+    short: Awareness
+    family: security
+    levels:
+      1: "Non clicca a caso"
+      2: "Regole scritte, impronta pubblica controllata"
+      3: "Ha riconosciuto un phishing simulato"
+      4: "Forma altri"
+    evidence: [lab-note, manual]
+
+  # ---------- communication ----------
+  - id: technical-writing
+    name: Technical writing
+    short: Writing
+    family: communication
+    levels:
+      1: "Appunti per sé"
+      2: "Note di lab leggibili da un estraneo"
+      3: "Post-mortem e runbook seguibili da altri"
+      4: "Documentazione per un team"
+    evidence: [lab-note, post-mortem]
+  - id: english-written
+    name: Written English
+    short: English (w)
+    family: communication
+    levels:
+      1: "Legge documentazione"
+      2: "Changelog e domande tecniche in inglese"
+      3: "Risponde in community, scrive note in inglese"
+      4: "Scrive per un pubblico"
+    evidence: [commit, manual]
+  - id: english-spoken
+    name: Spoken English
+    short: English (s)
+    family: communication
+    levels:
+      1: "Capisce un video"
+      2: "Spiega un lab in inglese, registrato"
+      3: "Conversazione tecnica e colloquio in inglese"
+      4: "Presenta in inglese"
+    evidence: [manual]
+  - id: presenting
+    name: Presenting and explaining
+    short: Presenting
+    family: communication
+    levels:
+      1: "Spiega a un amico"
+      2: "Walkthrough registrato, spiegazione a non tecnici"
+      3: "Lightning talk davanti a un pubblico"
+      4: "Talk regolari"
+    evidence: [manual]
+  - id: community
+    name: Community participation
+    short: Community
+    family: communication
+    levels:
+      1: "Legge forum"
+      2: "Fa domande fatte bene in pubblico"
+      3: "Risponde ad altri, va a meetup"
+      4: "Organizza"
+    evidence: [lab-note, manual]
+
+  # ---------- hiring ----------
+  - id: personal-brand
+    name: Professional profile and portfolio
+    short: Profile
+    family: hiring
+    levels:
+      1: "Un CV"
+      2: "Sito e LinkedIn coerenti con evidenze"
+      3: "Portfolio presentato end to end"
+      4: "Riconosciuto nel settore"
+    evidence: [manual, commit]
+  - id: job-search
+    name: Job search method
+    short: Job search
+    family: hiring
+    levels:
+      1: "Manda CV a caso"
+      2: "Legge annunci, CV mirati, candidature tracciate"
+      3: "Cadenza costante con follow-up"
+      4: "Aiuta altri"
+    evidence: [file, commit]
+  - id: interviewing
+    name: Interviewing
+    short: Interviews
+    family: hiring
+    levels:
+      1: "Si presenta"
+      2: "Storie STAR, risposte da colloquio tecnico"
+      3: "Colloqui finti superati, in italiano e in inglese"
+      4: "Fa colloqui ad altri"
+    evidence: [file, manual]
+  - id: negotiation
+    name: Evaluating and negotiating offers
+    short: Offers
+    family: hiring
+    levels:
+      1: "Accetta"
+      2: "Valuta RAL, contratto, formazione e chiede"
+      3: "Ha negoziato un'offerta"
+      4: "Consiglia altri"
+    evidence: [manual]
+
+  # ---------- ai ----------
+  - id: llm-fundamentals
+    name: How language models work
+    short: LLM basics
+    family: ai
+    levels:
+      1: "Usa una chat"
+      2: "Spiega token, contesto, probabilità e allucinazioni con esempi"
+      3: "Ha documentato casi in cui il modello ha sbagliato e perché"
+      4: "Forma altri sull'uso"
+    evidence: [lab-note]
+  - id: ai-assisted-work
+    name: AI-assisted technical work
+    short: AI at work
+    family: ai
+    levels:
+      1: "Copia risposte"
+      2: "Tutor con regole, verifica su fonti, prompt strutturati"
+      3: "AI come secondo paio d'occhi in troubleshooting, con revisione"
+      4: "Definisce linee guida per un team"
+    evidence: [file, lab-note]
+  - id: ai-data-hygiene
+    name: Data hygiene with AI tools
+    short: AI hygiene
+    family: ai
+    levels:
+      1: "Non ci pensa"
+      2: "Anonimizza log e config prima di incollarli"
+      3: "Regole scritte e applicate in progetti reali"
+      4: "Policy per un team"
+    evidence: [lab-note, manual]
+  - id: llm-api
+    name: Calling LLM APIs
+    short: LLM API
+    family: ai
+    levels:
+      1: "Ha letto la documentazione"
+      2: "Script Python con chiave in variabile d'ambiente"
+      3: "Strumento con budget e test"
+      4: "Servizio per altri"
+    evidence: [commit]

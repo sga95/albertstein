@@ -1,0 +1,48 @@
+name: engine build
+
+# Su ogni push su main che cambia il progresso, i dati del motore o le note:
+# ricalcola readiness.json e la pagina /readiness e li committa (nessun LLM, nessun costo).
+# Non tocca mai site/data/progress.json.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - site/data/progress.json
+      - site/data/site.json
+      - site/lab/**
+      - data/**
+      - engine/core/**
+      - .github/workflows/engine-build.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Render readiness
+        run: |
+          pip install --quiet pyyaml
+          python3 engine/core/render.py
+      - name: Checks still pass
+        run: python3 tools/check.py --no-secrets
+      - name: Commit generated files
+        run: |
+          git config user.name "engine-bot"
+          git config user.email "engine-bot@users.noreply.github.com"
+          git add site/data/readiness.json site/readiness/index.html
+          if git diff --cached --quiet; then
+            echo "nothing changed"
+          else
+            git commit -m "Regenerate readiness [engine]"
+            git push
+          fi

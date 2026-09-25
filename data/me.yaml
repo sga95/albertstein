@@ -1,0 +1,23 @@
+# Cosa vuole Alberto. Lo compila lui: è il primo input del motore.
+# Ogni valore qui cambia i punteggi di /readiness e, più avanti, le proposte del coach e del matcher.
+# I ruoli sono gli id in data/roles.yaml, in ordine di preferenza.
+
+target_roles:
+  - junior-network-engineer
+  - noc-analyst
+  - sysadmin-junior
+
+location: Bergamo
+remote: hybrid_ok          # onsite_only | hybrid_ok | remote_only
+languages:
+  it: native
+  en: B1                   # A2 | B1 | B2 | C1
+hours_per_week: 8
+constraints:
+  - no_shifts_first_year
+likes:
+  - networking
+  - linux
+  - security
+dislikes:
+  - helpdesk_phone

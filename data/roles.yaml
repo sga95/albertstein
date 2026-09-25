@@ -1,0 +1,144 @@
+# Profili di ruolo. Per ogni skill: weight (quanto pesa nel punteggio, 1-5) e min_level (livello atteso, 1-4).
+# salary_range_it: RAL lorda annua indicativa in Italia per un junior, in migliaia di euro (aggiornata dall'agente market).
+# english_min: livello CEFR richiesto di solito.
+
+roles:
+  - id: junior-network-engineer
+    title_it: Network engineer junior
+    title_en: Junior network engineer
+    skills:
+      ip-addressing: {weight: 5, min_level: 2}
+      switching-vlan: {weight: 5, min_level: 2}
+      routing: {weight: 5, min_level: 2}
+      dns: {weight: 3, min_level: 2}
+      firewall: {weight: 3, min_level: 2}
+      packet-analysis: {weight: 4, min_level: 2}
+      network-design: {weight: 3, min_level: 2}
+      linux-cli: {weight: 3, min_level: 2}
+      monitoring: {weight: 2, min_level: 2}
+      python: {weight: 2, min_level: 2}
+      technical-writing: {weight: 2, min_level: 2}
+      english-written: {weight: 2, min_level: 2}
+    certs_typical: [CCNA]
+    english_min: B1
+    salary_range_it: [24, 30]
+
+  - id: noc-analyst
+    title_it: Analista NOC (L1/L2)
+    title_en: NOC analyst
+    skills:
+      ip-addressing: {weight: 4, min_level: 2}
+      switching-vlan: {weight: 3, min_level: 2}
+      routing: {weight: 3, min_level: 1}
+      dns: {weight: 3, min_level: 2}
+      http: {weight: 2, min_level: 2}
+      monitoring: {weight: 5, min_level: 2}
+      incident-response: {weight: 5, min_level: 2}
+      packet-analysis: {weight: 3, min_level: 2}
+      linux-cli: {weight: 3, min_level: 2}
+      technical-writing: {weight: 3, min_level: 2}
+      english-written: {weight: 3, min_level: 2}
+      english-spoken: {weight: 2, min_level: 2}
+    certs_typical: [CCNA, CompTIA Network+]
+    english_min: B1
+    salary_range_it: [23, 28]
+
+  - id: sysadmin-junior
+    title_it: Sistemista junior
+    title_en: Junior sysadmin
+    skills:
+      linux-cli: {weight: 5, min_level: 3}
+      virtualization: {weight: 4, min_level: 2}
+      containers: {weight: 3, min_level: 2}
+      backup: {weight: 4, min_level: 2}
+      monitoring: {weight: 3, min_level: 2}
+      ansible: {weight: 3, min_level: 2}
+      bash: {weight: 3, min_level: 2}
+      python: {weight: 2, min_level: 2}
+      ssh: {weight: 3, min_level: 2}
+      dns: {weight: 2, min_level: 2}
+      tls: {weight: 2, min_level: 2}
+      git: {weight: 2, min_level: 2}
+      incident-response: {weight: 2, min_level: 2}
+    certs_typical: [LPIC-1, CompTIA Linux+]
+    english_min: A2
+    salary_range_it: [24, 30]
+
+  - id: it-support-l2
+    title_it: IT support L2
+    title_en: IT support L2
+    skills:
+      linux-cli: {weight: 3, min_level: 2}
+      ip-addressing: {weight: 3, min_level: 2}
+      dns: {weight: 3, min_level: 2}
+      account-security: {weight: 3, min_level: 2}
+      endpoint-security: {weight: 3, min_level: 2}
+      security-awareness: {weight: 2, min_level: 2}
+      backup: {weight: 2, min_level: 2}
+      technical-writing: {weight: 3, min_level: 2}
+      incident-response: {weight: 3, min_level: 2}
+      presenting: {weight: 2, min_level: 2}
+      english-written: {weight: 2, min_level: 2}
+    certs_typical: [CompTIA A+, CompTIA Network+]
+    english_min: A2
+    salary_range_it: [22, 27]
+
+  - id: cloud-network-junior
+    title_it: Cloud/network engineer junior
+    title_en: Junior cloud network engineer
+    skills:
+      ip-addressing: {weight: 4, min_level: 2}
+      routing: {weight: 3, min_level: 2}
+      cloud-fundamentals: {weight: 4, min_level: 2}
+      cloud-networking: {weight: 5, min_level: 2}
+      iac: {weight: 4, min_level: 2}
+      zero-trust: {weight: 3, min_level: 2}
+      vpn: {weight: 3, min_level: 2}
+      linux-cli: {weight: 3, min_level: 2}
+      git: {weight: 3, min_level: 2}
+      python: {weight: 2, min_level: 2}
+      english-written: {weight: 3, min_level: 2}
+    certs_typical: [AWS Cloud Practitioner, AZ-900, CCNA]
+    english_min: B1
+    salary_range_it: [26, 32]
+
+  - id: soc-l1
+    title_it: Analista SOC L1
+    title_en: SOC analyst L1
+    skills:
+      packet-analysis: {weight: 4, min_level: 2}
+      firewall: {weight: 3, min_level: 2}
+      dns: {weight: 2, min_level: 2}
+      http: {weight: 2, min_level: 2}
+      web-hardening: {weight: 3, min_level: 2}
+      account-security: {weight: 3, min_level: 2}
+      secrets-hygiene: {weight: 3, min_level: 2}
+      security-awareness: {weight: 4, min_level: 2}
+      incident-response: {weight: 4, min_level: 2}
+      linux-cli: {weight: 3, min_level: 2}
+      monitoring: {weight: 3, min_level: 2}
+      technical-writing: {weight: 3, min_level: 2}
+      english-written: {weight: 3, min_level: 2}
+    certs_typical: [CompTIA Security+, CCNA]
+    english_min: B1
+    salary_range_it: [24, 30]
+
+  - id: network-automation-junior
+    title_it: Network automation junior
+    title_en: Junior network automation engineer
+    skills:
+      python: {weight: 5, min_level: 3}
+      network-automation: {weight: 5, min_level: 2}
+      git: {weight: 4, min_level: 3}
+      ci-cd: {weight: 3, min_level: 2}
+      ansible: {weight: 3, min_level: 2}
+      source-of-truth: {weight: 3, min_level: 2}
+      routing: {weight: 3, min_level: 2}
+      switching-vlan: {weight: 3, min_level: 2}
+      linux-cli: {weight: 3, min_level: 2}
+      containers: {weight: 2, min_level: 2}
+      llm-api: {weight: 1, min_level: 2}
+      english-written: {weight: 3, min_level: 2}
+    certs_typical: [CCNA, DevNet Associate]
+    english_min: B1
+    salary_range_it: [26, 33]

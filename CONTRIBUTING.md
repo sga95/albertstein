@@ -13,6 +13,7 @@ Su Windows: usa WSL o Git Bash, oppure lancia direttamente `python3 tools/check.
 | `make note TITLE="Titolo"` | Crea `site/lab/AAAA-MM-GG-titolo.html` dal template con la data di oggi e lo mette in cima alla lista in `site/lab/index.html`. |
 | `make postmortem TITLE="Cosa si è rotto"` | Come sopra ma dal template del post-mortem. Alla fine stampa la riga da incollare in `progress.json` nella lista `incidents`. |
 | `make lab-lint` | Solo il punteggio delle note di lab, nel formato del commento in PR. |
+| `make engine` | Ricalcola `site/data/readiness.json` e la pagina `site/readiness/` dalle evidenze nel repo. Serve `pip install pyyaml`. Su `main` lo fa da solo il workflow `engine-build.yml`; in una PR che cambia `progress.json`, `data/` o le note, la CI controlla che l'output committato sia aggiornato: se dice di no, lancia `make engine` e committa. |
 | `make pdf` | Esporta il CV in `site/cv/Alberto-Galliani-CV.pdf` con lo stile di stampa. Unico comando che ha bisogno di una libreria: `pip install playwright && python3 -m playwright install chromium`. Non gira in CI. |
 
 Flusso tipico: `make serve` in un terminale, modifichi i file, ricarichi la pagina. Prima del commit: `make check`. Poi push e PR.
@@ -42,6 +43,7 @@ Su ogni PR (e su ogni push su `main`) partono quattro job, `.github/workflows/ci
    è già nella storia di git (binario Shield, passo S8).
 
 `guard-progress` è un quinto workflow, separato: controlla che `progress.json` lo cambi solo Alberto.
+`engine-build` è il sesto: gira solo su `main` e rigenera la pagina `/readiness` (nessun LLM, nessun costo).
 
 ## Come leggere un errore
 
@@ -115,6 +117,9 @@ engine/schema/              schema di progress.json e site.json
 engine/check-ignore.txt     file che possono mancare senza errore
 tests/                      pytest; tests/fixtures/ contiene progress.json in vari stati
 .github/workflows/ci.yml    i quattro job descritti sopra
+data/                       me.yaml, skills.yaml, roles.yaml, evidence-rules.yaml (il modello dati del motore)
+engine/core/                scan.py, readiness.py, render.py (deterministici, pyyaml e basta)
+engine/tests/               test del motore, con le stesse fixture di tests/
 ```
 
 `tools/lib/progress.py` replica la regola di sblocco di `site/app.js`. Il test `tests/test_unlock_parity.py`

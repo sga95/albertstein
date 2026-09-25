@@ -1,0 +1,168 @@
+# Cosa prova cosa. Per ogni missione, boss e passo dei binari:
+#   evidence: controlli che engine/core/scan.py sa fare sul repo
+#     - file: percorso che deve esistere (relativo alla radice del repo)
+#     - glob: pattern, min: N            almeno N file che corrispondono
+#     - commits: percorso, min: N        almeno N commit che toccano quel percorso
+#     - html_contains: pagina, text: T   la pagina contiene quel testo
+#     - nav: etichetta                   voce presente nel menu (site/data/site.json)
+#     - lab_notes: N                     almeno N note in site/lab/ (index e template esclusi)
+#     - incidents: N                     almeno N voci in "incidents" di progress.json
+#     - manual: motivo                   non verificabile dal repo: vale la parola di Alberto
+#   attests: skill -> livello attestato quando l'elemento è done
+# Se un elemento è done ma un controllo fallisce, il sito lo mostra "unverified". Nessun agente cambia done.
+
+missions:
+  1:
+    evidence:
+      - commits: site/index.html
+        min: 1
+    attests: {git: 1}
+  2:
+    evidence:
+      - manual: record DNS e redirect vivono su Cloudflare, non nel repo
+    attests: {dns: 2, tls: 2, http: 1}
+  3:
+    evidence:
+      - manual: branch protection e preview sono impostazioni di GitHub e Cloudflare
+    attests: {ci-cd: 2, git: 2}
+  4:
+    evidence:
+      - file: site/_headers
+    attests: {web-hardening: 2, http: 2}
+  5:
+    evidence:
+      - manual: la postazione e la chiave SSH non stanno nel repo
+    attests: {linux-cli: 2, git: 2, ssh: 2}
+  6:
+    evidence:
+      - file: monitor/check.py
+      - file: .github/workflows/uptime.yml
+    attests: {python: 2, monitoring: 2, ci-cd: 2}
+  7:
+    evidence:
+      - lab_notes: 1
+    attests: {technical-writing: 2, packet-analysis: 2, switching-vlan: 1}
+  8:
+    evidence:
+      - file: site/ccna/index.html
+      - commits: site/ccna/index.html
+        min: 2
+    attests: {ip-addressing: 2, personal-brand: 1}
+  9:
+    evidence:
+      - lab_notes: 2
+    attests: {virtualization: 2, switching-vlan: 2, network-design: 2, linux-cli: 2}
+  10:
+    evidence:
+      - lab_notes: 3
+    attests: {containers: 2, network-design: 2}
+  11:
+    evidence:
+      - glob: "lab/**/*.yml"
+        min: 1
+      - manual: il repo del lab può essere separato
+    attests: {ansible: 2, linux-cli: 3, bash: 2}
+  12:
+    evidence:
+      - lab_notes: 4
+    attests: {backup: 2, technical-writing: 3}
+  13:
+    evidence:
+      - lab_notes: 5
+    attests: {routing: 3, network-design: 2, packet-analysis: 2}
+  14:
+    evidence:
+      - lab_notes: 6
+    attests: {firewall: 3, switching-vlan: 3}
+  15:
+    evidence:
+      - manual: il repo dei backup delle configurazioni è separato
+    attests: {network-automation: 3, python: 3, git: 3}
+  16:
+    evidence:
+      - lab_notes: 7
+    attests: {source-of-truth: 2, monitoring: 3}
+  17:
+    evidence:
+      - manual: il badge della certificazione sta su Credly o LinkedIn
+    attests: {cloud-fundamentals: 2}
+  18:
+    evidence:
+      - lab_notes: 8
+    attests: {cloud-networking: 2, ip-addressing: 3}
+  19:
+    evidence:
+      - manual: il codice Terraform può stare in un repo separato
+    attests: {iac: 2, git: 3}
+  20:
+    evidence:
+      - lab_notes: 9
+    attests: {zero-trust: 2, vpn: 2, dns: 3}
+
+bosses:
+  1:
+    evidence:
+      - file: site/now/index.html
+      - nav: Now
+    attests: {git: 3, ci-cd: 2, personal-brand: 2}
+  2:
+    evidence:
+      - incidents: 1
+    attests: {incident-response: 2, technical-writing: 3, monitoring: 2}
+  3:
+    evidence:
+      - manual: il colloquio è a voce
+    attests: {presenting: 2, personal-brand: 3, interviewing: 2}
+  4:
+    evidence:
+      - manual: la sessione è a tempo, la nota di lab la racconta
+    attests: {virtualization: 3, ansible: 3, network-design: 3, containers: 3}
+  5:
+    evidence:
+      - incidents: 2
+    attests: {routing: 4, incident-response: 3, packet-analysis: 3, monitoring: 3}
+  6:
+    evidence:
+      - manual: l'infrastruttura è in cloud e nel lab di casa
+    attests: {cloud-networking: 3, iac: 3, zero-trust: 3, vpn: 3, network-design: 4}
+
+tracks:
+  shield:
+    1: {evidence: [{manual: password manager}], attests: {account-security: 1}}
+    2: {evidence: [{manual: 2FA}], attests: {account-security: 2}}
+    3: {evidence: [{manual: email Proton, visibile nel CV quando la cambia}], attests: {account-security: 2, personal-brand: 1}}
+    4: {evidence: [{manual: impostazioni GitHub}], attests: {account-security: 2, ssh: 2}}
+    5: {evidence: [{manual: commit firmati, visibili su GitHub come Verified}], attests: {git: 2, ssh: 2}}
+    6: {evidence: [{manual: portatile}], attests: {endpoint-security: 2, backup: 1}}
+    7: {evidence: [{lab_notes: 1}], attests: {security-awareness: 2}}
+    8: {evidence: [{file: .github/workflows/ci.yml}], attests: {secrets-hygiene: 2}}
+    9: {evidence: [{manual: ricerca del proprio nome}], attests: {security-awareness: 2}}
+  mind:
+    1: {evidence: [{lab_notes: 1}], attests: {llm-fundamentals: 2}}
+    2: {evidence: [{manual: istruzioni salvate su claude.ai}], attests: {ai-assisted-work: 1}}
+    3: {evidence: [{file: hire/verifiche.md}], attests: {ai-assisted-work: 2}}
+    4: {evidence: [{lab_notes: 1}], attests: {ai-data-hygiene: 2, secrets-hygiene: 2}}
+    5: {evidence: [{file: hire/prompts.md}], attests: {ai-assisted-work: 2}}
+    6: {evidence: [{lab_notes: 2}], attests: {ai-assisted-work: 3, llm-fundamentals: 3}}
+    7: {evidence: [{manual: lo script può stare in un repo separato}], attests: {llm-api: 2, python: 2, secrets-hygiene: 3}}
+    8: {evidence: [{file: hire/questions.md}], attests: {interviewing: 2, ai-assisted-work: 3}}
+  voice:
+    1: {evidence: [{manual: changelog in /now o in un file dedicato}], attests: {english-written: 2}}
+    2: {evidence: [{manual: audio privato}], attests: {english-spoken: 2, presenting: 1}}
+    3: {evidence: [{manual: link alla domanda in una nota di lab}], attests: {community: 2, english-written: 2}}
+    4: {evidence: [{manual: risposte sul forum}], attests: {community: 3, english-written: 3}}
+    5: {evidence: [{manual: video non in elenco}], attests: {presenting: 2, english-spoken: 2}}
+    6: {evidence: [{manual: videochiamata}], attests: {english-spoken: 3}}
+    7: {evidence: [{manual: evento}], attests: {community: 3}}
+    8: {evidence: [{lab_notes: 1}], attests: {presenting: 2, technical-writing: 2}}
+    9: {evidence: [{manual: talk registrato}], attests: {presenting: 3}}
+    10: {evidence: [{manual: colloquio in inglese}], attests: {english-spoken: 3, interviewing: 3}}
+  hire:
+    1: {evidence: [{manual: LinkedIn}], attests: {personal-brand: 2}}
+    2: {evidence: [{file: hire/annunci.md}], attests: {job-search: 2}}
+    3: {evidence: [{file: hire/stories.md}], attests: {interviewing: 2, technical-writing: 2}}
+    4: {evidence: [{glob: "hire/*.pdf", min: 3}], attests: {job-search: 2, personal-brand: 2}}
+    5: {evidence: [{file: hire/applications.csv}], attests: {job-search: 3}}
+    6: {evidence: [{manual: chiamate}], attests: {interviewing: 2, english-spoken: 2}}
+    7: {evidence: [{file: hire/questions.md}], attests: {interviewing: 3, ip-addressing: 2, routing: 2}}
+    8: {evidence: [{manual: contratto firmato}], attests: {negotiation: 3}}
