@@ -37,6 +37,17 @@
     { "n": 20, "title": "Cloudflare Tunnel and Access", "done": false, "skill": "Zero Trust access to a home-lab service via Cloudflare Tunnel", "file": "LIVELLO-6.md" }
   ],
   "tracks": [
+    { "id": "shield", "name": "Shield", "line": "Your own security first. Done before anything else.", "file": "SHIELD.md", "steps": [
+      { "n": 1, "title": "Password manager", "done": false, "skill": "Password manager with unique passwords everywhere" },
+      { "n": 2, "title": "Two-factor on everything that matters", "done": false, "skill": "2FA with authenticator app and backup codes" },
+      { "n": 3, "title": "Professional email on Proton", "done": false, "skill": "Separate professional identity with end-to-end encrypted mail" },
+      { "n": 4, "title": "Harden the GitHub account", "done": false, "skill": "Hardened developer account: 2FA, SSH keys, signed commits" },
+      { "n": 5, "title": "Signed commits", "done": false, "skill": "Commit signing with SSH keys, verified badge" },
+      { "n": 6, "title": "Lock the laptop", "done": false, "skill": "Full-disk encryption, updates, screen lock, backups" },
+      { "n": 7, "title": "Phishing and social engineering", "done": false, "skill": "Recognising phishing, safe handling of links and attachments" },
+      { "n": 8, "title": "Secrets never in git", "done": false, "skill": "Secret hygiene in repositories, rotation after exposure" },
+      { "n": 9, "title": "Your public footprint", "done": false, "skill": "Managing personal data exposure and social media privacy" }
+    ] },
     { "id": "voice", "name": "Voice", "line": "Communication and English. Starts in writing, ends out loud.", "file": "VOICE.md", "steps": [
       { "n": 1, "title": "Weekly changelog in English", "done": false, "skill": "Written English: weekly technical updates" },
       { "n": 2, "title": "Two minutes, audio only", "done": false, "skill": "Explaining technical work out loud" },

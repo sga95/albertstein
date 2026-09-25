@@ -1,0 +1,6 @@
+# Chi possiede cosa.
+# Il progresso lo può cambiare solo Alberto: ogni PR che tocca questi file
+# richiede la sua approvazione (Settings -> Branches -> Require review from Code Owners).
+# Sostituire ALBERTO-GITHUB con il suo username.
+/site/data/progress.json @ALBERTO-GITHUB
+/site/now/ @ALBERTO-GITHUB
