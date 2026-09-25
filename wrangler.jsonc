@@ -1,0 +1,14 @@
+// Configurazione del Worker che pubblica il sito (Cloudflare Workers con asset statici).
+// Cloudflare Workers Builds la legge a ogni push: su main pubblica in produzione,
+// sugli altri branch crea un'anteprima e mette l'URL nella pull request.
+// Niente build command: la cartella site/ viene servita così com'è.
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "albertstein",
+  "compatibility_date": "2026-01-01",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
