@@ -4,6 +4,7 @@
 #   prereq_steps: missioni (mission:N), boss (boss:N) o passi dei binari (track:ID:N) che devono essere done
 #   study_free:   dove prepararla senza spendere
 #   roles:        id in data/roles.yaml a cui serve
+#   why:          una riga, in inglese: finisce sul sito
 #   kind:         cert | voucher | course (categoria: certificazione vera, voucher di piattaforma, corso a pagamento)
 #   cost_eur:     stima; Stefano la rivede
 
@@ -19,7 +20,7 @@ certs:
       - https://www.netacad.com/courses/ccna-introduction-networks
       - https://www.practicalnetworking.net/
     exam_url: https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccna.html
-    why: "La certificazione che apre i colloqui da network engineer junior in Italia."
+    why: "The certification that opens junior network engineer interviews in Italy."
     roles: [junior-network-engineer, noc-analyst, network-automation-junior, cloud-network-junior]
 
   - id: network-plus
@@ -31,7 +32,7 @@ certs:
     study_free:
       - https://www.professormesser.com/network-plus/n10-009/n10-009-video/n10-009-training-course/
     exam_url: https://www.comptia.org/certifications/network
-    why: "Vendor-neutral, chiesta da NOC e supporto; utile se il CCNA è lontano."
+    why: "Vendor-neutral, asked for by NOC and support teams; useful while the CCNA is still far."
     roles: [noc-analyst, it-support-l2, soc-l1]
 
   - id: security-plus
@@ -44,7 +45,7 @@ certs:
       - https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/
       - https://tryhackme.com/path/outline/presecurity
     exam_url: https://www.comptia.org/certifications/security
-    why: "La base per SOC L1 e per ogni ruolo dove la sicurezza conta davvero."
+    why: "The baseline for SOC L1 and for any role where security really matters."
     roles: [soc-l1, sysadmin-junior]
 
   - id: aws-ccp
@@ -57,7 +58,7 @@ certs:
       - https://skillbuilder.aws/
       - https://explore.skillbuilder.aws/learn/course/external/view/elearning/134/aws-cloud-practitioner-essentials
     exam_url: https://aws.amazon.com/certification/certified-cloud-practitioner/
-    why: "Missione 17, opzione AWS: il vocabolario del cloud, chiesto anche a chi fa rete."
+    why: "Mission 17, AWS option: the vocabulary of the cloud, expected from network people too."
     roles: [cloud-network-junior, sysadmin-junior]
 
   - id: az-900
@@ -69,11 +70,11 @@ certs:
     study_free:
       - https://learn.microsoft.com/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/
     exam_url: https://learn.microsoft.com/credentials/certifications/azure-fundamentals/
-    why: "Missione 17, opzione Azure: stessa cosa di AWS CCP, più diffusa nelle aziende italiane con Microsoft 365."
+    why: "Mission 17, Azure option: same as AWS CCP, more common in Italian companies on Microsoft 365."
     roles: [cloud-network-junior, it-support-l2, sysadmin-junior]
 
   - id: lfca
-    name: Linux Foundation Certified IT Associate (LFCA) o LPIC-1
+    name: Linux Foundation Certified IT Associate (LFCA) or LPIC-1
     vendor: Linux Foundation / LPI
     kind: cert
     cost_eur: 250
@@ -83,7 +84,7 @@ certs:
       - https://linuxjourney.com/
       - https://linuxcommand.org/tlcl.php
     exam_url: https://training.linuxfoundation.org/certification/certified-it-associate/
-    why: "Dimostra Linux da sistemista; LPIC-1 è l'alternativa con più peso in Italia."
+    why: "Proves Linux at sysadmin level; LPIC-1 is the alternative with more weight in Italy."
     roles: [sysadmin-junior, noc-analyst]
 
   - id: terraform-associate
@@ -95,11 +96,11 @@ certs:
     study_free:
       - https://developer.hashicorp.com/terraform/tutorials/certification-003
     exam_url: https://www.hashicorp.com/certification/terraform-associate
-    why: "Infrastructure as code, la skill che separa un junior che clicca da uno che scrive."
+    why: "Infrastructure as code, the skill that separates a junior who clicks from one who writes."
     roles: [cloud-network-junior, network-automation-junior]
 
   - id: thm-premium
-    name: TryHackMe Premium (un anno) o Hack The Box Academy voucher
+    name: TryHackMe Premium (one year) or Hack The Box Academy voucher
     vendor: TryHackMe / HTB
     kind: voucher
     cost_eur: 130
@@ -108,11 +109,11 @@ certs:
       - https://tryhackme.com/path/outline/presecurity
       - https://academy.hackthebox.com/
     exam_url: https://tryhackme.com/pricing
-    why: "Cert leggera; sblocca i percorsi a pagamento dopo aver finito quelli gratuiti."
+    why: "Light credential; unlocks the paid paths once the free ones are done."
     roles: [soc-l1]
 
   - id: udemy-course
-    name: Un corso Udemy a scelta (categoria corso a pagamento)
+    name: A Udemy course of choice (paid course category)
     vendor: Udemy
     kind: course
     cost_eur: 20
@@ -120,5 +121,5 @@ certs:
     study_free:
       - https://www.youtube.com/@JeremysITLab
     exam_url: https://www.udemy.com/
-    why: "Quando un corso a pagamento accorcia davvero la strada (esempio, un corso CCNA con lab). Da motivare nella richiesta."
+    why: "For when a paid course really shortens the road (for example a CCNA course with labs). Justify it in the request."
     roles: []

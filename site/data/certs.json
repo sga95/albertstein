@@ -1,0 +1,189 @@
+{
+ "certs": [
+  {
+   "id": "ccna",
+   "name": "Cisco CCNA 200-301",
+   "vendor": "Cisco",
+   "kind": "cert",
+   "cost_eur": 300,
+   "prereq_steps": [
+    "mission:8",
+    "mission:13",
+    "track:hire:7"
+   ],
+   "study_free": [
+    "https://www.youtube.com/playlist?list=PLhTW6Fulbw1Tqaa9cTEpAZo86TCO6xfYS",
+    "https://www.netacad.com/courses/ccna-introduction-networks",
+    "https://www.practicalnetworking.net/"
+   ],
+   "exam_url": "https://www.cisco.com/site/us/en/learn/training-certifications/exams/ccna.html",
+   "why": "The certification that opens junior network engineer interviews in Italy.",
+   "roles": [
+    "junior-network-engineer",
+    "noc-analyst",
+    "network-automation-junior",
+    "cloud-network-junior"
+   ]
+  },
+  {
+   "id": "network-plus",
+   "name": "CompTIA Network+",
+   "vendor": "CompTIA",
+   "kind": "cert",
+   "cost_eur": 370,
+   "prereq_steps": [
+    "mission:7",
+    "mission:8"
+   ],
+   "study_free": [
+    "https://www.professormesser.com/network-plus/n10-009/n10-009-video/n10-009-training-course/"
+   ],
+   "exam_url": "https://www.comptia.org/certifications/network",
+   "why": "Vendor-neutral, asked for by NOC and support teams; useful while the CCNA is still far.",
+   "roles": [
+    "noc-analyst",
+    "it-support-l2",
+    "soc-l1"
+   ]
+  },
+  {
+   "id": "security-plus",
+   "name": "CompTIA Security+",
+   "vendor": "CompTIA",
+   "kind": "cert",
+   "cost_eur": 400,
+   "prereq_steps": [
+    "track:shield:9",
+    "mission:4",
+    "mission:14"
+   ],
+   "study_free": [
+    "https://www.professormesser.com/security-plus/sy0-701/sy0-701-video/sy0-701-comptia-security-plus-course/",
+    "https://tryhackme.com/path/outline/presecurity"
+   ],
+   "exam_url": "https://www.comptia.org/certifications/security",
+   "why": "The baseline for SOC L1 and for any role where security really matters.",
+   "roles": [
+    "soc-l1",
+    "sysadmin-junior"
+   ]
+  },
+  {
+   "id": "aws-ccp",
+   "name": "AWS Certified Cloud Practitioner",
+   "vendor": "AWS",
+   "kind": "cert",
+   "cost_eur": 100,
+   "prereq_steps": [
+    "mission:12"
+   ],
+   "study_free": [
+    "https://skillbuilder.aws/",
+    "https://explore.skillbuilder.aws/learn/course/external/view/elearning/134/aws-cloud-practitioner-essentials"
+   ],
+   "exam_url": "https://aws.amazon.com/certification/certified-cloud-practitioner/",
+   "why": "Mission 17, AWS option: the vocabulary of the cloud, expected from network people too.",
+   "roles": [
+    "cloud-network-junior",
+    "sysadmin-junior"
+   ]
+  },
+  {
+   "id": "az-900",
+   "name": "Microsoft Azure Fundamentals AZ-900",
+   "vendor": "Microsoft",
+   "kind": "cert",
+   "cost_eur": 100,
+   "prereq_steps": [
+    "mission:12"
+   ],
+   "study_free": [
+    "https://learn.microsoft.com/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/"
+   ],
+   "exam_url": "https://learn.microsoft.com/credentials/certifications/azure-fundamentals/",
+   "why": "Mission 17, Azure option: same as AWS CCP, more common in Italian companies on Microsoft 365.",
+   "roles": [
+    "cloud-network-junior",
+    "it-support-l2",
+    "sysadmin-junior"
+   ]
+  },
+  {
+   "id": "lfca",
+   "name": "Linux Foundation Certified IT Associate (LFCA) or LPIC-1",
+   "vendor": "Linux Foundation / LPI",
+   "kind": "cert",
+   "cost_eur": 250,
+   "prereq_steps": [
+    "mission:5",
+    "mission:11"
+   ],
+   "study_free": [
+    "https://www.edx.org/learn/linux/the-linux-foundation-introduction-to-linux",
+    "https://linuxjourney.com/",
+    "https://linuxcommand.org/tlcl.php"
+   ],
+   "exam_url": "https://training.linuxfoundation.org/certification/certified-it-associate/",
+   "why": "Proves Linux at sysadmin level; LPIC-1 is the alternative with more weight in Italy.",
+   "roles": [
+    "sysadmin-junior",
+    "noc-analyst"
+   ]
+  },
+  {
+   "id": "terraform-associate",
+   "name": "HashiCorp Terraform Associate",
+   "vendor": "HashiCorp",
+   "kind": "cert",
+   "cost_eur": 70,
+   "prereq_steps": [
+    "mission:19"
+   ],
+   "study_free": [
+    "https://developer.hashicorp.com/terraform/tutorials/certification-003"
+   ],
+   "exam_url": "https://www.hashicorp.com/certification/terraform-associate",
+   "why": "Infrastructure as code, the skill that separates a junior who clicks from one who writes.",
+   "roles": [
+    "cloud-network-junior",
+    "network-automation-junior"
+   ]
+  },
+  {
+   "id": "thm-premium",
+   "name": "TryHackMe Premium (one year) or Hack The Box Academy voucher",
+   "vendor": "TryHackMe / HTB",
+   "kind": "voucher",
+   "cost_eur": 130,
+   "prereq_steps": [
+    "track:shield:9"
+   ],
+   "study_free": [
+    "https://tryhackme.com/path/outline/presecurity",
+    "https://academy.hackthebox.com/"
+   ],
+   "exam_url": "https://tryhackme.com/pricing",
+   "why": "Light credential; unlocks the paid paths once the free ones are done.",
+   "roles": [
+    "soc-l1"
+   ]
+  },
+  {
+   "id": "udemy-course",
+   "name": "A Udemy course of choice (paid course category)",
+   "vendor": "Udemy",
+   "kind": "course",
+   "cost_eur": 20,
+   "prereq_steps": [
+    "mission:3"
+   ],
+   "study_free": [
+    "https://www.youtube.com/@JeremysITLab"
+   ],
+   "exam_url": "https://www.udemy.com/",
+   "why": "For when a paid course really shortens the road (for example a CCNA course with labs). Justify it in the request.",
+   "roles": []
+  }
+ ],
+ "status": {}
+}

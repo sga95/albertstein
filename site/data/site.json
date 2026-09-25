@@ -27,6 +27,11 @@
       "label": "Readiness",
       "path": "readiness/",
       "order": 4
+    },
+    {
+      "label": "Certs",
+      "path": "certs/",
+      "order": 5
     }
   ],
   "colors": {

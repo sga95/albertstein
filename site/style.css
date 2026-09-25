@@ -155,6 +155,18 @@ dl.skills dd { margin: 0; }
 pre { background: var(--navy-deep); color: #e6edf3; padding: 1rem 1.2rem; border-radius: 10px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
 main img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
 
+/* ---------- certs ---------- */
+.button { display: inline-block; font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase; background: var(--navy); color: #fff; padding: 0.5rem 0.9rem; border-radius: 8px; text-decoration: none; white-space: nowrap; }
+.button:hover { background: var(--navy-deep); }
+ol.missions li.cert { grid-template-columns: 3.4rem 1fr auto; }
+ol.missions li.cert .cert-action { grid-column: 2 / 4; justify-self: start; margin-top: 0.2rem; }
+ol.missions li.cert .cert-action:empty { display: none; }
+ol.missions li.cert .cert-vendor, ol.missions li.cert .cert-study { color: var(--ink-soft); font-size: 0.85rem; }
+ol.missions li.cert.ready .status { background: var(--accent); border-color: var(--accent); color: var(--navy); font-weight: 600; }
+ol.missions li.cert.passed .status { background: var(--navy); border-color: var(--navy); color: #fff; }
+ol.missions li.cert.granted .status, ol.missions li.cert.requested .status { border-color: var(--navy); color: var(--navy); }
+ol.missions li.cert.locked { opacity: 0.7; }
+
 /* ---------- readiness (generated page) ---------- */
 .radar-row { display: grid; grid-template-columns: minmax(0, 360px) 1fr; gap: 1.2rem; align-items: center; margin: 0.4rem 0 0.6rem; }
 .radar-row .radar { max-width: 100%; height: auto; }

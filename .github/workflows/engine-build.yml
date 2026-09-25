@@ -11,6 +11,7 @@ on:
       - site/data/progress.json
       - site/data/site.json
       - site/lab/**
+      - site/certs/**
       - data/**
       - engine/core/**
       - .github/workflows/engine-build.yml
@@ -39,7 +40,7 @@ jobs:
         run: |
           git config user.name "engine-bot"
           git config user.email "engine-bot@users.noreply.github.com"
-          git add site/data/readiness.json site/readiness/index.html
+          git add site/data/readiness.json site/readiness/index.html site/data/certs.json
           if git diff --cached --quiet; then
             echo "nothing changed"
           else

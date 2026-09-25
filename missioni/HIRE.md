@@ -2,6 +2,8 @@
 
 Otto passi. Partono dal giorno uno, in parallelo. Il sito serve a farti scegliere; questo binario serve a farti trovare.
 
+La certificazione la chiedi dalla pagina /certs quando i prerequisiti sono verdi. L'esame lo paga Stefano.
+
 ---
 
 ## Gratis, prima

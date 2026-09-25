@@ -156,6 +156,7 @@ def page(data: dict, repo: str | None, favicon: str, fonts: str) -> str:
           <a href="../lab/">Lab</a>
           <a href="../progress/">Progress</a>
           <a href="./" aria-current="page">Readiness</a>
+          <a href="../certs/">Certs</a>
         </nav>
       </div>
     </header>
@@ -214,7 +215,23 @@ def _head_bits() -> tuple[str, str]:
     return (fav.group(1) if fav else ""), (fonts.group(1) if fonts else "")
 
 
+def export_certs(root: Path = ROOT) -> dict:
+    """site/data/certs.json: catalogo da data/certs.yaml più stato da data/certs-status.json e site/certs/proof/."""
+    import yaml
+    catalogue = yaml.safe_load((root / "data/certs.yaml").read_text(encoding="utf-8"))["certs"]
+    status_file = root / "data/certs-status.json"
+    status = json.loads(status_file.read_text(encoding="utf-8")).get("status", {}) if status_file.exists() else {}
+    proof = root / "site/certs/proof"
+    for c in catalogue:
+        if proof.exists() and any(p.stem == c["id"] for p in proof.iterdir() if p.is_file()):
+            status[c["id"]] = "passed"
+    out = {"certs": catalogue, "status": {k: v for k, v in status.items() if v in ("requested", "granted", "passed")}}
+    (root / "site/data/certs.json").write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    return out
+
+
 def render(today: str | None = None, root: Path = ROOT) -> dict:
+    export_certs(root)
     items = scan(root)
     data = compute(items, today=today)
     progress = json.loads((root / "site/data/progress.json").read_text(encoding="utf-8"))
@@ -234,7 +251,7 @@ def main(argv: list[str] | None = None) -> int:
     data = render(args.today)
     for r in data["roles"]:
         print(f"{r['id']:<28} {r['score_0_100']:>3}/100  gaps: {len(r['gaps'])}")
-    print(f"scritti {READINESS_JSON.relative_to(ROOT)} e {READINESS_PAGE.relative_to(ROOT)}")
+    print(f"scritti {READINESS_JSON.relative_to(ROOT)}, {READINESS_PAGE.relative_to(ROOT)} e site/data/certs.json")
     return 0
 
 

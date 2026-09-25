@@ -13,7 +13,7 @@ La stessa rete che sai già fare, nel datacenter di qualcun altro. Tutto sul pia
 
 ## 17. Certificazione cloud base
 
-AWS Cloud Practitioner o Microsoft AZ-900: una delle due. Studio pubblico come per il CCNA: pagina `site/cloud/` con avanzamento. Esame vero, prenotato con una data. Costo circa 100 euro: chiedi a Stefano se lo copre lui come investimento.
+AWS Cloud Practitioner o Microsoft AZ-900: una delle due. Studio pubblico come per il CCNA: pagina `site/cloud/` con avanzamento. Esame vero, prenotato con una data. Costo circa 100 euro. La certificazione la chiedi dalla pagina /certs quando i prerequisiti sono verdi. L'esame lo paga Stefano.
 
 **Fatta quando:** passato. Badge sul CV e su LinkedIn.
 
