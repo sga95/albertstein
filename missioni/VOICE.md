@@ -12,7 +12,7 @@ Regola: se un passo ti blocca per più di due settimane, fanne una versione più
 
 Ogni domenica un file `site/now/changelog.html` (o una sezione in /now): 3-5 righe in inglese su cosa hai fatto quella settimana sul sito e nei lab. Frasi corte, tempo passato, niente aggettivi. Quattro domeniche di fila.
 
-**Fatta quando:** quattro settimane consecutive, e tuo fratello ha corretto l'inglese almeno una volta e tu hai riscritto.
+**Fatta quando:** quattro settimane consecutive, e Stefano ha corretto l'inglese almeno una volta e tu hai riscritto.
 
 **Riga CV:** Written English: weekly technical updates
 
@@ -20,7 +20,7 @@ Ogni domenica un file `site/now/changelog.html` (o una sezione in /now): 3-5 rig
 
 ## V2. Due minuti, solo audio
 
-Registra 2 minuti con il telefono, in italiano: spiega una nota di lab che hai scritto. Riascoltati. Rifallo finché dura davvero 2 minuti e non ci sono "ehm". Poi rifallo in inglese, anche male. Manda l'audio inglese solo a tuo fratello.
+Registra 2 minuti con il telefono, in italiano: spiega una nota di lab che hai scritto. Riascoltati. Rifallo finché dura davvero 2 minuti e non ci sono "ehm". Poi rifallo in inglese, anche male. Manda l'audio inglese solo a Stefano.
 
 **Fatta quando:** l'audio inglese esiste, lui l'ha ascoltato e ti ha detto una cosa da migliorare, e l'hai riregistrato.
 
@@ -46,7 +46,7 @@ Sullo stesso forum, trova una domanda a cui sai rispondere (anche facile). Rispo
 
 ## V5. Cinque minuti di walkthrough video
 
-Registra lo schermo (OBS o quello del sistema) mentre mostri il sito e spieghi come è fatto. In inglese. Faccia non obbligatoria. Caricalo su YouTube come "non in elenco". Il link va solo a tuo fratello.
+Registra lo schermo (OBS o quello del sistema) mentre mostri il sito e spieghi come è fatto. In inglese. Faccia non obbligatoria. Caricalo su YouTube come "non in elenco". Il link va solo a Stefano.
 
 **Fatta quando:** il video esiste, dura tra 4 e 6 minuti, e l'hai rifatto almeno una volta dopo il suo feedback.
 
@@ -54,7 +54,7 @@ Registra lo schermo (OBS o quello del sistema) mentre mostri il sito e spieghi c
 
 ## V6. Quindici minuti in inglese
 
-Una videochiamata con tuo fratello, solo in inglese, sul sito e sui lab. Lui fa domande, tu rispondi. Se non sai una parola la dici in italiano e vai avanti. Non si torna all'italiano per una parola.
+Una videochiamata con Stefano, solo in inglese, sul sito e sui lab. Lui fa domande, tu rispondi. Se non sai una parola la dici in italiano e vai avanti. Non si torna all'italiano per una parola.
 
 **Fatta quando:** 15 minuti fatti. Poi una seconda chiamata la settimana dopo.
 
@@ -78,7 +78,7 @@ Spiega a un genitore o a un amico non tecnico cosa fa il DNS, usando un esempio 
 
 ## V9. Lightning talk
 
-Dieci minuti, con slide (poche), davanti a più di una persona: tuo fratello e i suoi colleghi, o un meetup che accetta lightning talk. Argomento: un incidente dal sito e cosa hai imparato.
+Dieci minuti, con slide (poche), davanti a più di una persona: Stefano e i suoi colleghi, o un meetup che accetta lightning talk. Argomento: un incidente dal sito e cosa hai imparato.
 
 **Fatta quando:** fatto davanti ad almeno 3 persone. Registrato. Rivisto.
 
@@ -86,7 +86,7 @@ Dieci minuti, con slide (poche), davanti a più di una persona: tuo fratello e i
 
 ## V10. Colloquio finto in inglese
 
-Come il Boss 3, ma tutto in inglese, e tuo fratello fa il recruiter straniero: presentati, racconta il sito, rispondi a tre domande tecniche, fai tu due domande sull'azienda.
+Come il Boss 3, ma tutto in inglese, e Stefano fa il recruiter straniero: presentati, racconta il sito, rispondi a tre domande tecniche, fai tu due domande sull'azienda.
 
 **Fatta quando:** 20 minuti in inglese senza tornare all'italiano. Tre cose da migliorare scritte in /now.
 

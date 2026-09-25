@@ -4,7 +4,7 @@ Nessun passo. Solo la situazione.
 
 ## Situazione
 
-Tuo fratello è il responsabile tecnico di un'azienda e ha 20 minuti per te. Tu hai il sito aperto e nient'altro.
+Stefano è il responsabile tecnico di un'azienda e ha 20 minuti per te. Tu hai il sito aperto e nient'altro.
 
 ## Obiettivo
 

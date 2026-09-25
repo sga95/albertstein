@@ -92,7 +92,7 @@ Passi (titoli in inglese per il sito, schede in italiano):
 5. **Prompting for real work**: contesto, obiettivo, vincoli, formato; iterare; chiedere il ragionamento; far criticare la propria bozza. Fatta quando: un prompt riusabile per la revisione delle note di lab e uno per il debug di rete, salvati in `hire/prompts.md`. CV: Structured prompting for technical tasks.
 6. **AI for networking**: analisi di log e capture con l'AI come secondo paio d'occhi, generazione di configurazioni da rivedere riga per riga, spiegazione di output di `show`. Fatta quando: una nota di lab con un caso in cui l'AI ha aiutato e uno in cui ha sbagliato. CV: Applying AI assistance to network troubleshooting with review.
 7. **Your first API call**: uno script Python di 30 righe che chiama l'API Anthropic (chiave in variabile d'ambiente, mai nel codice) e riassume una nota di lab. Fatta quando: lo script gira, la chiave non è nel repo, gitleaks passa. CV: Called an LLM API from Python with secure key handling.
-8. **AI in the interview**: cosa dire quando chiedono "usi l'AI?": sì, come, con quali limiti, con esempi. Fatta quando: risposta di 60 secondi, provata con tuo fratello. CV: Can explain responsible AI use to an employer.
+8. **AI in the interview**: cosa dire quando chiedono "usi l'AI?": sì, come, con quali limiti, con esempi. Fatta quando: risposta di 60 secondi, provata con Stefano. CV: Can explain responsible AI use to an employer.
 
 Aggiungere in `INIZIA-QUI.md` la riga del binario Mind e in `progress/index.html` la parola "Mind" nella descrizione dei binari.
 

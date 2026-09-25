@@ -8,7 +8,7 @@ Un servizio nuovo (a tua scelta, ma vero: un pannello, una dashboard, un'app) de
 
 ## È battuto quando
 
-- Funziona da fuori, e tuo fratello ci entra con il suo login e non con un altro.
+- Funziona da fuori, e Stefano ci entra con il suo login e non con un altro.
 - `terraform destroy` + `apply` e il tuo Ansible lo rimettono in piedi senza mani.
 - Diagramma di rete completo nella nota di lab, con i flussi e dove sono cifrati.
 

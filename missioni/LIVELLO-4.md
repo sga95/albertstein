@@ -32,6 +32,6 @@ Un repository `lab-ansible` (pubblico): inventario con le tue VM, playbook che i
 
 Backup delle VM da Proxmox su un disco esterno o su un bucket (Cloudflare R2 ha un piano gratuito). Poi il pezzo che quasi nessuno fa: cancella una VM e ripristinala dal backup. Cronometra. Scrivi un runbook: passi, comandi, tempi.
 
-**Fatta quando:** il ripristino è riuscito e il runbook lo può seguire tuo fratello senza chiederti niente.
+**Fatta quando:** il ripristino è riuscito e il runbook lo può seguire Stefano senza chiederti niente.
 
 **Riga CV:** Backup strategy, tested restores, runbooks

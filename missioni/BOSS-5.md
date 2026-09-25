@@ -4,7 +4,7 @@ Nessun passo. Come il Boss 2, ma nel lab di rete.
 
 ## Situazione
 
-Tuo fratello ha accesso al tuo lab Containerlab. In un momento a sua scelta cambia qualcosa: un costo OSPF, un filtro BGP, una VLAN, un'ACL, un MTU. LibreNMS o il tuo monitor ti avvisano. Hai 24 ore.
+Stefano ha accesso al tuo lab Containerlab. In un momento a sua scelta cambia qualcosa: un costo OSPF, un filtro BGP, una VLAN, un'ACL, un MTU. LibreNMS o il tuo monitor ti avvisano. Hai 24 ore.
 
 ## È battuto quando
 

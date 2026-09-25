@@ -8,7 +8,7 @@ Otto passi. Partono dal giorno uno, in parallelo. Il sito serve a farti sceglier
 
 Profilo completo: foto (la stessa del CV), titolo ("Computer Engineering graduate | Networking, Linux, security | albertstein.link"), riassunto in inglese con le stesse frasi dell'About del sito, link al sito in evidenza. Niente competenze che non hai fatto.
 
-**Fatta quando:** il profilo è pubblico e tuo fratello lo ha letto senza trovare una riga che non sia vera.
+**Fatta quando:** il profilo è pubblico e Stefano lo ha letto senza trovare una riga che non sia vera.
 
 **Riga CV:** Professional LinkedIn profile
 
@@ -42,13 +42,13 @@ Dal CV base fai tre versioni da una pagina: network junior, sysadmin junior, IT 
 
 Cinque candidature a settimana, tracciate in `hire/applications.csv`: data, azienda, ruolo, versione CV, stato, prossimo passo. Follow-up dopo 10 giorni se silenzio. Per otto settimane.
 
-**Fatta quando:** 40 righe nel file. Se in otto settimane non c'è un colloquio, rivedi H2 e H4 con tuo fratello: qualcosa nel messaggio non passa.
+**Fatta quando:** 40 righe nel file. Se in otto settimane non c'è un colloquio, rivedi H2 e H4 con Stefano: qualcosa nel messaggio non passa.
 
 **Riga CV:** Tracked, consistent job applications
 
 ## H6. La chiamata del recruiter
 
-Prima che arrivi quella vera: tuo fratello ti chiama senza preavviso, 10 minuti, fa il recruiter: chi sei, cosa cerchi, disponibilità, aspettative. Tu rispondi come se fosse vera.
+Prima che arrivi quella vera: Stefano ti chiama senza preavviso, 10 minuti, fa il recruiter: chi sei, cosa cerchi, disponibilità, aspettative. Tu rispondi come se fosse vera.
 
 **Fatta quando:** due chiamate finte, poi una vera. Dopo la vera scrivi cosa ti ha chiesto e cosa risponderesti diversamente.
 
@@ -56,7 +56,7 @@ Prima che arrivi quella vera: tuo fratello ti chiama senza preavviso, 10 minuti,
 
 ## H7. Colloquio tecnico, a secco
 
-Cinquanta domande da colloquio network junior (OSI, subnetting, VLAN, STP, OSPF, NAT, DNS, DHCP, TCP vs UDP, troubleshooting) in `hire/questions.md`, con le tue risposte in 3 righe. Poi tre sessioni con tuo fratello: lui ne pesca dieci a caso, tu rispondi a voce, alla lavagna se serve.
+Cinquanta domande da colloquio network junior (OSI, subnetting, VLAN, STP, OSPF, NAT, DNS, DHCP, TCP vs UDP, troubleshooting) in `hire/questions.md`, con le tue risposte in 3 righe. Poi tre sessioni con Stefano: lui ne pesca dieci a caso, tu rispondi a voce, alla lavagna se serve.
 
 **Fatta quando:** rispondi a 8 su 10 senza guardare, tre sessioni di fila.
 
@@ -66,7 +66,7 @@ Cinquanta domande da colloquio network junior (OSI, subnetting, VLAN, STP, OSPF,
 
 ## H8. L'offerta
 
-Quando arriva: non rispondere lo stesso giorno. Con tuo fratello guarda RAL, tipo di contratto, orario, formazione pagata, chi sarà il tuo capo. Prepara una domanda e una richiesta ragionevole. Poi decidi.
+Quando arriva: non rispondere lo stesso giorno. Con Stefano guarda RAL, tipo di contratto, orario, formazione pagata, chi sarà il tuo capo. Prepara una domanda e una richiesta ragionevole. Poi decidi.
 
 **Fatta quando:** hai firmato. Aggiorna il CV, il sito e /now. Poi continua con le note di lab: il sito non finisce con l'assunzione.
 
