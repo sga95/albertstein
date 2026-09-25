@@ -8,9 +8,11 @@ import scan
 def test_scan_covers_every_item_of_the_real_progress():
     items = scan.scan(ROOT)
     progress = json.loads((ROOT / "site/data/progress.json").read_text(encoding="utf-8"))
+    import yaml
     n_steps = sum(len(t["steps"]) for t in progress["tracks"])
-    assert len(items) == len(progress["missions"]) + len(progress["tiers"]) + n_steps
-    assert all(it.attests for it in items), "ogni item deve attestare almeno una skill"
+    n_certs = len(yaml.safe_load((ROOT / "data/certs.yaml").read_text(encoding="utf-8"))["certs"])
+    assert len(items) == len(progress["missions"]) + len(progress["tiers"]) + n_steps + len(progress.get("quests", [])) + n_certs
+    assert all(it.attests for it in items if it.kind != "cert"), "ogni item deve attestare almeno una skill"
 
 
 def test_nothing_done_means_nothing_verified_or_dated():
@@ -64,3 +66,31 @@ def test_unknown_rule_is_an_error(repo_copy):
     rules = {"missions": {1: {"evidence": [{"teleport": "x"}], "attests": {"git": 1}}}, "bosses": {}, "tracks": {}}
     with pytest.raises(ValueError):
         scan.scan(repo_copy, progress=load_progress("progress-start.json"), rules=rules)
+
+
+def test_quest_items_come_from_progress_and_need_a_note(repo_copy):
+    progress = load_progress("progress-start.json")
+    progress["quests"] = [{"id": "lag-lab", "title": "Lag lab", "done": True}, {"id": "radio", "title": "Radio", "done": False}]
+    items = {it.id: it for it in scan.scan(repo_copy, progress=progress)}
+    assert items["quest:lag-lab"].done and items["quest:lag-lab"].verified is False
+    assert items["quest:lag-lab"].missing == ['una nota di lab con "lag-lab" nel nome']
+    (repo_copy / "site/lab/2026-04-01-lag-lab.html").write_text("<html></html>")
+    items = {it.id: it for it in scan.scan(repo_copy, progress=progress)}
+    assert items["quest:lag-lab"].verified is True
+    assert items["quest:radio"].done is False
+
+
+def test_passed_cert_attests_level_3_on_its_roles(repo_copy):
+    progress = load_progress("progress-start.json")
+    items = {it.id: it for it in scan.scan(repo_copy, progress=progress)}
+    assert items["cert:ccna"].done is False and items["cert:ccna"].verified is None
+    (repo_copy / "site/certs/proof").mkdir(parents=True)
+    (repo_copy / "site/certs/proof/ccna.png").write_bytes(b"x")
+    items = {it.id: it for it in scan.scan(repo_copy, progress=progress)}
+    ccna = items["cert:ccna"]
+    assert ccna.done and ccna.verified is True
+    assert ccna.attests["routing"] == 3 and ccna.attests["ip-addressing"] == 3
+    import readiness, yaml
+    skills = yaml.safe_load((ROOT / "data/skills.yaml").read_text())["skills"]
+    levels = readiness.skill_levels(list(items.values()), skills)
+    assert levels["routing"]["level"] == 3 and levels["routing"]["verified"] is True

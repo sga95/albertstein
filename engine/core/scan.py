@@ -108,6 +108,15 @@ class Checker:
                 if d and (date_ is None or d[0] > date_):
                     date_ = d[0]
             return len(notes) >= n, f"almeno {n} note di lab (trovate {len(notes)})", date_
+        if "lab_note" in rule:
+            key = rule["lab_note"].lower()
+            notes = [p for p in lab_notes(self.site / "lab") if key in p.name.lower()]
+            date_ = None
+            for p in notes:
+                d = _git_dates(f"site/lab/{p.name}", self.root)
+                if d and (date_ is None or d[0] > date_):
+                    date_ = d[0]
+            return bool(notes), f"una nota di lab con \"{key}\" nel nome", date_
         if "incidents" in rule:
             inc = self.progress.get("incidents", [])
             n = rule["incidents"]
@@ -149,7 +158,36 @@ def scan(root: Path = ROOT, progress: dict | None = None, rules: dict | None = N
             spec = rules.get("tracks", {}).get(t["id"], {}).get(s["n"], {})
             items.append(build(f"track:{t['id']}:{s['n']}", "track", s["n"], s["title"], s.get("done", False), spec,
                                file=t["file"], track=t["id"]))
+    for i, q in enumerate(progress.get("quests", []), 1):
+        spec = rules.get("quests", {}).get(q["id"], {})
+        items.append(build(f"quest:{q['id']}", "quest", i, q["title"], q.get("done", False), spec, file="QUESTS.md"))
+    items.extend(cert_items(root, rules))
     return items
+
+
+def cert_items(root: Path, rules: dict) -> list[Item]:
+    """Una certificazione "passed" (file in site/certs/proof/<id>.*) attesta il livello passed_level
+    su tutte le skill dei ruoli che la chiedono. Non è mai unverified: senza prova non è passed."""
+    certs_file = root / "data/certs.yaml"
+    roles_file = root / "data/roles.yaml"
+    if not certs_file.exists() or not roles_file.exists():
+        return []
+    level = int(rules.get("certs", {}).get("passed_level", 3))
+    certs = yaml.safe_load(certs_file.read_text(encoding="utf-8")).get("certs", [])
+    roles = {r["id"]: r for r in yaml.safe_load(roles_file.read_text(encoding="utf-8")).get("roles", [])}
+    proof = root / "site/certs/proof"
+    out = []
+    for i, c in enumerate(certs, 1):
+        proofs = [p for p in proof.iterdir() if p.is_file() and p.stem == c["id"]] if proof.exists() else []
+        passed = bool(proofs)
+        skills = sorted({sid for rid in c.get("roles", []) for sid in roles.get(rid, {}).get("skills", {})})
+        item = Item(f"cert:{c['id']}", "cert", i, c["name"], passed, True if passed else None,
+                    attests={sid: level for sid in skills}, file="../data/certs.yaml")
+        if passed:
+            dates = _git_dates(f"site/certs/proof/{proofs[0].name}", root)
+            item.last_evidence = dates[0] if dates else None
+        out.append(item)
+    return out
 
 
 def main() -> int:
