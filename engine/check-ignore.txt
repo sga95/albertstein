@@ -1,0 +1,6 @@
+# Percorsi (relativi a site/) che i controlli di make check non devono segnalare
+# come mancanti. Una riga per percorso. Le righe che iniziano con # sono commenti.
+# Togli la riga quando il file esiste davvero.
+
+# La foto del CV la carica Stefano a mano: il connettore non carica file binari.
+cv/photo.jpg

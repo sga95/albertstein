@@ -8,7 +8,31 @@
 //   [data-incidents]       post-mortems list (progress page)
 // Alberto: you do not need to touch this file. Edit data/progress.json instead.
 
-(async function () {
+// Unlock rule, kept as a pure function so tools/lib/progress.py can be tested against it.
+// Returns { missions: {n: status}, bosses: {tierId: status}, tracks: {id: [status, ...]} }
+// where status is "done", "open" or "locked".
+//   - mission 1 is open; mission n is open when mission n-1 is done
+//   - a boss is open when every mission of its level is done
+//   - a track step is open when it is the first one or the previous step is done
+function unlockStatus(data) {
+  const missions = data.missions || [];
+  const tiers = data.tiers || [];
+  const tracks = data.tracks || [];
+  const byN = Object.fromEntries(missions.map(m => [m.n, m]));
+  const unlocked = m => m.n === 1 || !!(byN[m.n - 1] && byN[m.n - 1].done);
+  const tierComplete = t => t.missions.every(n => byN[n] && byN[n].done);
+  const out = { missions: {}, bosses: {}, tracks: {} };
+  missions.forEach(m => { out.missions[m.n] = m.done ? "done" : unlocked(m) ? "open" : "locked"; });
+  tiers.forEach(t => { out.bosses[t.id] = t.boss.done ? "done" : tierComplete(t) ? "open" : "locked"; });
+  tracks.forEach(t => {
+    out.tracks[t.id] = t.steps.map((s, i) => s.done ? "done" : (i === 0 || t.steps[i - 1].done) ? "open" : "locked");
+  });
+  return out;
+}
+
+if (typeof module !== "undefined" && module.exports) { module.exports = { unlockStatus }; }
+
+if (typeof document !== "undefined") (async function () {
   const base = document.body.dataset.root || "./";
   let data;
   try {
@@ -29,8 +53,7 @@
   const pad = n => String(n).padStart(2, "0");
   const mdLink = (file, label) => repo ? `<a href="${repo}/blob/main/missioni/${file}">${label}</a>` : label;
 
-  const unlocked = m => m.n === 1 || (byN[m.n - 1] && byN[m.n - 1].done);
-  const tierComplete = t => t.missions.every(n => byN[n] && byN[n].done);
+  const status = unlockStatus(data);
 
   const levelNames = ["Recruit", ...tiers.map(t => t.name)];
   const level = bossesDone.length;
@@ -61,14 +84,14 @@
       const items = t.missions.map(n => {
         const m = byN[n];
         if (!m) return "";
-        const open = unlocked(m);
+        const st = status.missions[m.n];
+        const open = st !== "locked";
         const file = m.file || `${pad(m.n)}.md`;
         const link = open ? mdLink(file, m.title) : m.title;
-        const status = m.done ? "done" : open ? "open" : "locked";
-        return `<li class="${status}"><span class="n">${pad(m.n)}</span><span>${link}</span><span class="status">${status}</span><span class="skill">${m.skill}</span></li>`;
+        return `<li class="${st}"><span class="n">${pad(m.n)}</span><span>${link}</span><span class="status">${st}</span><span class="skill">${m.skill}</span></li>`;
       }).join("");
-      const bossOpen = tierComplete(t);
-      const bossStatus = t.boss.done ? "done" : bossOpen ? "open" : "locked";
+      const bossStatus = status.bosses[t.id];
+      const bossOpen = bossStatus !== "locked";
       const bossLink = bossOpen ? mdLink(`BOSS-${t.id}.md`, t.boss.title) : t.boss.title;
       const boss = `<li class="boss ${bossStatus}"><span class="n">\u2726</span><span>${bossLink}</span><span class="status">${bossStatus}</span><span class="skill">Badge: ${t.boss.badge}</span></li>`;
       return `<section class="tier${t.boss.done ? " cleared" : ""}">
@@ -84,10 +107,10 @@
       const doneCount = t.steps.filter(s => s.done).length;
       const cells = t.steps.map(s => `<span class="cell${s.done ? " done" : ""}" title="${s.n}. ${s.title}"></span>`).join("");
       const items = t.steps.map((s, i) => {
-        const open = i === 0 || t.steps[i - 1].done;
+        const st = status.tracks[t.id][i];
+        const open = st !== "locked";
         const link = open ? mdLink(t.file, s.title) : s.title;
-        const status = s.done ? "done" : open ? "open" : "locked";
-        return `<li class="${status}"><span class="n">${t.id.charAt(0).toUpperCase()}${s.n}</span><span>${link}</span><span class="status">${status}</span><span class="skill">${s.skill}</span></li>`;
+        return `<li class="${st}"><span class="n">${t.id.charAt(0).toUpperCase()}${s.n}</span><span>${link}</span><span class="status">${st}</span><span class="skill">${s.skill}</span></li>`;
       }).join("");
       return `<section class="tier track${doneCount === t.steps.length ? " cleared" : ""}">
         <h2><span class="num">TRACK</span>${t.name}</h2>

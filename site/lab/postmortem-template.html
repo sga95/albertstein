@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TITLE OF THE NOTE | Alberto Galliani</title>
+  <title>TITLE OF THE POST-MORTEM | Alberto Galliani</title>
   <meta name="theme-color" content="#0b2b4c">
   <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20rx='6'%20fill='%230b2b4c'/%3E%3Crect%20x='9'%20y='9'%20width='14'%20height='14'%20rx='2'%20transform='rotate(45%2016%2016)'%20fill='%23f2a33a'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,9 +24,9 @@
     </header>
     <section class="hero">
       <div class="wrap">
-        <p class="note-meta">YYYY-MM-DD · Packet Tracer or Wireshark or Incident</p>
-        <h1>TITLE OF THE NOTE</h1>
-        <p class="lede">One sentence that says what this note is about.</p>
+        <p class="note-meta">YYYY-MM-DD · Incident</p>
+        <h1>Post-mortem: TITLE OF THE POST-MORTEM</h1>
+        <p class="lede">Downtime: X minutes (from HH:MM to HH:MM). Impact: what did not work, for whom.</p>
       </div>
     </section>
   </div>
@@ -34,22 +34,34 @@
   <main>
     <div class="wrap">
       <div class="card">
-        <h2><span class="num">01</span>What I wanted to do</h2>
-        <p>One or two sentences.</p>
+        <h2><span class="num">01</span>Timeline</h2>
+        <p>Real times, taken from issues, commits, Cloudflare logs.</p>
+        <ul>
+          <li><span class="mono">HH:MM</span> the monitor opens issue #N</li>
+          <li><span class="mono">HH:MM</span> first hypothesis</li>
+          <li><span class="mono">HH:MM</span> checked</li>
+          <li><span class="mono">HH:MM</span> cause found</li>
+          <li><span class="mono">HH:MM</span> fix: commit or change</li>
+          <li><span class="mono">HH:MM</span> site ok, issue closed</li>
+        </ul>
       </div>
       <div class="card">
-        <h2><span class="num">02</span>Setup</h2>
-        <p>Tools, topology, versions. A screenshot helps: put it in this folder and use <code>&lt;img src="name.png" alt="what it shows"&gt;</code>.</p>
+        <h2><span class="num">02</span>Root cause</h2>
+        <p>One sentence. The piece that broke and why it broke what people saw.</p>
       </div>
       <div class="card">
-        <h2><span class="num">03</span>What happened</h2>
-        <p>Steps, commands, output. Terminal output goes in a block:</p>
+        <h2><span class="num">03</span>What helped</h2>
+        <p>Tools, commands, pages that made it clear. Terminal output goes in a block:</p>
 <pre><code>$ curl -I https://albertstein.link
 HTTP/2 200</code></pre>
       </div>
       <div class="card">
-        <h2><span class="num">04</span>What I learned</h2>
-        <p>The one thing you would tell someone who is about to do the same lab.</p>
+        <h2><span class="num">04</span>What wasted time</h2>
+        <p>Wrong hypotheses, useless commands, things I believed that were not true.</p>
+      </div>
+      <div class="card">
+        <h2><span class="num">05</span>What I change</h2>
+        <p>One or two concrete actions so that next time it takes less. Then do them.</p>
       </div>
       <p class="print-link"><a href="./">Back to lab notes</a></p>
     </div>
