@@ -48,6 +48,16 @@
       { "n": 8, "title": "Secrets never in git", "done": false, "skill": "Secret hygiene in repositories, rotation after exposure" },
       { "n": 9, "title": "Your public footprint", "done": false, "skill": "Managing personal data exposure and social media privacy" }
     ] },
+    { "id": "mind", "name": "Mind", "line": "AI as a tool, not a shortcut. Done after Shield.", "file": "MIND.md", "steps": [
+      { "n": 1, "title": "How a language model works", "done": false, "skill": "Working understanding of LLMs: context, tokens, hallucination" },
+      { "n": 2, "title": "claude.ai, set up for learning", "done": false, "skill": "Configured an AI assistant as a tutor with explicit guardrails" },
+      { "n": 3, "title": "Ask, then verify", "done": false, "skill": "Verification habit for AI-generated technical answers" },
+      { "n": 4, "title": "What never goes in a prompt", "done": false, "skill": "Data hygiene when using AI tools" },
+      { "n": 5, "title": "Prompting for real work", "done": false, "skill": "Structured prompting for technical tasks" },
+      { "n": 6, "title": "AI for networking", "done": false, "skill": "Applying AI assistance to network troubleshooting with review" },
+      { "n": 7, "title": "Your first API call", "done": false, "skill": "Called an LLM API from Python with secure key handling" },
+      { "n": 8, "title": "AI in the interview", "done": false, "skill": "Can explain responsible AI use to an employer" }
+    ] },
     { "id": "voice", "name": "Voice", "line": "Communication and English. Starts in writing, ends out loud.", "file": "VOICE.md", "steps": [
       { "n": 1, "title": "Weekly changelog in English", "done": false, "skill": "Written English: weekly technical updates" },
       { "n": 2, "title": "Two minutes, audio only", "done": false, "skill": "Explaining technical work out loud" },

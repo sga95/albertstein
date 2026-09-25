@@ -78,3 +78,26 @@ def test_track_steps_must_be_numbered_in_order(fixtures):
     d["tracks"][0]["steps"][1]["n"] = 5
     errs = progress.consistency_errors(d)
     assert errs and errs[0].startswith("binario shield: i passi devono essere numerati 1..9")
+
+
+def test_every_sheet_referenced_by_progress_exists():
+    data = progress.load()
+    assert progress.consistency_errors(data) == []
+
+
+def test_missing_sheet_is_reported(fixtures):
+    d = json.loads((fixtures / "progress-start.json").read_text(encoding="utf-8"))
+    d["tracks"][0]["file"] = "NOPE.md"
+    assert "il binario shield punta a missioni/NOPE.md, che non esiste" in progress.consistency_errors(d)
+
+
+def test_mind_track_is_second_and_has_eight_steps():
+    data = progress.load()
+    ids = [t["id"] for t in data["tracks"]]
+    assert ids == ["shield", "mind", "voice", "hire"]
+    mind = data["tracks"][1]
+    assert mind["file"] == "MIND.md" and len(mind["steps"]) == 8
+    sheet = (progress.ROOT / "missioni" / "MIND.md").read_text(encoding="utf-8")
+    for s in mind["steps"]:
+        assert f"## M{s['n']}." in sheet
+        assert f"**Riga CV:** {s['skill']}" in sheet
