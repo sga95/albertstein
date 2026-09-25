@@ -13,6 +13,7 @@ Su Windows: usa WSL o Git Bash, oppure lancia direttamente `python3 tools/check.
 | `make note TITLE="Titolo"` | Crea `site/lab/AAAA-MM-GG-titolo.html` dal template con la data di oggi e lo mette in cima alla lista in `site/lab/index.html`. |
 | `make postmortem TITLE="Cosa si è rotto"` | Come sopra ma dal template del post-mortem. Alla fine stampa la riga da incollare in `progress.json` nella lista `incidents`. |
 | `make lab-lint` | Solo il punteggio delle note di lab, nel formato del commento in PR. |
+| `make pdf` | Esporta il CV in `site/cv/Alberto-Galliani-CV.pdf` con lo stile di stampa. Unico comando che ha bisogno di una libreria: `pip install playwright && python3 -m playwright install chromium`. Non gira in CI. |
 
 Flusso tipico: `make serve` in un terminale, modifichi i file, ricarichi la pagina. Prima del commit: `make check`. Poi push e PR.
 
@@ -23,6 +24,8 @@ Su ogni PR (e su ogni push su `main`) partono quattro job, `.github/workflows/ci
 1. **check**: gli stessi controlli di `make check` più `make test`.
    - `site/data/progress.json` è JSON valido e rispetta lo schema `engine/schema/progress.schema.json`
      (chiavi giuste, `done` solo `true` o `false`, numeri delle missioni unici, ogni missione in un livello).
+   - `site/data/site.json` (testi, menu, colori, font: vedi `site/THEME.md`) è JSON valido, ha solo chiavi
+     conosciute e ogni voce di menu punta a una pagina che esiste.
    - Regola di sblocco: una missione `done` con la precedente non `done`, un boss `done` con missioni aperte,
      un passo di un binario `done` con il precedente aperto. Solo un **avviso**: non blocca, ma il sito mostrerà
      un ordine strano.
@@ -88,6 +91,11 @@ Screenshot troppo grande. Ritaglia la parte che serve o esporta in PNG a 1x, opp
 Il job **html** in CI segnala gli errori come `"file:site/lab/x.html":41.5-41.30: error: ...`: riga 41,
 dalla colonna 5 alla 30. Di solito è un tag non chiuso o un attributo scritto male.
 
+## Cambiare testi, colori, menu
+
+`site/data/site.json` e `site/THEME.md`. Testi comuni, voci di menu, colori, font e sezioni da mostrare
+si cambiano lì, senza toccare HTML o CSS. Quando vuoi toccarli, sono tuoi: `THEME.md` spiega ogni token.
+
 ## Il file che nessuno tocca per te
 
 `site/data/progress.json` lo modifica solo Alberto. Gli strumenti lo leggono, non lo scrivono mai:
@@ -101,8 +109,9 @@ Makefile                    i comandi
 tools/check.py              make check
 tools/new_note.py           make note, make postmortem
 tools/serve.py              make serve
+tools/pdf.py                make pdf
 tools/lib/                  logica riusata dai comandi e dai test (solo libreria standard)
-engine/schema/              schema di progress.json
+engine/schema/              schema di progress.json e site.json
 engine/check-ignore.txt     file che possono mancare senza errore
 tests/                      pytest; tests/fixtures/ contiene progress.json in vari stati
 .github/workflows/ci.yml    i quattro job descritti sopra

@@ -27,6 +27,13 @@ from lib import labnotes, pages, progress  # noqa: E402
 from lib.schema import validate  # noqa: E402
 
 
+def _rel(path: Path) -> str:
+    try:
+        return path.relative_to(progress.ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def check_progress() -> tuple[list[str], list[str]]:
     errors: list[str] = []
     warnings: list[str] = []
@@ -41,6 +48,26 @@ def check_progress() -> tuple[list[str], list[str]]:
         return errors, warnings
     errors.extend(f"{rel}: {e}" for e in progress.consistency_errors(data))
     warnings.extend(f"{rel}: regola di sblocco: {w}" for w in progress.unlock_warnings(data))
+    return errors, warnings
+
+
+def check_site_json() -> tuple[list[str], list[str]]:
+    """site.json: JSON valido e chiavi conosciute. Ogni chiave è opzionale."""
+    if not progress.SITE_JSON.exists():
+        return [], ["site/data/site.json manca: il sito usa i testi scritti nell'HTML"]
+    try:
+        data = progress.load(progress.SITE_JSON)
+    except progress.ProgressSyntaxError as e:
+        return [str(e)], []
+    rel = _rel(progress.SITE_JSON)
+    errors = [f"{rel}: {err}" for err in validate(data, progress.load_schema(progress.SITE_SCHEMA))]
+    warnings = []
+    for item in data.get("nav", []) if not errors else []:
+        target = progress.SITE / item["path"]
+        if item["path"].endswith("/") or item["path"] == "":
+            target = target / "index.html"
+        if not target.exists():
+            errors.append(f"{rel}: la voce di menu \"{item['label']}\" punta a {item['path']}, che non esiste in site/")
     return errors, warnings
 
 
@@ -73,6 +100,7 @@ def main(argv: list[str] | None = None) -> int:
 
     sections: list[tuple[str, list[str], list[str]]] = []
     sections.append(("progress.json", *check_progress()))
+    sections.append(("site.json", *check_site_json()))
     sections.append(("pagine HTML: link, immagini, alt, peso", *pages.check_pages()))
     if not args.no_secrets:
         sections.append(("secret", *check_secrets()))

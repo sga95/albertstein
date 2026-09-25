@@ -1,3 +1,9 @@
+// Reads data/site.json and applies it to the page:
+//   :root CSS variables      from "colors" and "fonts"
+//   [data-site="key"]        common texts (name, kicker, tagline, email, footer.left, ...)
+//   header nav               rebuilt from "nav"
+//   [data-site-show="key"]   hidden when show.key is false
+//   [data-order]             CV sections sorted by number, then renumbered
 // Reads data/progress.json and fills in:
 //   [data-progress]        campaign cells (missions + bosses)
 //   [data-progress-label]  "3 of 20 missions, 1 of 6 bosses"
@@ -30,18 +36,100 @@ function unlockStatus(data) {
   return out;
 }
 
+// Everything in site.json is optional: a missing key leaves the HTML as it is.
+function applySite(site, base) {
+  const root = document.documentElement;
+  const get = key => key.split(".").reduce((o, k) => (o == null ? undefined : o[k]), site);
+
+  Object.entries(site.colors || {}).forEach(([k, v]) => root.style.setProperty("--" + k, v));
+  if (site.colors && site.colors.navy) {
+    document.querySelectorAll('meta[name="theme-color"]').forEach(m => m.setAttribute("content", site.colors.navy));
+  }
+  const fonts = site.fonts || {};
+  ["heading", "body", "mono"].forEach(k => { if (fonts[k]) root.style.setProperty("--font-" + k, fonts[k]); });
+  if (fonts.stylesheet && !document.querySelector(`link[href="${fonts.stylesheet}"]`)) {
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = fonts.stylesheet;
+    document.head.appendChild(link);
+  }
+
+  document.querySelectorAll("[data-site]").forEach(el => {
+    const key = el.dataset.site;
+    const value = get(key);
+    if (typeof value !== "string") return;
+    if (key === "domain") {
+      const i = value.indexOf(".");
+      el.textContent = "";
+      el.append(i < 0 ? value : value.slice(0, i));
+      if (i >= 0) {
+        const dot = document.createElement("span");
+        dot.className = "dot";
+        dot.textContent = ".";
+        el.append(dot, value.slice(i + 1));
+      }
+      return;
+    }
+    if (key === "email" && el.tagName === "A") el.href = "mailto:" + value;
+    el.textContent = value;
+  });
+
+  if (Array.isArray(site.nav) && site.nav.length) {
+    const here = location.pathname.replace(/index\.html$/, "");
+    document.querySelectorAll("header.top nav").forEach(nav => {
+      nav.textContent = "";
+      [...site.nav].sort((a, b) => (a.order || 0) - (b.order || 0)).forEach(item => {
+        const a = document.createElement("a");
+        a.href = base + item.path;
+        a.textContent = item.label;
+        const target = new URL(a.href, location.href).pathname.replace(/index\.html$/, "");
+        if (target === here) a.setAttribute("aria-current", "page");
+        nav.appendChild(a);
+      });
+    });
+  }
+
+  const show = site.show || {};
+  document.querySelectorAll("[data-site-show]").forEach(el => {
+    el.hidden = show[el.dataset.siteShow] === false;
+  });
+
+  // CV sections: sort siblings that carry data-order, keep them where the first one was, renumber "01", "02"...
+  const parents = new Set([...document.querySelectorAll("[data-order]")].map(el => el.parentElement));
+  parents.forEach(parent => {
+    const items = [...parent.children].filter(c => c.hasAttribute("data-order"));
+    const sorted = [...items].sort((a, b) => Number(a.dataset.order) - Number(b.dataset.order));
+    const marker = document.createComment("order");
+    parent.insertBefore(marker, items[0]);
+    sorted.forEach(c => parent.insertBefore(c, marker));
+    marker.remove();
+    sorted.forEach((c, i) => {
+      const num = c.querySelector("h2 .num");
+      if (num && /^\d+$/.test(num.textContent.trim())) num.textContent = String(i + 1).padStart(2, "0");
+    });
+  });
+}
+
 if (typeof module !== "undefined" && module.exports) { module.exports = { unlockStatus }; }
 
 if (typeof document !== "undefined") (async function () {
   const base = document.body.dataset.root || "./";
-  let data;
-  try {
-    const res = await fetch(base + "data/progress.json", { cache: "no-store" });
-    data = await res.json();
-  } catch (e) {
-    console.error("Could not load progress.json", e);
+  const fetchJson = async name => {
+    const res = await fetch(base + "data/" + name, { cache: "no-store" });
+    if (!res.ok) throw new Error(res.status + " " + res.statusText);
+    return res.json();
+  };
+  const [siteRes, progressRes] = await Promise.allSettled([fetchJson("site.json"), fetchJson("progress.json")]);
+  if (siteRes.status === "fulfilled") {
+    try { applySite(siteRes.value, base); } catch (e) { console.error("Could not apply site.json", e); }
+  } else {
+    console.warn("Could not load site.json, keeping the texts in the HTML", siteRes.reason);
+  }
+  if (progressRes.status !== "fulfilled") {
+    console.error("Could not load progress.json", progressRes.reason);
     return;
   }
+  const data = progressRes.value;
 
   const missions = data.missions || [];
   const tiers = data.tiers || [];

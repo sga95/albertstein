@@ -13,6 +13,8 @@ ROOT = Path(__file__).resolve().parents[2]
 SITE = ROOT / "site"
 PROGRESS = SITE / "data" / "progress.json"
 SCHEMA = ROOT / "engine" / "schema" / "progress.schema.json"
+SITE_JSON = SITE / "data" / "site.json"
+SITE_SCHEMA = ROOT / "engine" / "schema" / "site.schema.json"
 
 
 class ProgressSyntaxError(ValueError):

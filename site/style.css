@@ -1,6 +1,7 @@
 /* albertstein.link
    Navy and orange from the paper CV. Dot grid like a lab notebook.
-   The accent is reserved for progress and section numbers. */
+   The accent is reserved for progress and section numbers.
+   Every token in :root can be overridden from data/site.json (see THEME.md). */
 
 :root {
   --navy: #0b2b4c;
@@ -13,13 +14,17 @@
   --accent: #f2a33a;
   --sky: #b9c9da;
   --measure: 64ch;
+  --font-heading: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 html { font-size: 17px; scroll-behavior: smooth; }
 body {
   margin: 0;
-  font-family: "IBM Plex Sans", system-ui, sans-serif;
+  font-family: var(--font-body);
   color: var(--ink);
   background: var(--paper);
   line-height: 1.55;
@@ -27,7 +32,7 @@ body {
 a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 a:hover { text-decoration-thickness: 2px; }
 a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-code, .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.9em; }
+code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
 .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.4rem; }
 
 /* ---------- band: header + hero share the navy ---------- */
@@ -37,34 +42,34 @@ header.top .wrap {
   display: flex; align-items: center; justify-content: space-between; gap: 1rem;
   padding-top: 1.2rem; padding-bottom: 1.2rem;
 }
-.brand { font-family: "Space Grotesk", "IBM Plex Sans", sans-serif; font-weight: 700; font-size: 1.05rem; letter-spacing: 0.01em; text-decoration: none; }
+.brand { font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem; letter-spacing: 0.01em; text-decoration: none; }
 .brand .dot { color: var(--accent); }
 header.top nav { display: flex; gap: 1.3rem; }
 header.top nav a {
-  font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
+  font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--sky); text-decoration: none; padding-bottom: 3px; border-bottom: 2px solid transparent;
 }
 header.top nav a:hover { color: #fff; }
 header.top nav a[aria-current="page"] { color: #fff; border-bottom-color: var(--accent); }
 
 .hero .wrap { padding-top: 2.2rem; padding-bottom: 2.8rem; }
-.kicker { font-family: "IBM Plex Mono", monospace; font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.9rem; }
+.kicker { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin: 0 0 0.9rem; }
 .hero h1 {
-  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif; font-weight: 700;
+  font-family: var(--font-heading); font-weight: 700;
   font-size: clamp(1.9rem, 4.6vw, 2.9rem); line-height: 1.08; letter-spacing: -0.01em;
   margin: 0 0 0.9rem; max-width: 24ch;
 }
 .hero .lede { font-size: 1.1rem; color: var(--sky); margin: 0; max-width: var(--measure); }
 
 /* progress lives in the band */
-.level { margin: 1.9rem 0 0.5rem; font-family: "IBM Plex Mono", monospace; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.74rem; color: var(--accent); }
+.level { margin: 1.9rem 0 0.5rem; font-family: var(--font-mono); letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.74rem; color: var(--accent); }
 .progress { margin: 0 0 0.5rem; display: flex; gap: 14px 18px; align-items: center; flex-wrap: wrap; }
 .tier-cells { display: inline-flex; gap: 5px; align-items: center; }
 .progress .cell { width: 1.7rem; height: 0.8rem; border: 1.5px solid rgba(255,255,255,0.55); border-radius: 2px; background: transparent; }
 .progress .cell.boss { width: 0.95rem; height: 0.95rem; transform: rotate(45deg); margin: 0 0.35rem; }
 .progress .cell.done { background: var(--accent); border-color: var(--accent); }
 .progress-label { color: var(--sky); margin: 0; font-size: 0.95rem; }
-.hero .cta { display: inline-block; margin-top: 1rem; font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.hero .cta { display: inline-block; margin-top: 1rem; font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .hero .cta::after { content: " \2192"; }
 
 /* ---------- main: paper with a dot grid ---------- */
@@ -75,10 +80,10 @@ main {
 }
 main p, main li, main dd { max-width: var(--measure); }
 h2 {
-  font-family: "Space Grotesk", "IBM Plex Sans", sans-serif; font-weight: 700; font-size: 1.25rem;
+  font-family: var(--font-heading); font-weight: 700; font-size: 1.25rem;
   margin: 2.4rem 0 0.7rem; display: flex; align-items: baseline; gap: 0.7rem;
 }
-h2 .num { font-family: "IBM Plex Mono", monospace; font-weight: 400; font-size: 0.78rem; color: var(--accent); letter-spacing: 0.1em; }
+h2 .num { font-family: var(--font-mono); font-weight: 400; font-size: 0.78rem; color: var(--accent); letter-spacing: 0.1em; }
 h2:first-child, .wrap > h2:first-child { margin-top: 0; }
 h3 { font-size: 1rem; font-weight: 600; margin: 1.3rem 0 0.3rem; }
 .card {
@@ -104,10 +109,10 @@ ol.missions li {
   display: grid; grid-template-columns: 2.6rem 1fr auto; gap: 0.3rem 0.8rem; align-items: center;
   padding: 0.8rem 0; border-top: 1px solid var(--line); max-width: none;
 }
-ol.missions .n { font-family: "IBM Plex Mono", monospace; color: var(--ink-soft); font-size: 0.85rem; }
+ol.missions .n { font-family: var(--font-mono); color: var(--ink-soft); font-size: 0.85rem; }
 ol.missions .skill { grid-column: 2; color: var(--ink-soft); font-size: 0.9rem; }
 ol.missions .status {
-  font-family: "IBM Plex Mono", monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+  font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
   padding: 0.2rem 0.6rem; border-radius: 999px; border: 1px solid var(--line); color: var(--ink-soft); white-space: nowrap;
 }
 ol.missions li.done .status { background: var(--accent); border-color: var(--accent); color: var(--navy); font-weight: 600; }
@@ -115,21 +120,22 @@ ol.missions li.open .status { border-color: var(--navy); color: var(--navy); }
 ol.missions li.locked { opacity: 0.55; }
 ol.missions li.locked .status { border-style: dashed; }
 ol.missions li.boss .n { color: var(--accent); }
-ol.missions li.boss > span:nth-child(2) { font-weight: 600; font-family: "Space Grotesk", sans-serif; }
+ol.missions li.boss > span:nth-child(2) { font-weight: 600; font-family: var(--font-heading); }
 
 /* ---------- cv ---------- */
 .cv-hero .wrap { display: grid; grid-template-columns: 8rem 1fr; gap: 1.6rem; align-items: center; }
 .cv-hero img { width: 8rem; height: 9.2rem; object-fit: cover; border-radius: 16px; border: 3px solid var(--accent); display: block; }
+.cv-hero .wrap:has(> img[hidden]) { grid-template-columns: 1fr; }
 .cv-hero h1 { font-size: clamp(1.7rem, 4vw, 2.4rem); margin-bottom: 0.4rem; }
 .cv-hero .contact { color: var(--sky); margin: 0.15rem 0; font-size: 0.98rem; }
 .cv-hero .contact a { text-decoration-color: var(--accent); }
 dl.skills { display: grid; grid-template-columns: 11rem 1fr; gap: 0.45rem 1rem; margin: 0; }
-dl.skills dt { font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); padding-top: 0.15rem; }
+dl.skills dt { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--navy); padding-top: 0.15rem; }
 dl.skills dd { margin: 0; }
 .edu p { margin: 0; }
 .edu .item + .item { margin-top: 0.9rem; }
 .edu .where { font-weight: 600; }
-.edu .when { color: var(--ink-soft); font-family: "IBM Plex Mono", monospace; font-size: 0.85rem; }
+.edu .when { color: var(--ink-soft); font-family: var(--font-mono); font-size: 0.85rem; }
 .earned { padding-left: 0; list-style: none; }
 .earned li { padding: 0.5rem 0 0.5rem 1rem; border-left: 3px solid var(--accent); margin: 0.35rem 0; }
 .earned li.track-voice { border-left-color: var(--sky); }
@@ -137,19 +143,19 @@ dl.skills dd { margin: 0; }
 .earned li.badge { border-left-color: var(--navy); }
 .earned li.badge::before { content: "\2726 "; color: var(--accent); }
 .earned .empty { border-left-color: var(--line); color: var(--ink-soft); }
-.print-link { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; }
+.print-link { font-family: var(--font-mono); font-size: 0.8rem; }
 
 /* ---------- lab ---------- */
 .notes { padding-left: 0; list-style: none; }
 .notes li { display: flex; gap: 1rem; align-items: baseline; padding: 0.75rem 0; border-top: 1px solid var(--line); max-width: none; }
 .notes li:last-child { border-bottom: 1px solid var(--line); }
 .notes .date { color: var(--ink-soft); font-size: 0.85rem; flex: 0 0 auto; }
-.note-meta { font-family: "IBM Plex Mono", monospace; font-size: 0.8rem; color: var(--sky); margin: 0 0 0.6rem; }
+.note-meta { font-family: var(--font-mono); font-size: 0.8rem; color: var(--sky); margin: 0 0 0.6rem; }
 pre { background: var(--navy-deep); color: #e6edf3; padding: 1rem 1.2rem; border-radius: 10px; overflow-x: auto; font-size: 0.85rem; line-height: 1.5; }
 main img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--line); }
 
 /* ---------- footer ---------- */
-footer.bottom { background: var(--navy-deep); color: var(--sky); font-family: "IBM Plex Mono", monospace; font-size: 0.78rem; letter-spacing: 0.03em; }
+footer.bottom { background: var(--navy-deep); color: var(--sky); font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.03em; }
 footer.bottom .wrap { padding-top: 1.3rem; padding-bottom: 1.6rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1.6rem; }
 footer.bottom a { color: #fff; text-decoration-color: var(--accent); }
 
@@ -168,6 +174,12 @@ footer.bottom a { color: #fff; text-decoration-color: var(--accent); }
 }
 @media (prefers-reduced-motion: no-preference) { .progress .cell { transition: background-color 300ms ease; } }
 @media print {
-  .band, footer.bottom, .print-link { display: none; }
+  /* the CV keeps its header (name, contact, photo) in black on white; menus and footer go */
+  header.top, footer.bottom, .print-link, .level, .progress, .progress-label, .cta { display: none; }
+  .band { background: none; color: var(--ink); }
+  .band a { color: inherit; }
+  .hero .wrap { padding-top: 0; padding-bottom: 1.2rem; }
+  .hero .lede, .cv-hero .contact { color: var(--ink-soft); }
   main { padding: 0; background: none; }
+  .card, .tier { break-inside: avoid; }
 }
