@@ -1,0 +1,10 @@
+{
+  "repo": "https://github.com/sga95/albertstein",
+  "tiers": [],
+  "missions": [
+    { "n": 1, "title": "First commit", "done": true, "skill": "Git" }
+    { "n": 2, "title": "DNS and TLS", "done": false, "skill": "DNS" }
+  ],
+  "tracks": [],
+  "incidents": []
+}
