@@ -19,6 +19,16 @@
     return;
   }
 
+  // Every string from progress.json goes into innerHTML below: escape them all once, here,
+  // and keep only http(s) or relative links, so the data can never become markup or a script.
+  const raw = data;
+  const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+  const deep = v => typeof v === "string" ? esc(v) : Array.isArray(v) ? v.map(deep) : v && typeof v === "object" ? Object.fromEntries(Object.entries(v).map(([k, x]) => [k, deep(x)])) : v;
+  const safeUrl = u => /^(https?:\/\/|\/|\.{0,2}\/|#)/i.test(String(u || "").trim()) ? u : "#";
+  data = deep(raw);
+  if (Array.isArray(data.incidents)) data.incidents = data.incidents.map(i => ({ ...i, url: safeUrl(i.url) }));
+  if (data.repo) data.repo = safeUrl(data.repo);
+
   const missions = data.missions || [];
   const tiers = data.tiers || [];
   const tracks = data.tracks || [];
@@ -32,7 +42,8 @@
   const unlocked = m => m.n === 1 || (byN[m.n - 1] && byN[m.n - 1].done);
   const tierComplete = t => t.missions.every(n => byN[n] && byN[n].done);
 
-  const levelNames = ["Recruit", ...tiers.map(t => t.name)];
+  // written with textContent below: the raw names, not the escaped ones
+  const levelNames = ["Recruit", ...(raw.tiers || []).map(t => t.name)];
   const level = bossesDone.length;
 
   document.querySelectorAll("[data-level]").forEach(el => {
